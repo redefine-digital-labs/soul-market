@@ -1,0 +1,1121 @@
+{
+  "tempDir": "/var/folders/p7/xnbbfd1d3l12fp_fmj7bz85w0000gn/T/market-bytecode-difference-p2rpdbz5",
+  "sources": {
+    "oldCount": 174,
+    "newCount": 174,
+    "oldOnly": [],
+    "newOnly": [],
+    "different": [],
+    "equalCount": 174
+  },
+  "bytecode_modules": {
+    "oldCount": 174,
+    "newCount": 174,
+    "oldOnly": [],
+    "newOnly": [],
+    "different": [
+      {
+        "path": "dependencies/SoulidityApplication/character.mv",
+        "oldBytes": 42794,
+        "newBytes": 42794,
+        "oldSHA": "c59f8442419086bead779771dd805fae31b1702e7a01c1638f5e730e05ac0e65",
+        "newSHA": "6b757dff034dc34d8d589821918f89abc3f3c125292ceb7f03bd43186a148cf2"
+      },
+      {
+        "path": "dependencies/SoulidityApplication/forms.mv",
+        "oldBytes": 7459,
+        "newBytes": 7459,
+        "oldSHA": "6ca0cde3d1b257460192df0f0a90d71d704a7030c89efac0138f06cde011fbbe",
+        "newSHA": "f4bbce3452147282d0dde7ec2dcd49a733dec1dcc930077948b9b7408f014fa4"
+      },
+      {
+        "path": "dependencies/SoulidityApplication/growth.mv",
+        "oldBytes": 5702,
+        "newBytes": 5702,
+        "oldSHA": "d60ace2aa3afc277caba8415e4328e8fadc42f84c6a32a6ff7924cc419c48268",
+        "newSHA": "3afcdf2fce40cf79d79c990953e0692578fda8aadc2afa067e4827c1fbe66b99"
+      },
+      {
+        "path": "dependencies/SoulidityApplication/issuance.mv",
+        "oldBytes": 2292,
+        "newBytes": 2292,
+        "oldSHA": "7e66d77d78b8fcd1a2bd05e0b2a139fe617411af768c8d5cb25077e9bf71434d",
+        "newSHA": "5cb05ddd273438c6dcf08241c289e610b824a462ce8385e48935cab5f10d617e"
+      },
+      {
+        "path": "dependencies/SoulidityApplication/output.mv",
+        "oldBytes": 8862,
+        "newBytes": 8862,
+        "oldSHA": "1a334eedaf9ce7156fa0587645ed2e4e6e968022f8d3cea853a14a95b2da5258",
+        "newSHA": "a61186ec22435493942432b733d2f3b087669722962ebc93ae9655731f3d67cd"
+      },
+      {
+        "path": "dependencies/SoulidityApplication/physical_metadata.mv",
+        "oldBytes": 4777,
+        "newBytes": 4777,
+        "oldSHA": "2c09531eb45b556923419aed72a27821db9f806e734c80165ac7e398740d8894",
+        "newSHA": "cf8cc57948aec1081b9650b6ee69ca04d115d239baa83aac874ee79c48790370"
+      },
+      {
+        "path": "dependencies/SoulidityApplication/publication_rules.mv",
+        "oldBytes": 6293,
+        "newBytes": 6293,
+        "oldSHA": "023e354f2a901b266bcdec1d710e8b276ed3aa11903702af9a82deca1e97eb9d",
+        "newSHA": "d6e9cd6debbcc4b3d92a8fc9adbb9e49588c58bbf69d20a6accc869be307dc54"
+      },
+      {
+        "path": "dependencies/SoulidityApplication/resale.mv",
+        "oldBytes": 3315,
+        "newBytes": 3315,
+        "oldSHA": "9489f5fc4c264a187bb99b0db518a1adcbfb25f79e2ef8f5d8b30cb10363f912",
+        "newSHA": "74b5c5fa6f25c792e6b8469312c809d6cc74eae14503db3bd74dde98e4e9112f"
+      },
+      {
+        "path": "dependencies/SoulidityApplication/vault.mv",
+        "oldBytes": 6866,
+        "newBytes": 6866,
+        "oldSHA": "32599edb2541728ba19038520aa59ff8d172761873ef9d0143c2d5387bf1f767",
+        "newSHA": "c927825561fd2058888820b3cdf19e5386717dd13864a20ab561c3ce4010ceb7"
+      },
+      {
+        "path": "dependencies/SoulidityApplication/visual_capture.mv",
+        "oldBytes": 5129,
+        "newBytes": 5129,
+        "oldSHA": "d4173cb2bfd2c8bf3f15f6459e3c02141c4b3e90d6b97a86dd39d27099afeff3",
+        "newSHA": "691b07ed8e68bb5e6852ee7800eac56a7e2d54f55b4dfeec955156a1dae1d5f1"
+      },
+      {
+        "path": "dependencies/SoulidityCommunity/community_posts.mv",
+        "oldBytes": 3365,
+        "newBytes": 3365,
+        "oldSHA": "77179071a2b27fc8bf3f2259818ac24e8219156656dd1d042103364875b36d8a",
+        "newSHA": "7900d2edbf1e0eb3c30a421e644d2270baae699989cf8a35ad23c2be678529b3"
+      },
+      {
+        "path": "dependencies/SoulidityCommunity/community_votes.mv",
+        "oldBytes": 2145,
+        "newBytes": 2145,
+        "oldSHA": "52fdf16b414362e20419210f6e0dba37b704cb5c415f53e972a1437ceba80eee",
+        "newSHA": "9bb18e3af591a671cf0db322fe109d11adab402027f222d8b529bb3f70f5c92a"
+      },
+      {
+        "path": "dependencies/SoulidityCommunity/profile.mv",
+        "oldBytes": 5407,
+        "newBytes": 5407,
+        "oldSHA": "bc0f3fc26fff195235cd0c00c9bd9e8eba242936ba92895327be49d8ffe98792",
+        "newSHA": "6cc5a6ecf9e752248b08ca4193ddf3eec1de5cb2e0ec94ad3cad44bfc0980015"
+      },
+      {
+        "path": "dependencies/SoulidityCommunity/social.mv",
+        "oldBytes": 1955,
+        "newBytes": 1955,
+        "oldSHA": "30357dc520d220baebf53fde3dac6023cab69a05805e9549a8e56a60c39a9ba9",
+        "newSHA": "7880581422e9e03c1064569d715d42630aa03843e7888a873974d392e651fe71"
+      },
+      {
+        "path": "dependencies/SoulidityContent/authority.mv",
+        "oldBytes": 788,
+        "newBytes": 788,
+        "oldSHA": "ac947679ad5b2226c0e0af10d80795d3eb8ed4a4d3674ef9801a707397113723",
+        "newSHA": "07d65323a5e8ed18421c01cea3e169cb9c67e7a6143b70ff952846bb4f6cbbe0"
+      },
+      {
+        "path": "dependencies/SoulidityContent/authorization.mv",
+        "oldBytes": 4950,
+        "newBytes": 4950,
+        "oldSHA": "3af3e8379ff14530971a060c7652bb25690151096f71e9b24aa1903932c90f97",
+        "newSHA": "13d75eb5980d99ba59d957c3ee75640198ed773f9879f782e1a9d5d3d0939fa1"
+      },
+      {
+        "path": "dependencies/SoulidityContent/blob_custody.mv",
+        "oldBytes": 1662,
+        "newBytes": 1662,
+        "oldSHA": "1d5956eb6dd30c93e3b5e48d037b2dacbc7b7d2609ad8e1884fb1379a61a943c",
+        "newSHA": "787b155eecea5c21b04f596a38c36b741c0188482429430ed7bfe675a22e95fc"
+      },
+      {
+        "path": "dependencies/SoulidityContent/document.mv",
+        "oldBytes": 3002,
+        "newBytes": 3002,
+        "oldSHA": "4f3b490f3d0711978600a28c6781ee04a3a6dfaf7fd7f354c7cf790bbf914c3c",
+        "newSHA": "187b21d0b0c5a77d7174dca400ee38fd3bf9cb315b2a15b402d39a504eae2cc6"
+      },
+      {
+        "path": "dependencies/SoulidityContent/founding_library.mv",
+        "oldBytes": 3404,
+        "newBytes": 3404,
+        "oldSHA": "7a5fa3c53965fde8eea5f7fcb75d7a80b333831c851ee76e00b60017cda7ceb1",
+        "newSHA": "bb5e0a64b1e7dd24c404b43c186e3975f8a1faeb6861415f63a6ae4cdd6fc230"
+      },
+      {
+        "path": "dependencies/SoulidityContent/kind_registry.mv",
+        "oldBytes": 3962,
+        "newBytes": 3962,
+        "oldSHA": "8adad93948348371ed6b743100ad34ff6a14019781552613e735f280a7c3e6af",
+        "newSHA": "3a91ddb32fce0a42892765fc293fc8b5ba3a8c092d5a2e6be1b78ac65e069abd"
+      },
+      {
+        "path": "dependencies/SoulidityContent/loadout.mv",
+        "oldBytes": 3771,
+        "newBytes": 3771,
+        "oldSHA": "04655c4fd18882597299814e9bf4c7e74ecb33800f5814c967c9972f4e14bd89",
+        "newSHA": "86146ce1bb00ebd97bfb8b9805e2d8637a952c19c9101c50f25e09f8131ecd4b"
+      },
+      {
+        "path": "dependencies/SoulidityContent/paged_store.mv",
+        "oldBytes": 1719,
+        "newBytes": 1719,
+        "oldSHA": "6113172ef777b68dfff3b95c2a9d72bb11e49cc377d7411991e2fed4d5585eb4",
+        "newSHA": "59a1aff24644de38479324a9abf33b2e866d11095e4779c58d67a0b5d75832d8"
+      },
+      {
+        "path": "dependencies/SoulidityContent/paid_access.mv",
+        "oldBytes": 5674,
+        "newBytes": 5674,
+        "oldSHA": "2d05ad0734919e21018a69fed1e83f72988e51e456b22330b00497ecdcbf8154",
+        "newSHA": "cb6387fc176a4ca438721a44d213f0ffffa87402c0cb29a1e867471def8bd32f"
+      },
+      {
+        "path": "dependencies/SoulidityContent/permissions.mv",
+        "oldBytes": 215,
+        "newBytes": 215,
+        "oldSHA": "70fe1dd558e61bea8c2cdc3fd2f94ce6bd2344642b4851e0ae697c2e2d9e1c5f",
+        "newSHA": "5295622a765a9460220599deab7f2c4830c4ca200024571b9e10b62f8403917d"
+      },
+      {
+        "path": "dependencies/SoulidityContent/state_configuration.mv",
+        "oldBytes": 1924,
+        "newBytes": 1924,
+        "oldSHA": "8eba61eba08ebe49999ae73e3812030ba6dfd55393e391b8ce165ef96db90169",
+        "newSHA": "b5b2de9971dba34ccbd3e7551881dec6062f746c300496800f440792e0fcc2da"
+      },
+      {
+        "path": "dependencies/SoulidityContent/storage.mv",
+        "oldBytes": 2095,
+        "newBytes": 2095,
+        "oldSHA": "9ee8d4ae492e108836e7091d888fa8ebe3d6b72bce33568e2b01fb92b410aaa7",
+        "newSHA": "4d1a30d4c3cc18d37d3e864c703418e059155616b117309fd51d867f1ba6b1b9"
+      },
+      {
+        "path": "dependencies/SoulidityFoundation/economics.mv",
+        "oldBytes": 14191,
+        "newBytes": 14191,
+        "oldSHA": "604bb7e88c4f998f2a5e4767e75d88384c2d1a722a62e1826b07861a3627246a",
+        "newSHA": "2d6895d733b244c492aae1245c5b1954dd0b0986c1dcbad01466a72fb10fed98"
+      },
+      {
+        "path": "dependencies/SoulidityFoundation/package_roles.mv",
+        "oldBytes": 2819,
+        "newBytes": 2819,
+        "oldSHA": "022c9bdb75aff2c229d382f2c5f9b290ca937cbd7e93494a7621ed1926ee5373",
+        "newSHA": "ef6f16eef74640d61b0f33518022cb61b0998add0d921e4e13d125dc3c834f84"
+      },
+      {
+        "path": "dependencies/SoulidityFoundation/revenue.mv",
+        "oldBytes": 2187,
+        "newBytes": 2187,
+        "oldSHA": "b16cc9d3e356ba99af3e9f48c2b5268d4279e400c8797cfb6429c318ba08a8a8",
+        "newSHA": "f11ca58ac91bf802abd8f655d63b4282fd5d4ae85b4d9f6ba5f2f85bb8db8975"
+      },
+      {
+        "path": "dependencies/SoulidityFoundation/source_authority.mv",
+        "oldBytes": 1696,
+        "newBytes": 1696,
+        "oldSHA": "d50e956cbac7164132f0b4a7c05efdc5b3b26a3fb6462062d626a4b6b80f76ec",
+        "newSHA": "377b47d98bc43d1ebce2fd1471c789da1711f696a8798bf07ebdbb0c1f8d16db"
+      },
+      {
+        "path": "dependencies/SoulidityModel/assembly.mv",
+        "oldBytes": 11953,
+        "newBytes": 11953,
+        "oldSHA": "d0163eeee68806ee4e8569782fed09a842c094709e821a40fb6a74a5907e8eef",
+        "newSHA": "839b3d45062b0df7da0d8afc6b7ae4c9ae4af9ed38159d77fbaa8d0a6d7f6d9f"
+      },
+      {
+        "path": "dependencies/SoulidityModel/components.mv",
+        "oldBytes": 1337,
+        "newBytes": 1337,
+        "oldSHA": "09121c3891bdcd6505a713cde71fdb3f19d7822efc828d670adeda6a61834e2a",
+        "newSHA": "cd7f6260ebc938dcc58824fda4f56da8b2bd3bb7f1bfd3b55f18653c37cf8abf"
+      },
+      {
+        "path": "dependencies/SoulidityModel/material_policy.mv",
+        "oldBytes": 952,
+        "newBytes": 952,
+        "oldSHA": "46e11a31ec96ff5a73953fe0550092d587f9c3539760b702e3f83c5188090b7e",
+        "newSHA": "7e6b885a1c65c7b578dc76699f610c74c808639b802b2a623ddabc1e2a54fad0"
+      },
+      {
+        "path": "dependencies/SoulidityModel/policy.mv",
+        "oldBytes": 4914,
+        "newBytes": 4914,
+        "oldSHA": "5a1d016c50ca3de8c49a8c861d3d84be6bf0000cbfa489faa53a5870dfb4661c",
+        "newSHA": "2e090350354198b81bbf1f79613f7bffccefa1e8adca3c6d5e7cd06a95e31aa8"
+      },
+      {
+        "path": "dependencies/SoulidityNative/birth.mv",
+        "oldBytes": 4280,
+        "newBytes": 4280,
+        "oldSHA": "57e9f5a0c57393b5ee23433cb1cc51435d0bdf9fe8b1d065606b5807c8a9effe",
+        "newSHA": "c67337a04776bccd2204a654cf18b772a55519b527de2fac498cdb71527fc540"
+      },
+      {
+        "path": "dependencies/SoulidityNative/registry.mv",
+        "oldBytes": 4745,
+        "newBytes": 4745,
+        "oldSHA": "d0c963e2816a83143d099ca813eccf07dc9e01e8faf7f88115e12f4c0756e424",
+        "newSHA": "9bbeec3a313bcba6de2f5cfae97043ddbd43bb6d74baaee8dd0dd9728b17e1e6"
+      },
+      {
+        "path": "dependencies/SoulidityStandard/soul.mv",
+        "oldBytes": 4333,
+        "newBytes": 4333,
+        "oldSHA": "7f5cf6f3f19c700a984955b148cbc3e82394c5c7a3123a03d2d2d72a7255af2a",
+        "newSHA": "70cd2a9e0f2420c656f1f19d685ddada867cfb8e860ad1991169ff021102bbcb"
+      },
+      {
+        "path": "dependencies/SoulidityVisual/visual.mv",
+        "oldBytes": 17743,
+        "newBytes": 17743,
+        "oldSHA": "562973b1498af19ec7dc291b8efd7807577544236ad2097c09f15e80418a1f66",
+        "newSHA": "5652e988c619dc91171a057fc140aedff6b938d846ab5f15239d693bc602c7da"
+      },
+      {
+        "path": "dependencies/soulidity_v1/access.mv",
+        "oldBytes": 5614,
+        "newBytes": 5614,
+        "oldSHA": "1a5d96e202704565279964e5bc5130efe0cbaacba798d9723e58090e3a8b83f1",
+        "newSHA": "130d535bdbe12fde6a786e84f6c0ca5770a247da88bc7e9e9c53c044996935d0"
+      },
+      {
+        "path": "dependencies/soulidity_v1/application_operator.mv",
+        "oldBytes": 224,
+        "newBytes": 224,
+        "oldSHA": "a1dd6fe52865277367e855ffa77522d9a47de373d66586f033dfc17541ac1bf4",
+        "newSHA": "f056ec07f94cb7fe1c2fdf737cf8253a3612cff0913db2dda9bc5e8974baae65"
+      },
+      {
+        "path": "dependencies/soulidity_v1/catalog.mv",
+        "oldBytes": 15921,
+        "newBytes": 15921,
+        "oldSHA": "d6aafa0a6f2a343747bd1e1f17bc089635481f9693b0e7440e697372bf839ce3",
+        "newSHA": "e7fa620b9eea32f803678e9130a491374c15bd43388d92bf808e0a30c9681a05"
+      },
+      {
+        "path": "dependencies/soulidity_v1/collection.mv",
+        "oldBytes": 7645,
+        "newBytes": 7645,
+        "oldSHA": "03ccb54df58d19a2111c1d41e4532404b00c1f7763fcb82f8b42cd5f70d50024",
+        "newSHA": "e8c2bfb8f341e69187b1efaf331ed7cb13cb55e86fdd6be27f345700c92090b8"
+      },
+      {
+        "path": "dependencies/soulidity_v1/custody.mv",
+        "oldBytes": 1529,
+        "newBytes": 1529,
+        "oldSHA": "2d0de9c9b9249cdc6d99422706c0e0be8f946ecf6669354053f61178a301c28c",
+        "newSHA": "1875ac6c1a6dcb9c9ef1f6b9a43b8c102674daa92dc5fc588b3f2dee46d9d6ce"
+      },
+      {
+        "path": "dependencies/soulidity_v1/issuer.mv",
+        "oldBytes": 8952,
+        "newBytes": 8952,
+        "oldSHA": "d3363bb417e80e1486c7226e82984f1a2cef16dd1c2cda039b01bdcabb372092",
+        "newSHA": "cf8c5a645df572bb4ecc600bf5c6d574b5eee8b6bbd5e161f800025906ae45e5"
+      },
+      {
+        "path": "dependencies/soulidity_v1/metadata.mv",
+        "oldBytes": 3627,
+        "newBytes": 3627,
+        "oldSHA": "174ce174667a6425aba5cc58f5acd550b2430573bacbc502649bb5013d2aab23",
+        "newSHA": "9ca3fcae90bee9d1a3460a93af354e4efe2336bdb415c32235c46a2cc1e1990b"
+      },
+      {
+        "path": "dependencies/soulidity_v1/native_binding.mv",
+        "oldBytes": 3491,
+        "newBytes": 3491,
+        "oldSHA": "a4a3b0bdfbd120b232f6db25a76a4ad62fcc2bd80fff64393b7de4083eabdca1",
+        "newSHA": "a88ba0ff4dfe00767ddf4503118411d4ac0ad716f95863230d104ab0b40067f4"
+      },
+      {
+        "path": "dependencies/soulidity_v1/native_creation.mv",
+        "oldBytes": 1473,
+        "newBytes": 1473,
+        "oldSHA": "18848ff62adfdb75c845eb038b6b9cd056ca955995606dc9300f384b70efa679",
+        "newSHA": "f1f2c9659dd24e438d92d6ceafbb0235b84af1dbfe1dd0d1822885ef5e8af53f"
+      },
+      {
+        "path": "dependencies/soulidity_v1/physical.mv",
+        "oldBytes": 16391,
+        "newBytes": 16391,
+        "oldSHA": "3b4a98a53ddc83ccefa9188eec01675214883adb8c2cb46b353aea2cd408e4e8",
+        "newSHA": "b3663075fd976181e07b782ca3b6c677efe39c97695d90af1d9ac1d8f30a32c5"
+      },
+      {
+        "path": "dependencies/soulidity_v1/player.mv",
+        "oldBytes": 5013,
+        "newBytes": 5013,
+        "oldSHA": "8a2461cc9317f7ed373470f904cabd9b1c6531c1cb58a15f511ead2abaacec6b",
+        "newSHA": "b898c57e686d2a3462786e01fcda35710243c26493c6598b00226100c67e6f18"
+      },
+      {
+        "path": "dependencies/soulidity_v1/release.mv",
+        "oldBytes": 10485,
+        "newBytes": 10485,
+        "oldSHA": "e243dafc47762be64b4b8d077226a442d095c79271020809dc162ed55e242f6e",
+        "newSHA": "52bb711601008ff9efc03415fa03faef9e00335ef7405b94391071b59e931bd1"
+      },
+      {
+        "path": "dependencies/soulidity_v1/runtime.mv",
+        "oldBytes": 6042,
+        "newBytes": 6042,
+        "oldSHA": "fc04fd576a00f2bc309c90e3a5682093952e14be93d35912190ead5fa12a2905",
+        "newSHA": "79708d9148c8fb9d777079303bc06fac20552f3e77ed14c0e1fdca8ad6867d19"
+      },
+      {
+        "path": "market.mv",
+        "oldBytes": 8614,
+        "newBytes": 8614,
+        "oldSHA": "c4cdde40f0b0fa78e76c016d6857ab2cdf2350f1315922ff2d697925146bf51e",
+        "newSHA": "05fec8ae7d80ba6d645039fe57b9bfe898eea454520a39627faf722318f67312"
+      }
+    ],
+    "equalCount": 122
+  },
+  "debug_info": {
+    "oldCount": 348,
+    "newCount": 348,
+    "oldOnly": [],
+    "newOnly": [],
+    "different": [
+      {
+        "path": "dependencies/SoulidityApplication/character.json",
+        "oldBytes": 1125739,
+        "newBytes": 1125730,
+        "oldSHA": "eb9a2a8631d5408723b9f280c9bccb53554148a1804237e40088f1ae0ff3ff06",
+        "newSHA": "30b48294493f67aca2496be279b43aac5b7b0d4c21ed71cdc42cef79e8f1794a"
+      },
+      {
+        "path": "dependencies/SoulidityApplication/character.mvd",
+        "oldBytes": 723878,
+        "newBytes": 723869,
+        "oldSHA": "305aaad6082ea6088d84cbebdae6f17e32c567b58a4837e204d3af3c364ca6a7",
+        "newSHA": "82753727c0f34f49c2f4e6df6b97435d7d422b425a028393b90d0b85642b22f6"
+      },
+      {
+        "path": "dependencies/SoulidityApplication/forms.json",
+        "oldBytes": 177776,
+        "newBytes": 177767,
+        "oldSHA": "e9baa581d548990545aab60476ddcf005184e9bc1a2a8d26415aa8966d95f7f4",
+        "newSHA": "e3bbb201ddd6f0bc74a5dcce3d5e98c548c5f6ac82d7dd9860c32803e41becec"
+      },
+      {
+        "path": "dependencies/SoulidityApplication/forms.mvd",
+        "oldBytes": 115988,
+        "newBytes": 115979,
+        "oldSHA": "03c0863763b1a167d26a2128e3d092fcac3b783161ea8f0aac4d289a3011e9ae",
+        "newSHA": "d71ecfdc448cc633d5fb4d319ea273173c42f48a5a49131ff9bdd23515bcd705"
+      },
+      {
+        "path": "dependencies/SoulidityApplication/growth.json",
+        "oldBytes": 135477,
+        "newBytes": 135468,
+        "oldSHA": "eb966998bcdfc438523a0768032b8251cfe7f67a17dc87ddc3d47e914411ace4",
+        "newSHA": "29d2b63aaf626585bdd7d51f6ef4d5f7fd6b7ce223d5d0c06f026cb9f9aa1993"
+      },
+      {
+        "path": "dependencies/SoulidityApplication/growth.mvd",
+        "oldBytes": 88066,
+        "newBytes": 88057,
+        "oldSHA": "08a21f18e67a5159c941284ceb5639405666e47478ef6c93ff2b1f1b68da4f43",
+        "newSHA": "a0d6f9825a54a8c49718ba72c208b1bd1a51dcc5ba24f87ec9afdfcbe0de45dc"
+      },
+      {
+        "path": "dependencies/SoulidityApplication/issuance.json",
+        "oldBytes": 41292,
+        "newBytes": 41283,
+        "oldSHA": "4c84d3d7297b18469cebb56aa2508783adf3578900e67d1d5851ded407b99f0e",
+        "newSHA": "d6bfe4e6c72842893d2006e5598ef591323edbacabdb9c1894506a294da8d5d1"
+      },
+      {
+        "path": "dependencies/SoulidityApplication/issuance.mvd",
+        "oldBytes": 27625,
+        "newBytes": 27616,
+        "oldSHA": "6f27fff9ac07655254ed613ab2b84c7c1c9671f9373a41d0f37d500ca7ca97c3",
+        "newSHA": "66279f457048eb35eb40c02a5749e762e17c605bb6e2ed6b3c57331e2b42ac8e"
+      },
+      {
+        "path": "dependencies/SoulidityApplication/output.json",
+        "oldBytes": 186971,
+        "newBytes": 186962,
+        "oldSHA": "cfd623cc1df0c00bc613b812cd5e2e98e20bf887dc96054b6ff9a741f2ed5afb",
+        "newSHA": "911ce093a6b634befad30481ac44a267f37838f52fe63eb2b9aa4fed6920f226"
+      },
+      {
+        "path": "dependencies/SoulidityApplication/output.mvd",
+        "oldBytes": 119074,
+        "newBytes": 119065,
+        "oldSHA": "a13ad62966104f8ead780f0475fb064069145a282e6441862d3679f61b91a235",
+        "newSHA": "dde27a9edb3cea9e2a051b611eccfe33ae322dad619a3e7faaf3ad8f1c5b3a82"
+      },
+      {
+        "path": "dependencies/SoulidityApplication/physical_metadata.json",
+        "oldBytes": 97711,
+        "newBytes": 97702,
+        "oldSHA": "022dbb5ba79ae82c4a978a1b7e6cf8728dc3313ef772ffcb288bd5d8be5e857c",
+        "newSHA": "2e5a92d6f870f1882c90ad4287c4a43dc8f044e73b09ce4d2ea3a5c10b6edc78"
+      },
+      {
+        "path": "dependencies/SoulidityApplication/physical_metadata.mvd",
+        "oldBytes": 60280,
+        "newBytes": 60271,
+        "oldSHA": "c40f9fa14b476f7a0f4bb4b9e0d6c85b805a62db3062eb839135d253f14d9614",
+        "newSHA": "662373f031f723e4338aa3ad716e0f799e233de70e530800a66b9c4154d47517"
+      },
+      {
+        "path": "dependencies/SoulidityApplication/publication_rules.json",
+        "oldBytes": 176261,
+        "newBytes": 176252,
+        "oldSHA": "36f8dc1790f6407d24d64399ce57dd0435f8dfcf4d1cec8a19db63e99d670955",
+        "newSHA": "bf36d7424329a694fa0fb640803f561dfe1dee9b92dc5c2321103e7d54648dbb"
+      },
+      {
+        "path": "dependencies/SoulidityApplication/publication_rules.mvd",
+        "oldBytes": 118502,
+        "newBytes": 118493,
+        "oldSHA": "64108c9d4d0b4e232fdc6295a12c1c1d8b76361ab02cc9bafff84d343d92df2e",
+        "newSHA": "e27e8d93400476b588338cae29f5437116122287e764c3f3d753014e0fdae87c"
+      },
+      {
+        "path": "dependencies/SoulidityApplication/resale.json",
+        "oldBytes": 77842,
+        "newBytes": 77833,
+        "oldSHA": "f72c46014ef10dc813feafe039c5b9e303643971e8b01c44668914552962393a",
+        "newSHA": "f261d7ef6cf2a3a87cf0339881f82c231e04eb773391a78d83d157d0306c3ba9"
+      },
+      {
+        "path": "dependencies/SoulidityApplication/resale.mvd",
+        "oldBytes": 50032,
+        "newBytes": 50023,
+        "oldSHA": "1ce748c99657278b30175198cd374d5b5e4b6aed1378255158696ef238895a9a",
+        "newSHA": "898803eed36dabbfb5b29cb30b4c4180ec99715c9aab13188248252a715b0ddb"
+      },
+      {
+        "path": "dependencies/SoulidityApplication/vault.json",
+        "oldBytes": 157927,
+        "newBytes": 157918,
+        "oldSHA": "07abffc27091ae038d47a109e8c994ffd2e45019a1f3ce226ed370f656391d72",
+        "newSHA": "3b816e227d2ee6e50a0aa4cf7a6886d4e6c497b4350ec9264cc60323d4b3a9ea"
+      },
+      {
+        "path": "dependencies/SoulidityApplication/vault.mvd",
+        "oldBytes": 102618,
+        "newBytes": 102609,
+        "oldSHA": "f1ad4868d858570793613951b3d26469f7b445f2845a26097cc977c876aae208",
+        "newSHA": "7ac8114587ddd231f33da1d34314df54fe3fd38deb4bc24a820a5b25f40dba60"
+      },
+      {
+        "path": "dependencies/SoulidityApplication/visual_capture.json",
+        "oldBytes": 106445,
+        "newBytes": 106436,
+        "oldSHA": "671653f92f278e11dd5ffe857c96d9ae3ea770019c269295c5c7590b7b56c98f",
+        "newSHA": "d6064353a569b8377e3b08ad67acad2897ef2b7e534e45a72c13c0ba60b6e21d"
+      },
+      {
+        "path": "dependencies/SoulidityApplication/visual_capture.mvd",
+        "oldBytes": 70475,
+        "newBytes": 70466,
+        "oldSHA": "d5de57f1c99255a77281a5ec8f58da3a2c25d304ff26c0592c1ff6b84b4f6764",
+        "newSHA": "0064ae90403b812d50fc8bb7f53a3f9ac83e17c745918c73f97b5888004c7bd6"
+      },
+      {
+        "path": "dependencies/SoulidityCommunity/community_posts.json",
+        "oldBytes": 72040,
+        "newBytes": 72031,
+        "oldSHA": "da9b1fbb4479475d3e6913b2641acd19b00e6ef41b1df0976b6267777045a81a",
+        "newSHA": "254d7a4087767f767c4c91ec3d2d2da909c1a32a1e06b25b150096d989bc4ff0"
+      },
+      {
+        "path": "dependencies/SoulidityCommunity/community_posts.mvd",
+        "oldBytes": 47227,
+        "newBytes": 47218,
+        "oldSHA": "ba822ac2428c1ab784f1822ff3fb52d69ffc84bc9ec18f6d2d4206ddb12a8788",
+        "newSHA": "76fd93bef62c77007bfcaec3d4dd7c955d1af0f9a84c313a6391e03f39031b18"
+      },
+      {
+        "path": "dependencies/SoulidityCommunity/community_votes.json",
+        "oldBytes": 44462,
+        "newBytes": 44453,
+        "oldSHA": "d1e9c4ff687a5d02ddd985b7be5f4a389c4b86363c5945f2ddc311e2d5b41697",
+        "newSHA": "471d1d9ea494875616ce553d4657fcfce88aa0e37a4eb44c3534421a31153741"
+      },
+      {
+        "path": "dependencies/SoulidityCommunity/community_votes.mvd",
+        "oldBytes": 29594,
+        "newBytes": 29585,
+        "oldSHA": "b8e88708126061e6a706b4faa85c14270f4eb2efad4ba53e65ea4913b91ca399",
+        "newSHA": "5df2979f8a433dfb27d53770c1236b3bf7a5dc7f861014844c1a4dd881aebc2b"
+      },
+      {
+        "path": "dependencies/SoulidityCommunity/profile.json",
+        "oldBytes": 130720,
+        "newBytes": 130711,
+        "oldSHA": "9c8b14617b9db9b6dc09c67c37a5c9373f67812dbec3ac246a4f5f9dfedac4ba",
+        "newSHA": "70b1d52f6ce866a7486a89e3171c8d317a6031dd8bd6d5ff14a286c9c69e2c5c"
+      },
+      {
+        "path": "dependencies/SoulidityCommunity/profile.mvd",
+        "oldBytes": 85687,
+        "newBytes": 85678,
+        "oldSHA": "16d758e790a8cd631ae89b0408630a62e4a6f6de27270297a43fdce4c8d64b06",
+        "newSHA": "f7020f673ebc0728bfb2b0b8ce5eeb85f3c74af3887c1df08149db3485383c61"
+      },
+      {
+        "path": "dependencies/SoulidityCommunity/social.json",
+        "oldBytes": 41321,
+        "newBytes": 41312,
+        "oldSHA": "8841f9a3c06c31fc0a22ca6668b0c747ba682e0538db9e367d67ab1de3064f27",
+        "newSHA": "e1bc79a14c42217a5705e5cf37b357b5e6c426bc881c8595a42a3eda95b26806"
+      },
+      {
+        "path": "dependencies/SoulidityCommunity/social.mvd",
+        "oldBytes": 27590,
+        "newBytes": 27581,
+        "oldSHA": "7ffbfccb9118e65718b4ce423d55be86d4c71f0ea7591b7e6d18426c5332c6e9",
+        "newSHA": "722676db348dc4a6fde08bb5c137746f54ab594403ac8a6c1dc373a62be868c0"
+      },
+      {
+        "path": "dependencies/SoulidityContent/authority.json",
+        "oldBytes": 11153,
+        "newBytes": 11144,
+        "oldSHA": "30d9ed00b94753270ca12a7eba121d460eb1ebb7ff01791c6cdcceb117672041",
+        "newSHA": "ff294bddd30e533b4c2b74070ab8fb313b1ff8f659741798d56d36b17aad1446"
+      },
+      {
+        "path": "dependencies/SoulidityContent/authority.mvd",
+        "oldBytes": 7188,
+        "newBytes": 7179,
+        "oldSHA": "6ae5df717e8af320aef3e2b535f638efff6483d445ffb70c2dc040fd4f1f2a2f",
+        "newSHA": "77c364b85cd4a5c639b4217c0ae94cc2a734349218720fa1a60abc55ec7238fd"
+      },
+      {
+        "path": "dependencies/SoulidityContent/authorization.json",
+        "oldBytes": 130539,
+        "newBytes": 130530,
+        "oldSHA": "152ed2061a6a0be1155146fb414bd61504fbeb59d93aaf43dd84126077c0627a",
+        "newSHA": "db05eb9d0e6d4d5c6069f1c5624e51e12601339ef54906605738295cea0caf95"
+      },
+      {
+        "path": "dependencies/SoulidityContent/authorization.mvd",
+        "oldBytes": 85120,
+        "newBytes": 85111,
+        "oldSHA": "e11d34688563605ac9760ff7045a68560747a0d81fe2184f1e8dc0184a63d1ec",
+        "newSHA": "99b4eb89e32c32d0ffc321a929e130fb3e8b142ceb3790283dbfd940e15c56e2"
+      },
+      {
+        "path": "dependencies/SoulidityContent/blob_custody.json",
+        "oldBytes": 35599,
+        "newBytes": 35590,
+        "oldSHA": "a1103a4801b392898a6451705d2df2592ac4bdcb6a650c35310b72bfcda32a84",
+        "newSHA": "8a889ecb430f45c19413d248b4f8a93e6173caa2fa77c82b020c463511c26719"
+      },
+      {
+        "path": "dependencies/SoulidityContent/blob_custody.mvd",
+        "oldBytes": 23770,
+        "newBytes": 23761,
+        "oldSHA": "27421bff3047595917fd96c4fa3e3e71070046eddabcec17393d5ebbab1bffd8",
+        "newSHA": "d7afbf02c588bbbbe259c95e21b71548e47234926800b0b9b9113fe29b9f2b86"
+      },
+      {
+        "path": "dependencies/SoulidityContent/document.json",
+        "oldBytes": 74841,
+        "newBytes": 74832,
+        "oldSHA": "1762ba62a29f812ae2ef9597cd4d2634d7d54da6dad5d6da9914a8640b9a0994",
+        "newSHA": "6da1284f872a25e0b555550681cb858558656ff9fb4c4b645f725797e140caf5"
+      },
+      {
+        "path": "dependencies/SoulidityContent/document.mvd",
+        "oldBytes": 48690,
+        "newBytes": 48681,
+        "oldSHA": "efebf51fbd9ccbfa0e02104067ecf06dbeb5b74f8f61caefd0be9cc430760f99",
+        "newSHA": "e48e7ae457bdd1ab09943dfd756fc6177cd2b95d1742782268a7bdfabaccc53d"
+      },
+      {
+        "path": "dependencies/SoulidityContent/founding_library.json",
+        "oldBytes": 72474,
+        "newBytes": 72465,
+        "oldSHA": "c38f5dffb25eb897c375d67def7b751f7dabaebeb5eab772bc98e282eb4cd8f4",
+        "newSHA": "93feb5f9d8ad4c54054aa9eaaa72602de671fe478da947bd826cc2bcad8a2263"
+      },
+      {
+        "path": "dependencies/SoulidityContent/founding_library.mvd",
+        "oldBytes": 47652,
+        "newBytes": 47643,
+        "oldSHA": "b71cc9f47009d9840164c93fa9eb850d43c7899d94a5bdfb545327552a611e32",
+        "newSHA": "8bdcb04d38a1a1c927a6a15b7d61574ee4ea2c2778e0eb296bf3c3e8beab5ce7"
+      },
+      {
+        "path": "dependencies/SoulidityContent/kind_registry.json",
+        "oldBytes": 96046,
+        "newBytes": 96037,
+        "oldSHA": "2be1660fe5d4bdb9929ff51e9e00f6328a6c0dd041d9dd4cc17f51e1ad49a259",
+        "newSHA": "4f7d4436ad300f7269387530ed3eb755b2a03d82d1f536773f42ecb644886900"
+      },
+      {
+        "path": "dependencies/SoulidityContent/kind_registry.mvd",
+        "oldBytes": 61332,
+        "newBytes": 61323,
+        "oldSHA": "20c9ca53efa36401c1a8b36b55bcc25b9dd605860612ddf1031940966b2532a3",
+        "newSHA": "08c47319606016d602dee45c25563a9a63d406c0c5668548f5cea977032e4d31"
+      },
+      {
+        "path": "dependencies/SoulidityContent/loadout.json",
+        "oldBytes": 82045,
+        "newBytes": 82036,
+        "oldSHA": "c4c7c732134e5d3d23b6cdd7d5ae672cca7e2f9cc107f27c56c2fc3d7e88a06e",
+        "newSHA": "11ded1e6cd55d363005201b7f930cae1550cd5b221a0be30b78b0974e5caaac9"
+      },
+      {
+        "path": "dependencies/SoulidityContent/loadout.mvd",
+        "oldBytes": 53329,
+        "newBytes": 53320,
+        "oldSHA": "ea719864b6f98a7e2bd735f6619db6e574665fa3de6b000f118bbd1e2ba885d7",
+        "newSHA": "9e71fa2a36059f8558dc0e7a2fb7e193640e4ea9c6ffbc2a32e15cc26caa961f"
+      },
+      {
+        "path": "dependencies/SoulidityContent/paged_store.json",
+        "oldBytes": 44504,
+        "newBytes": 44495,
+        "oldSHA": "ad4b8c121fef7ca2c3d5656086ccd2660951bf04a4d0b1d2d7c2179dc1ee9f2b",
+        "newSHA": "c65dd0442ba618531a270201c995d390519079a1ff9b2f6f69a5ba9e35167fd6"
+      },
+      {
+        "path": "dependencies/SoulidityContent/paged_store.mvd",
+        "oldBytes": 29578,
+        "newBytes": 29569,
+        "oldSHA": "a6b5fedef29957f66c7f61ed6c00840526be606dd387d80e53473a47f304a0ed",
+        "newSHA": "05867426cecb65461ac5363c16e9cc3c790e7aee858d77ff0336e98f58423ca2"
+      },
+      {
+        "path": "dependencies/SoulidityContent/paid_access.json",
+        "oldBytes": 139209,
+        "newBytes": 139200,
+        "oldSHA": "0726a7e583d2e4835c45db01a3ebef27c036596873d24d77dd848253d83ba866",
+        "newSHA": "d0a24c038a23377236b6098d8d2464971d7a8cae54a1b3a40182612215d7af4d"
+      },
+      {
+        "path": "dependencies/SoulidityContent/paid_access.mvd",
+        "oldBytes": 91533,
+        "newBytes": 91524,
+        "oldSHA": "1c60b613edda66a4f771f1346276d5da8d98c22f5ac2dbc070fcf620eb0c28b0",
+        "newSHA": "b2016b74f4b241b25c17eeb050777741e2a84a086d655ef93219f3d9471258ad"
+      },
+      {
+        "path": "dependencies/SoulidityContent/permissions.json",
+        "oldBytes": 2760,
+        "newBytes": 2751,
+        "oldSHA": "fdff634688505f524a6104dd661bcae6ee63c9b2acd9566a2a3c61dca0d1dab6",
+        "newSHA": "04e1b9803c20dd47dda455d1e42763ffa4b7d4d58285b5b7093e6fc21398658d"
+      },
+      {
+        "path": "dependencies/SoulidityContent/permissions.mvd",
+        "oldBytes": 1509,
+        "newBytes": 1500,
+        "oldSHA": "3374d12cd8e373b7fa63b67ac833d431921930a0503679c28260cd30ec6f93f7",
+        "newSHA": "81ea3fb088dc08b65a59809e1123c57a39498eb92db2b997219c484e5292ba8e"
+      },
+      {
+        "path": "dependencies/SoulidityContent/state_configuration.json",
+        "oldBytes": 38614,
+        "newBytes": 38605,
+        "oldSHA": "f7d3c5bdb9fb58084478dc898e4b2c1af3bef8ea0b8e9564b7173684261ba878",
+        "newSHA": "3cfe85576de579c76710cc4e9566b1118953139cdfb3581f9e7b5bd8480e9f66"
+      },
+      {
+        "path": "dependencies/SoulidityContent/state_configuration.mvd",
+        "oldBytes": 25158,
+        "newBytes": 25149,
+        "oldSHA": "e1accf51996b71b0f44cce8a48f52b976b04734e6010a03a901735e400d393b2",
+        "newSHA": "b05b4e3b506f1ca1e6b928432ae47aa449b704a945ccb14e691c85a8202d5733"
+      },
+      {
+        "path": "dependencies/SoulidityContent/storage.json",
+        "oldBytes": 55257,
+        "newBytes": 55248,
+        "oldSHA": "e34e554b7411722ad77c59e73a0b270dbb05a5e7413f9173c6d3b3064759ac72",
+        "newSHA": "1a65a2a7335350ec1ef6626706de7b359083d542e5c4264c33ed30f4f02a6878"
+      },
+      {
+        "path": "dependencies/SoulidityContent/storage.mvd",
+        "oldBytes": 36618,
+        "newBytes": 36609,
+        "oldSHA": "63f21d88a864a11868b00530286bc3d485f22da3433817bae9ddc892a23e13ae",
+        "newSHA": "b7c09e0c5d4242785eca7fa8a02ad381936a44f4c1ce1ff44a59f4ab54ef228b"
+      },
+      {
+        "path": "dependencies/SoulidityFoundation/economics.json",
+        "oldBytes": 370311,
+        "newBytes": 370302,
+        "oldSHA": "ff0a85c34825eabaf98f235f730dd78d21080b00912bd1d3945c0fa768714009",
+        "newSHA": "4b7ce16fbe98c536005166d34d5240cd055cde20bc857c8155ed44eab40eb9b6"
+      },
+      {
+        "path": "dependencies/SoulidityFoundation/economics.mvd",
+        "oldBytes": 237630,
+        "newBytes": 237621,
+        "oldSHA": "6eb03c7be64e3a6a37ed992efef7d19b6c304e70a2c20d776d195cf24a6cc50c",
+        "newSHA": "8cd5995de9a1ab8b527997a99cc0aa8498856608e0f18b0e07eebf9383168b90"
+      },
+      {
+        "path": "dependencies/SoulidityFoundation/package_roles.json",
+        "oldBytes": 68244,
+        "newBytes": 68235,
+        "oldSHA": "ab7da62eb83fa9665493c9e5cac53a41066f3b1004344f8b279cbc56b6e5556c",
+        "newSHA": "e0da868db137cb39a790367be25a3e6a342776ae66e2443da4ff02ad9ad9a67c"
+      },
+      {
+        "path": "dependencies/SoulidityFoundation/package_roles.mvd",
+        "oldBytes": 45143,
+        "newBytes": 45134,
+        "oldSHA": "4e19479139ad255db9ee6566ecba02e353cd5e9697cb354a52698f275e82d1be",
+        "newSHA": "1badc2a1f2bcc4e5138fa5e4687006a16003cba23e09812875238a105af405a1"
+      },
+      {
+        "path": "dependencies/SoulidityFoundation/revenue.json",
+        "oldBytes": 44128,
+        "newBytes": 44119,
+        "oldSHA": "2b9139755b01b30d11e4799371e53b347547ba42cd31196794f19d7d39c172b3",
+        "newSHA": "4f9bda5607411899a2b2af1f55b0446a2df9286c417575c6184a998b288721d8"
+      },
+      {
+        "path": "dependencies/SoulidityFoundation/revenue.mvd",
+        "oldBytes": 28545,
+        "newBytes": 28536,
+        "oldSHA": "644f12b07fbee524302765adab6d1e8e65529dda78da38084f15d4293bd628f3",
+        "newSHA": "cb92c510900fd596411b028492534d0c775dc0aab407dcf63ea679ed1868d484"
+      },
+      {
+        "path": "dependencies/SoulidityFoundation/source_authority.json",
+        "oldBytes": 34907,
+        "newBytes": 34898,
+        "oldSHA": "34607cf93ed6f2ec765a698018c4f36104012f9984a2ad13c4b4b3b3bedb2829",
+        "newSHA": "2568109a79f458351d94cacfc14270ce4456401359607743fb01e04ab821a067"
+      },
+      {
+        "path": "dependencies/SoulidityFoundation/source_authority.mvd",
+        "oldBytes": 23187,
+        "newBytes": 23178,
+        "oldSHA": "91140d39af7923afe0478b93c787cf6dfb9006d77dc9d704055eaa75bcd0a12b",
+        "newSHA": "0f8c7cd7b09a86c0cd26a842c46c8c06f0fa259dec93a4e24f230f7936363609"
+      },
+      {
+        "path": "dependencies/SoulidityModel/assembly.json",
+        "oldBytes": 366642,
+        "newBytes": 366633,
+        "oldSHA": "ac71a948adcdebbd0d88c15be49a54311a99fef6f47688f7780b747873579441",
+        "newSHA": "8a24e13d6e30e7180f41a35fcc4d83a291ab00824744d17d67b24c8c9c940e67"
+      },
+      {
+        "path": "dependencies/SoulidityModel/assembly.mvd",
+        "oldBytes": 242562,
+        "newBytes": 242553,
+        "oldSHA": "ad7f58376533071991d8d0e49178eee62ae22e19dbfc48ead67bfa95650f4f0c",
+        "newSHA": "6adba6023c96747cb2fc39280724f137ff651dae3f3d77bbc9081cc951cab263"
+      },
+      {
+        "path": "dependencies/SoulidityModel/components.json",
+        "oldBytes": 19888,
+        "newBytes": 19879,
+        "oldSHA": "21926d87d7b3d26a17d9dff07264f0ea951014296525f094c5cbddacb8cd32cc",
+        "newSHA": "d1acb5d09035d83e9880be402f438e7380b8faf59fdf6bf5bf2db1b3f468434e"
+      },
+      {
+        "path": "dependencies/SoulidityModel/components.mvd",
+        "oldBytes": 12964,
+        "newBytes": 12955,
+        "oldSHA": "0ae5bef32b59ade81700ba4cb480e7f51e8cc4e37889dd2e9940dfe007ba4770",
+        "newSHA": "241066d5a0ef1566ccddfa38a75346f1e1f5986a746c00a003509a621cc7fb17"
+      },
+      {
+        "path": "dependencies/SoulidityModel/material_policy.json",
+        "oldBytes": 26592,
+        "newBytes": 26583,
+        "oldSHA": "f491fb18951996bf7fe7b1cba1d8fc66cb6b2ca1b34e79874a073d553c7ca37b",
+        "newSHA": "f1e1887427f2f0091420bb6e066072af8ff2532a7d053d700818b1d3307d4c3c"
+      },
+      {
+        "path": "dependencies/SoulidityModel/material_policy.mvd",
+        "oldBytes": 17397,
+        "newBytes": 17388,
+        "oldSHA": "bcc0695fdad758280ac38f06de273a4260061b52a24a3a26976a86085ecbba58",
+        "newSHA": "4dfd2cd4047aa82da1c3ef27d30a8e22468a2e7bccf6fa20aa4cc044f49d6190"
+      },
+      {
+        "path": "dependencies/SoulidityModel/policy.json",
+        "oldBytes": 112151,
+        "newBytes": 112142,
+        "oldSHA": "3542d236f3cc1c84a5672fa4b502e9f72d2197fe0fa520fca2780a7aa8ef419a",
+        "newSHA": "de4f91ac535af0bdaf64ad7657b00b14afb69420e36db7fc9a54e9df9c186b43"
+      },
+      {
+        "path": "dependencies/SoulidityModel/policy.mvd",
+        "oldBytes": 72223,
+        "newBytes": 72214,
+        "oldSHA": "a74b1750a694ec7770f477b9c260b3e524ac0b48d7408f9ce973c0a21d4ee7f2",
+        "newSHA": "e57548dbc0c385062e09242308b2333b80a9fb4853918759a3c7e5823bf03309"
+      },
+      {
+        "path": "dependencies/SoulidityNative/birth.json",
+        "oldBytes": 75552,
+        "newBytes": 75543,
+        "oldSHA": "d3e9224e860a0d07d39cf45ed89354488e604d2e363fccace5a7cd3efc554650",
+        "newSHA": "aaab1c04224b120a858182830147ff186e5623649fd6b019b46f67f2ea2ab7c5"
+      },
+      {
+        "path": "dependencies/SoulidityNative/birth.mvd",
+        "oldBytes": 49099,
+        "newBytes": 49090,
+        "oldSHA": "6a420eccd8cd2262251bb39f303b8b8ba62bc76179ea3ff1de6e50892c9f662f",
+        "newSHA": "287c41c3455cce5f318c604aba6ba8881af2832f84221a6fa6c67a26c88e0f9c"
+      },
+      {
+        "path": "dependencies/SoulidityNative/registry.json",
+        "oldBytes": 95913,
+        "newBytes": 95904,
+        "oldSHA": "b7318252d5c00ac4d265f56f4602be4cf7bdfb15d1e252fbed2ebe1175db239d",
+        "newSHA": "51e8734796ab96a28057fd7e9b5756618dc78854cb9a2e91d90c7157a04df609"
+      },
+      {
+        "path": "dependencies/SoulidityNative/registry.mvd",
+        "oldBytes": 62540,
+        "newBytes": 62531,
+        "oldSHA": "9452dea2ac23637b6d5321ea284bad19736feee62f5de57815634c692920606f",
+        "newSHA": "84048ff28c71a2e64066a8323a80a895de42ab2b9f81ec5c13d4a08696847a48"
+      },
+      {
+        "path": "dependencies/SoulidityStandard/soul.json",
+        "oldBytes": 115435,
+        "newBytes": 115426,
+        "oldSHA": "1b6ef14961f22bcf1a33be83de5be465e2cd9921e7192e1ebf18efe47f2b5603",
+        "newSHA": "21ffff61c9dd427f165cd63af1cfc281c637fbf8b18598b1e47750d6b93047b0"
+      },
+      {
+        "path": "dependencies/SoulidityStandard/soul.mvd",
+        "oldBytes": 74556,
+        "newBytes": 74547,
+        "oldSHA": "cef6e50a19bcdcb8e4c0b46ade0532933f639fcbd14bb1cbd5c16e96b771419d",
+        "newSHA": "5a5a208aed67b1762f4a0886e6e15430afba79d83e6008924a8cfba09e9872b4"
+      },
+      {
+        "path": "dependencies/SoulidityVisual/visual.json",
+        "oldBytes": 606711,
+        "newBytes": 606702,
+        "oldSHA": "82fbb0420686a1e52e1c1321a10e08ccc3a070c720f704c6a54614e00014a745",
+        "newSHA": "a07ba53395376d417c85b041537bf8f2c9cd319979d1b8f0c4dffec0c6c7c751"
+      },
+      {
+        "path": "dependencies/SoulidityVisual/visual.mvd",
+        "oldBytes": 401581,
+        "newBytes": 401572,
+        "oldSHA": "a2ed7a3f5b58286c5f3943a9643280aa0e6794ddb32e061af31bf0ff618d0984",
+        "newSHA": "406d0dfe820ccc81b4a5c573ec30b19912671c48681388c4ebb3f0f97c45a775"
+      },
+      {
+        "path": "dependencies/soulidity_v1/access.json",
+        "oldBytes": 125441,
+        "newBytes": 125432,
+        "oldSHA": "e79843e8133ad632fc606dbd0f0880e5320f3a844800fba8e9dba1d371b4222e",
+        "newSHA": "5a289f51a0120c56557ae18efb3e6b6c49da31fde8964f2784c0a2ba2623c19e"
+      },
+      {
+        "path": "dependencies/soulidity_v1/access.mvd",
+        "oldBytes": 82030,
+        "newBytes": 82020,
+        "oldSHA": "94d81b0caccfa0fd4433b5deddd23401d3797d029f6746a4b3b1cfb77c36b70a",
+        "newSHA": "0093f9276e59ef8a204c55a6cb2d69d2b3409e5c8baad7fc8e9443d12ce85eef"
+      },
+      {
+        "path": "dependencies/soulidity_v1/application_operator.json",
+        "oldBytes": 1317,
+        "newBytes": 1308,
+        "oldSHA": "ef35f02620e8a5e2c89cae02664596f145e36a53cbf4a00e6308aec14c9f2b08",
+        "newSHA": "70de2d71ff8247cbdebddeb06b0bdf0f00ab79e9ce5a413f5b88a0cd8e823e5c"
+      },
+      {
+        "path": "dependencies/soulidity_v1/application_operator.mvd",
+        "oldBytes": 748,
+        "newBytes": 739,
+        "oldSHA": "df36a1185fb3b10e89f134d6ef62e3263486cdfe43ca4855bb1696ec3aeeb60e",
+        "newSHA": "5d9cf1188b883b743cee1380f390ba5c0e76fe0bfbd7eb6a73113f329f3df963"
+      },
+      {
+        "path": "dependencies/soulidity_v1/catalog.json",
+        "oldBytes": 405090,
+        "newBytes": 405081,
+        "oldSHA": "de114e65635fd1d31a84680f1ff3ff6e1a4ecf7c645bb18019094e4171a042b8",
+        "newSHA": "9f783d56db0762ea4617529b40a2fc0892f6ab1b172c933b97972b491792f697"
+      },
+      {
+        "path": "dependencies/soulidity_v1/catalog.mvd",
+        "oldBytes": 263474,
+        "newBytes": 263464,
+        "oldSHA": "3e7eb50a292b440f2cd6266b2514964690d102dadbbdf68a2423b212e24f4805",
+        "newSHA": "a8c95ebf277421ba165244813a3d3b7fd2e16ee024f160527905b05d27b48170"
+      },
+      {
+        "path": "dependencies/soulidity_v1/collection.json",
+        "oldBytes": 149544,
+        "newBytes": 149535,
+        "oldSHA": "7168b0f081cf0843167854dc626598f0e347eac1a5505713cea0f92e548825e8",
+        "newSHA": "765cda41c9bb4ea72364237f5ba01837696ec223a33e89d58af5f97c81fa9f1e"
+      },
+      {
+        "path": "dependencies/soulidity_v1/collection.mvd",
+        "oldBytes": 97361,
+        "newBytes": 97352,
+        "oldSHA": "da5b778583e00d4d23ea5ccea9c177d91b68a176bb2ebd0145dc9b97067524ad",
+        "newSHA": "27e2fffaaf73b16eb4b9772d41bda356c20f43736a2a6a48d2277d46e30cc866"
+      },
+      {
+        "path": "dependencies/soulidity_v1/custody.json",
+        "oldBytes": 23102,
+        "newBytes": 23093,
+        "oldSHA": "c528ffdf5480c979f4c6097829ecc91f05b74ace68ee7647745667bbc5398fa6",
+        "newSHA": "d993bddba0e23ddfe4282b41f54f6b7031a487350bd724c76d395e9f63415977"
+      },
+      {
+        "path": "dependencies/soulidity_v1/custody.mvd",
+        "oldBytes": 14899,
+        "newBytes": 14889,
+        "oldSHA": "e7a71473cf334b9048e603ab7e42272b0e18f0b007f3a1c73bb53fb8d529f651",
+        "newSHA": "ce645850229b9fed110566d7652e8c8f09c84f65b8d34c7ae6369cf7cba556e3"
+      },
+      {
+        "path": "dependencies/soulidity_v1/issuer.json",
+        "oldBytes": 178962,
+        "newBytes": 178953,
+        "oldSHA": "73f92d5fbaab2e553d2c3dc07cf9f51e1a7606dc640da1ece41d010e30ddc6c7",
+        "newSHA": "d9d1d09d1e1358504264f35dad5f579ce158a4cbe2537078dbe5679329222b5b"
+      },
+      {
+        "path": "dependencies/soulidity_v1/issuer.mvd",
+        "oldBytes": 119290,
+        "newBytes": 119280,
+        "oldSHA": "d073687e0de167e165b907e14ef5eb47d04726c03e4dade825873f807757fde1",
+        "newSHA": "8a54c1ae16d35529210778e18162019a25d8c4652e7c77673a7ce1584c026588"
+      },
+      {
+        "path": "dependencies/soulidity_v1/metadata.json",
+        "oldBytes": 74006,
+        "newBytes": 73997,
+        "oldSHA": "5fa7094e61c5c1e8e88593fc13c87cc34ef4b9acdba37f1ae6ab28a0a432fc40",
+        "newSHA": "4f78665f7222906f1866ce64dbe74884f54a44317776079754a1f06b2ca0b286"
+      },
+      {
+        "path": "dependencies/soulidity_v1/metadata.mvd",
+        "oldBytes": 48761,
+        "newBytes": 48752,
+        "oldSHA": "f0ed7c7745748a7ca5fbe72e4f4ad5db8e67f2e6f76fe92e39e0bf75b5e68fed",
+        "newSHA": "7d9563f2aaa6276554b4a15e14f51059fff6f4aef833ab16d1ab5a6a5b0653bd"
+      },
+      {
+        "path": "dependencies/soulidity_v1/native_binding.json",
+        "oldBytes": 50739,
+        "newBytes": 50730,
+        "oldSHA": "d3ee05aff9e125cd348181f167806453ba94e9b95a6a58068b268df0b568fd09",
+        "newSHA": "3d886f3c6a1e3b52189e2d76e24e8855ece55e6651b2b3f3cd7b282f98d5981a"
+      },
+      {
+        "path": "dependencies/soulidity_v1/native_binding.mvd",
+        "oldBytes": 32649,
+        "newBytes": 32640,
+        "oldSHA": "9683a7768addca0b10fd01036b8f1b9359ccfefad0b8a9b43a145b35945d1ccb",
+        "newSHA": "9e078d9fad84283c384522a178233a634273ed528b37d85bb737585d7df3deb9"
+      },
+      {
+        "path": "dependencies/soulidity_v1/native_creation.json",
+        "oldBytes": 21851,
+        "newBytes": 21842,
+        "oldSHA": "1eaa4a81751a44edb4e294ef1bd9a4799622df5a801299ea9d74a3a58baf5b9b",
+        "newSHA": "a967d624b479b1ce6654235ee045ed6a9bc16284474502850878c54c03edf6b9"
+      },
+      {
+        "path": "dependencies/soulidity_v1/native_creation.mvd",
+        "oldBytes": 14412,
+        "newBytes": 14403,
+        "oldSHA": "e74504faecf21642edb6c6f400180b82c6feccbfbf1ed068a682c3621c7bd2d6",
+        "newSHA": "e735eaa1c41b8fb49ce0d977c1fa4622653a3b6dcfb1002a425568abc51bb434"
+      },
+      {
+        "path": "dependencies/soulidity_v1/physical.json",
+        "oldBytes": 367489,
+        "newBytes": 367480,
+        "oldSHA": "4180aad61bf2443a341c459d9b2c31d1a0518106c6b8c7898e3c99251ae0f56e",
+        "newSHA": "b8f9794a02031f1f2cb249d253bc89a4c0534bfd5768a4c30298f6e345762a7b"
+      },
+      {
+        "path": "dependencies/soulidity_v1/physical.mvd",
+        "oldBytes": 238370,
+        "newBytes": 238361,
+        "oldSHA": "2c47f5ea7db4bf5958675efe3667632f7e13446a227ed5fe88ebd982097b26cf",
+        "newSHA": "e91155cc60a6f6e8b8865d153b229ede603587a19e84133f09a9729f3d55f6cd"
+      },
+      {
+        "path": "dependencies/soulidity_v1/player.json",
+        "oldBytes": 107777,
+        "newBytes": 107768,
+        "oldSHA": "b24fa9a404856951f7b8cd98b57e0036c22f47c3a1a06918baa89938e0b9ff3b",
+        "newSHA": "4b8cf451fe35a4029bc5c7943e7abe149a452214774aa7f600d4905541fd0c0a"
+      },
+      {
+        "path": "dependencies/soulidity_v1/player.mvd",
+        "oldBytes": 70845,
+        "newBytes": 70835,
+        "oldSHA": "7fce2a6c1a5eeff52b65513724e748c1d7ea852985ab2abf10fb8fdc1bdb0198",
+        "newSHA": "875d5c6600e82edc36602ffe2899dc1d9fb1ecc1a6ad490bae4206efc1d90970"
+      },
+      {
+        "path": "dependencies/soulidity_v1/release.json",
+        "oldBytes": 233252,
+        "newBytes": 233243,
+        "oldSHA": "d6dfa1d31401e42502d00354748e57e6622cca24eada48d5d3812b46c4511516",
+        "newSHA": "1d7c570b3e03bc019227e7d98be72ecdda15ad0d7277074f78c74ca787435bd4"
+      },
+      {
+        "path": "dependencies/soulidity_v1/release.mvd",
+        "oldBytes": 152378,
+        "newBytes": 152368,
+        "oldSHA": "a9809db7ccfae0412727c6d3370ea2aa6c097a2c751203ce5741bad6c5aad261",
+        "newSHA": "4a5afa6cf52cbe7e2b6778c96fa80b370b9eab3a9b5e57ff9d8b7c94856f2c95"
+      },
+      {
+        "path": "dependencies/soulidity_v1/runtime.json",
+        "oldBytes": 127804,
+        "newBytes": 127795,
+        "oldSHA": "a235950360d43117223df4c97123bfe6ab818f207e15b08ddb759bae352f0b37",
+        "newSHA": "2574e45974b160456ef84b3ac0723af57971422acb5e130add326892b96344b0"
+      },
+      {
+        "path": "dependencies/soulidity_v1/runtime.mvd",
+        "oldBytes": 84461,
+        "newBytes": 84451,
+        "oldSHA": "f592e7b31f7d3b057438b16e09ed27860dc1fbd959133445dac62ddbe84aaaaa",
+        "newSHA": "5777d61778692b3b342c821192170fcc1ebd0939ef8bb816a8ec23ade5c63f0a"
+      },
+      {
+        "path": "market.json",
+        "oldBytes": 196491,
+        "newBytes": 196460,
+        "oldSHA": "f529811ce69edafca7177ca279be04856a0a1747cb8b8ac2d6584aaf1d6c32bd",
+        "newSHA": "69fdc77cce4fcac79441d15cae54e128cf39d607788bd8df4ef1487bc92fe80e"
+      },
+      {
+        "path": "market.mvd",
+        "oldBytes": 128732,
+        "newBytes": 128700,
+        "oldSHA": "922bc02f385d5eea033b1a4e0384dce80f2117cd51e9aabd5d5e8ac7f395c9a7",
+        "newSHA": "3e9dd6ec84be66768ec8d91a0b9528afd8d85fc1c7476a8c30dc099070029384"
+      }
+    ],
+    "equalCount": 244
+  }
+}

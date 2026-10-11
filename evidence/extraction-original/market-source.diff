@@ -1,0 +1,53 @@
+--- actual/move/soulidity_v1/sources/market.move
++++ soul-market/move/soulidity_market/sources/market.move
+@@ -1,5 +1,5 @@
+ /// Custody listings freeze the exact bundle. No asset/UID borrow escapes publicly.
+-module soulidity_v1::market;
++module soulidity_market::market;
+ /// Private values are constructed and consumed only inside this producer.
+ public struct MarketAuthority1 has drop {}
+ /// Retained for compatible type origins; current business uses Revision3.
+@@ -46,6 +46,14 @@
+ public struct Repriced has copy,drop {listing:ID,asset:ID,seller:address,previous_revision:u64,revision:u64,previous_price:u64,price:u64,expiry:u64}
+ public struct ControlManifest has copy,drop,store {control:ID,product:ID,version:u64,policy_hash:vector<u8>,market:MarketPolicy,income:soulidity_foundation::revenue::Snapshot}
+ 
++/// Preserve Collection's three membership conditions using public read-only APIs.
++/// Abort 3 retains the original binding failure code; no new asset borrow escapes.
++fun assert_collection_member(c:&Collection,s:&Soul){
++    assert!(soul::protocol(s)==collection::protocol(c)
++        && soul::collection_id(s)==option::some(object::id(c))
++        && collection::contains(c,object::id(s)),3)
++}
++
+ public fun list_soul<C>(s:Soul,cfg:&Config<C>,price:u64,expiry:u64,expected:u64,manifest_hash:vector<u8>,fee_revision:u64,clock:&Clock,ctx:&mut TxContext):ID {
+     assert!(soul::protocol(&s)==object::id(cfg),EProtocol);soul::assert_revision(&s,expected);
+     assert!(soul::collection_id(&s).is_none(),EProtocol);
+@@ -54,7 +62,7 @@
+     create(s,cfg,price,expiry,manifest_hash,option::none(),option::none(),option::some(rights),fee_revision,clock,ctx)
+ }
+ public fun list_soul_with_collection<C>(s:Soul,c:&Collection,cfg:&Config<C>,price:u64,expiry:u64,expected:u64,manifest_hash:vector<u8>,fee_revision:u64,clock:&Clock,ctx:&mut TxContext):ID {
+-    collection::assert_member(c,&s);assert!(soul::protocol(&s)==object::id(cfg),EProtocol);soul::assert_revision(&s,expected);assert!(soul::manifest_hash(&s)==manifest_hash,EQuote);
++    assert_collection_member(c,&s);assert!(soul::protocol(&s)==object::id(cfg),EProtocol);soul::assert_revision(&s,expected);assert!(soul::manifest_hash(&s)==manifest_hash,EQuote);
+     let rights=*soul::resale(&s);resale::quote_collection(&rights,cfg,price,ctx.sender(),object::id(c),collection::current_holder(c),collection::extra_royalty(c));
+     create(s,cfg,price,expiry,manifest_hash,option::none(),option::some(CollectionFee{id:object::id(c),extra:collection::extra_royalty(c)}),option::some(rights),fee_revision,clock,ctx)
+ }
+@@ -151,7 +159,7 @@
+ public fun buy_soul_with_collection<C>(l:&mut Listing<Soul,C>,c:&Collection,cfg:&mut Config<C>,expected:u64,manifest_hash:vector<u8>,expected_collection:vector<u8>,expected_quote:vector<u8>,fee_revision:u64,attempt:vector<u8>,payment:Coin<C>,clock:&Clock,ctx:&mut TxContext) {
+     assert!(l.collection==option::some(CollectionFee{id:object::id(c),extra:collection::extra_royalty(c)}) && expected_collection==collection::snapshot_hash(c),EQuote);quote(l,cfg,expected,manifest_hash,fee_revision,&attempt,clock,ctx);
+     assert!(expected_quote==collection_quote_hash(l,c,cfg,ctx.sender()),EQuote);let receipt=collection_quote(l,c,cfg);
+-    let mut s:Soul=dof::remove(&mut l.id,AssetKey{});collection::assert_member(c,&s);assert!(soul::manifest_hash(&s)==l.manifest_hash && *soul::resale(&s)==rights(l),EQuote);soul::clear_authorizations(&mut s);soulidity_application::vault::prepare_handover(&mut s);
++    let mut s:Soul=dof::remove(&mut l.id,AssetKey{});assert_collection_member(c,&s);assert!(soul::manifest_hash(&s)==l.manifest_hash && *soul::resale(&s)==rights(l),EQuote);soul::clear_authorizations(&mut s);soulidity_application::vault::prepare_handover(&mut s);
+     resale::settle(MarketAuthority1{},MarketRevision3{},cfg,l.rights.borrow(),receipt,payment,l.asset,attempt,ctx);l.settlement=option::some(receipt);mark_sale(l,attempt,ctx);transfer::public_transfer(s,ctx.sender())
+ }
+ public fun buy_item<C>(l:&mut Listing<Item,C>,cfg:&mut Config<C>,expected:u64,manifest_hash:vector<u8>,expected_quote:vector<u8>,fee_revision:u64,attempt:vector<u8>,payment:Coin<C>,clock:&Clock,ctx:&mut TxContext) {
+@@ -187,3 +195,10 @@
+ public fun settle_for_testing<C>(cfg:&mut Config<C>,s:&Snapshot,r:Receipt,payment:Coin<C>,subject:ID,attempt:vector<u8>,ctx:&mut TxContext){
+     resale::settle(MarketAuthority1{},MarketRevision3{},cfg,s,r,payment,subject,attempt,ctx)
+ }
++
++/// Cross-package VM setup binds this producer's private role before activation.
++/// Production keeps the Publisher + UpgradeCap registration above.
++#[test_only]
++public fun setup_for_testing(access_price:u64,completion_mode:u8,completion_price:u64,quota:u64,cap:u64,fixed_fee:u64):sui::test_scenario::Scenario {
++    soulidity_v1::fixtures::setup_with_market_for_testing(access_price,completion_mode,completion_price,quota,cap,fixed_fee,MarketAuthority1{},MarketRevision3{})
++}

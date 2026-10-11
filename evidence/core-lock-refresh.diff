@@ -1,0 +1,23 @@
+--- original frozen Core lock
++++ retained Core lock after build
+@@ -46,6 +46,12 @@
+ manifest_digest = "80D15BFFEE47F19D6B3004A0EDE4854EFE705E9107A3AFA25DE11AD2AB012F28"
+ deps = { SoulidityFoundation = "SoulidityFoundation", SoulidityStandard = "SoulidityStandard", SoulidityVisual = "SoulidityVisual", Sui = "Sui" }
+ 
++[pinned.mainnet.SoulidityNative]
++source = { local = "../soulidity_native" }
++use_environment = "mainnet"
++manifest_digest = "126D02EECC061FF759593B5A3755F3D07B17DA89CA01B17490E31D870136A96B"
++deps = { SoulidityContent = "SoulidityContent", SoulidityFoundation = "SoulidityFoundation", SoulidityStandard = "SoulidityStandard", Sui = "Sui", Walrus = "Walrus" }
++
+ [pinned.mainnet.SoulidityStandard]
+ source = { local = "../soulidity_standard" }
+ use_environment = "mainnet"
+@@ -85,5 +91,5 @@
+ [pinned.mainnet.soulidity_v1]
+ source = { root = true }
+ use_environment = "mainnet"
+-manifest_digest = "FEA9A4C3C3AEC1A239A63EBAB6ED4C80F3395273DF6A878F8D6C4ED7D359BF5F"
+-deps = { SoulidityApplication = "SoulidityApplication", SoulidityCommunity = "SoulidityCommunity", SoulidityContent = "SoulidityContent", SoulidityFoundation = "SoulidityFoundation", SoulidityModel = "SoulidityModel", SoulidityStandard = "SoulidityStandard", SoulidityVisual = "SoulidityVisual", Sui = "Sui", Walrus = "Walrus" }
++manifest_digest = "CD0AAFA37D208DE2BADF371A4A98F72C48C2FEF6BBDE820BB7B1BC23E06CA998"
++deps = { SoulidityApplication = "SoulidityApplication", SoulidityCommunity = "SoulidityCommunity", SoulidityContent = "SoulidityContent", SoulidityFoundation = "SoulidityFoundation", SoulidityModel = "SoulidityModel", SoulidityNative = "SoulidityNative", SoulidityStandard = "SoulidityStandard", SoulidityVisual = "SoulidityVisual", Sui = "Sui", Walrus = "Walrus" }

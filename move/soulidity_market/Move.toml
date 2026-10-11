@@ -1,0 +1,14 @@
+[package]
+name = "SoulidityMarket"
+edition = "2024"
+
+[dependencies]
+soulidity_v1 = { local = "../../candidate-dependencies/soulidity_v1" }
+SoulidityApplication = { local = "../../candidate-dependencies/soulidity_application" }
+SoulidityFoundation = { local = "../../candidate-dependencies/soulidity_foundation" }
+SoulidityModel = { local = "../../candidate-dependencies/soulidity_model" }
+SoulidityStandard = { local = "../../candidate-dependencies/soulidity_standard" }
+Sui = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework/packages/sui-framework", rev = "2a0becb2fcc6989e492981104af67f62f2c9511a", override = true }
+
+[addresses]
+soulidity_market = "0x0"

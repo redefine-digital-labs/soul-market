@@ -1,0 +1,230 @@
+[NOTE] Dependencies on Sui, MoveStdlib, Bridge, DeepBook, and SuiSystem are automatically added, but this feature is disabled for your package because you have explicitly included dependencies on Sui. Consider removing these dependencies from `Move.toml`.
+INCLUDING DEPENDENCY MoveStdlib
+INCLUDING DEPENDENCY SoulidityApplication
+INCLUDING DEPENDENCY SoulidityCommunity
+INCLUDING DEPENDENCY SoulidityContent
+INCLUDING DEPENDENCY SoulidityFoundation
+INCLUDING DEPENDENCY SoulidityModel
+INCLUDING DEPENDENCY SoulidityNative
+INCLUDING DEPENDENCY SoulidityStandard
+INCLUDING DEPENDENCY SoulidityVisual
+INCLUDING DEPENDENCY Sui
+INCLUDING DEPENDENCY WAL
+INCLUDING DEPENDENCY Walrus
+INCLUDING DEPENDENCY soulidity_v1
+BUILDING SoulidityMarket
+error[EC04001]: restricted visibility
+   ┌─ ./tests/market_independent_gate_tests.move:60:192
+   │
+60 │ fun primary_off_blocks_free_player_entry(){let(mut sc,mut c,mut a)=setup();primary(&mut c,&mut a,false);let mut p:Product<USD> =sc.take_shared();let clock=clock::create_for_testing(sc.ctx());player::create(&mut p,&c,1,1,1000,fixtures::h(92),&clock,sc.ctx());clock::destroy_for_testing(clock);test_scenario::return_shared(p);close(sc,c,a)}
+   │                                                                                                                                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Invalid call to 'public(package)' visible function 'soulidity_v1::player::create'
+   │
+   ┌─ ../../../dependencies/soulidity_v1/sources/player.move:14:1
+   │
+14 │ public(package) fun create<C>(maker:&mut Product<C>,cfg:&Config<C>,version:u64,fee_revision:u64,expiry:u64,attempt:vector<u8>,clock:&Clock,ctx:&mut TxContext):ID {
+   │ --------------- A 'public(package)' function can only be called from the same address and package as module 'soulidity_v1::player' in package 'soulidity_v1'. This call is from address 'soulidity_market' in package 'SoulidityMarket'
+
+warning[WC09002]: unused variable
+   ┌─ ./tests/fixtures.move:38:30
+   │
+38 │ public fun setup_with_output(access_price:u64,completion_mode:u8,completion_price:u64,quota:u64,cap:u64,fixed_fee:u64,protected:bool,all_packs:bool,allowed_packs:vector<vector<u8>>):Scenario {
+   │                              ^^^^^^^^^^^^ Unused parameter 'access_price'. Consider removing or prefixing with an underscore: '_access_price'
+   │
+   = This warning can be suppressed with '#[allow(unused_variable)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC09002]: unused variable
+   ┌─ ./tests/fixtures.move:38:47
+   │
+38 │ public fun setup_with_output(access_price:u64,completion_mode:u8,completion_price:u64,quota:u64,cap:u64,fixed_fee:u64,protected:bool,all_packs:bool,allowed_packs:vector<vector<u8>>):Scenario {
+   │                                               ^^^^^^^^^^^^^^^ Unused parameter 'completion_mode'. Consider removing or prefixing with an underscore: '_completion_mode'
+   │
+   = This warning can be suppressed with '#[allow(unused_variable)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC09002]: unused variable
+   ┌─ ./tests/fixtures.move:38:66
+   │
+38 │ public fun setup_with_output(access_price:u64,completion_mode:u8,completion_price:u64,quota:u64,cap:u64,fixed_fee:u64,protected:bool,all_packs:bool,allowed_packs:vector<vector<u8>>):Scenario {
+   │                                                                  ^^^^^^^^^^^^^^^^ Unused parameter 'completion_price'. Consider removing or prefixing with an underscore: '_completion_price'
+   │
+   = This warning can be suppressed with '#[allow(unused_variable)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC09002]: unused variable
+   ┌─ ./tests/fixtures.move:38:87
+   │
+38 │ public fun setup_with_output(access_price:u64,completion_mode:u8,completion_price:u64,quota:u64,cap:u64,fixed_fee:u64,protected:bool,all_packs:bool,allowed_packs:vector<vector<u8>>):Scenario {
+   │                                                                                       ^^^^^ Unused parameter 'quota'. Consider removing or prefixing with an underscore: '_quota'
+   │
+   = This warning can be suppressed with '#[allow(unused_variable)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC09002]: unused variable
+   ┌─ ./tests/fixtures.move:38:97
+   │
+38 │ public fun setup_with_output(access_price:u64,completion_mode:u8,completion_price:u64,quota:u64,cap:u64,fixed_fee:u64,protected:bool,all_packs:bool,allowed_packs:vector<vector<u8>>):Scenario {
+   │                                                                                                 ^^^ Unused parameter 'cap'. Consider removing or prefixing with an underscore: '_cap'
+   │
+   = This warning can be suppressed with '#[allow(unused_variable)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC09002]: unused variable
+   ┌─ ./tests/fixtures.move:38:119
+   │
+38 │ public fun setup_with_output(access_price:u64,completion_mode:u8,completion_price:u64,quota:u64,cap:u64,fixed_fee:u64,protected:bool,all_packs:bool,allowed_packs:vector<vector<u8>>):Scenario {
+   │                                                                                                                       ^^^^^^^^^ Unused parameter 'protected'. Consider removing or prefixing with an underscore: '_protected'
+   │
+   = This warning can be suppressed with '#[allow(unused_variable)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC09002]: unused variable
+   ┌─ ./tests/fixtures.move:38:134
+   │
+38 │ public fun setup_with_output(access_price:u64,completion_mode:u8,completion_price:u64,quota:u64,cap:u64,fixed_fee:u64,protected:bool,all_packs:bool,allowed_packs:vector<vector<u8>>):Scenario {
+   │                                                                                                                                      ^^^^^^^^^ Unused parameter 'all_packs'. Consider removing or prefixing with an underscore: '_all_packs'
+   │
+   = This warning can be suppressed with '#[allow(unused_variable)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WC09002]: unused variable
+   ┌─ ./tests/fixtures.move:38:149
+   │
+38 │ public fun setup_with_output(access_price:u64,completion_mode:u8,completion_price:u64,quota:u64,cap:u64,fixed_fee:u64,protected:bool,all_packs:bool,allowed_packs:vector<vector<u8>>):Scenario {
+   │                                                                                                                                                     ^^^^^^^^^^^^^ Unused parameter 'allowed_packs'. Consider removing or prefixing with an underscore: '_allowed_packs'
+   │
+   = This warning can be suppressed with '#[allow(unused_variable)]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+error[EC04007]: incompatible types
+   ┌─ ./tests/fixtures.move:48:82
+   │
+38 │ public fun setup_with_output(access_price:u64,completion_mode:u8,completion_price:u64,quota:u64,cap:u64,fixed_fee:u64,protected:bool,all_packs:bool,allowed_packs:vector<vector<u8>>):Scenario {
+   │                                                                                                                                                                                       -------- Expected: 'sui::test_scenario::Scenario'
+   ·
+48 │     soulidity_content::paid_access::bootstrap_for_testing(&mut config,&mut admin);
+   │                                                                                  ^
+   │                                                                                  │
+   │                                                                                  Invalid return expression
+   │                                                                                  Given: '()'
+
+error[EC01002]: unexpected token
+   ┌─ ./tests/fixtures.move:49:9
+   │
+49 │     let native=soulidity_v1::native_binding::catalog_for_testing(&config,0,sc.ctx());let hash=economics::commitment(&config);
+   │         ^^^^^^
+   │         │
+   │         Unexpected 'native'
+   │         Expected a variable or struct name
+
+error[EC01002]: unexpected token
+   ┌─ ./tests/fixtures.move:49:15
+   │
+49 │     let native=soulidity_v1::native_binding::catalog_for_testing(&config,0,sc.ctx());let hash=economics::commitment(&config);
+   │               ^
+   │               │
+   │               Unexpected '='
+   │               Expected a module member: 'use', 'friend', 'const', 'fun', 'struct', or 'enum'
+
+error[EC01002]: unexpected token
+   ┌─ ./tests/fixtures.move:50:104
+   │
+50 │     let permit=soulidity_v1::native_binding::installation_for_testing(&config,&mut admin,0,hash,&native);
+   │                                                                                                        ^
+   │                                                                                                        │
+   │                                                                                                        Unexpected ')'
+   │                                                                                                        Expected a module member: 'use', 'friend', 'const', 'fun', 'struct', or 'enum'
+
+error[EC01002]: unexpected token
+   ┌─ ./tests/fixtures.move:51:69
+   │
+51 │     let native_hash=soulidity_v1::native_binding::commitment(&native);
+   │                                                                     ^
+   │                                                                     │
+   │                                                                     Unexpected ')'
+   │                                                                     Expected a module member: 'use', 'friend', 'const', 'fun', 'struct', or 'enum'
+
+error[EC01002]: unexpected token
+   ┌─ ./tests/fixtures.move:52:87
+   │
+52 │     economics::install_native_initial_for_testing(&mut config,&mut admin,permit,native,native_hash);
+   │                                                                                       ^
+   │                                                                                       │
+   │                                                                                       Unexpected ','
+   │                                                                                       Expected a module member: 'use', 'friend', 'const', 'fun', 'struct', or 'enum'
+
+error[EC04001]: restricted visibility
+   ┌─ ./tests/fixtures.move:67:15
+   │
+67 │     let mut b=issuer::begin(soulidity_v1::native_binding::application_binding(&cfg),&mut p,&mut cfg,intent,b"default",0,1000,coin,&clock,sc.ctx());
+   │               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Invalid call to 'public(package)' visible function 'soulidity_v1::issuer::begin'
+   │
+   ┌─ ../../../dependencies/soulidity_v1/sources/issuer.move:67:1
+   │
+67 │ public(package) fun begin<C>(binding:soulidity_application::issuance::Binding,maker:&mut Product<C>,cfg:&mut Config<C>,intent:Intent,output_key:vector<u8>,fee_revision:u64,expiry:u64,payment:Coin<C>,clock:&Clock,ctx:&mut TxContext):Build {
+   │ --------------- A 'public(package)' function can only be called from the same address and package as module 'soulidity_v1::issuer' in package 'soulidity_v1'. This call is from address 'soulidity_market' in package 'SoulidityMarket'
+
+error[EC04001]: restricted visibility
+    ┌─ ./tests/fixtures.move:67:29
+    │
+ 67 │     let mut b=issuer::begin(soulidity_v1::native_binding::application_binding(&cfg),&mut p,&mut cfg,intent,b"default",0,1000,coin,&clock,sc.ctx());
+    │                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Invalid call to 'public(package)' visible function 'soulidity_v1::native_binding::application_binding'
+    │
+    ┌─ ../../../dependencies/soulidity_v1/sources/native_binding.move:115:1
+    │
+115 │ public(package) fun application_binding<C>(cfg:&Config<C>):soulidity_application::issuance::Binding{
+    │ --------------- A 'public(package)' function can only be called from the same address and package as module 'soulidity_v1::native_binding' in package 'soulidity_v1'. This call is from address 'soulidity_market' in package 'SoulidityMarket'
+
+error[EC04001]: restricted visibility
+    ┌─ ./tests/fixtures.move:68:5
+    │
+ 68 │     issuer::select(&mut b,&mut p,policy::definition_hash(&def(b"ref",0,10)),b"ref",layout(),sc.ctx());
+    │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Invalid call to 'public(package)' visible function 'soulidity_v1::issuer::select'
+    │
+    ┌─ ../../../dependencies/soulidity_v1/sources/issuer.move:148:1
+    │
+148 │ public(package) fun select<C>(b:&mut Build,product:&mut Product<C>,definition_hash:vector<u8>,part:vector<u8>,layout:Layout,ctx:&mut TxContext){select_scoped(b,product,definition_hash,soulidity_model::assembly::root_part(part),layout,ctx)}
+    │ --------------- A 'public(package)' function can only be called from the same address and package as module 'soulidity_v1::issuer' in package 'soulidity_v1'. This call is from address 'soulidity_market' in package 'SoulidityMarket'
+
+error[EC04001]: restricted visibility
+    ┌─ ./tests/fixtures.move:69:5
+    │
+ 69 │     issuer::select(&mut b,&mut p,policy::definition_hash(&def(b"bound",1,10)),b"bound",layout(),sc.ctx());
+    │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Invalid call to 'public(package)' visible function 'soulidity_v1::issuer::select'
+    │
+    ┌─ ../../../dependencies/soulidity_v1/sources/issuer.move:148:1
+    │
+148 │ public(package) fun select<C>(b:&mut Build,product:&mut Product<C>,definition_hash:vector<u8>,part:vector<u8>,layout:Layout,ctx:&mut TxContext){select_scoped(b,product,definition_hash,soulidity_model::assembly::root_part(part),layout,ctx)}
+    │ --------------- A 'public(package)' function can only be called from the same address and package as module 'soulidity_v1::issuer' in package 'soulidity_v1'. This call is from address 'soulidity_market' in package 'SoulidityMarket'
+
+error[EC04001]: restricted visibility
+    ┌─ ./tests/fixtures.move:70:5
+    │
+ 70 │     issuer::select(&mut b,&mut p,policy::definition_hash(&def(b"free",2,10)),b"free",layout(),sc.ctx());
+    │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Invalid call to 'public(package)' visible function 'soulidity_v1::issuer::select'
+    │
+    ┌─ ../../../dependencies/soulidity_v1/sources/issuer.move:148:1
+    │
+148 │ public(package) fun select<C>(b:&mut Build,product:&mut Product<C>,definition_hash:vector<u8>,part:vector<u8>,layout:Layout,ctx:&mut TxContext){select_scoped(b,product,definition_hash,soulidity_model::assembly::root_part(part),layout,ctx)}
+    │ --------------- A 'public(package)' function can only be called from the same address and package as module 'soulidity_v1::issuer' in package 'soulidity_v1'. This call is from address 'soulidity_market' in package 'SoulidityMarket'
+
+error[EC04001]: restricted visibility
+    ┌─ ./tests/fixtures.move:99:9
+    │  
+ 98 │ ╭     rules.do_ref!(|r|{let kind=output::rule_kind(r);let blob=storage_fixture::blob(system,(100+kind) as u256,false,true,sc.ctx());
+ 99 │ │         issuer::append_initial_content(&mut build,&registry,kind,output::rule_name(r),blob,system,h((50+kind) as u8),b"encrypted-envelope",clock,sc.ctx());
+    │ │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Invalid call to 'public(package)' visible function 'soulidity_v1::issuer::append_initial_content'
+100 │ │     });test_scenario::return_shared(registry);
+    │ ╰──────' While expanding this macro
+    │  
+    ┌─ ../../../dependencies/soulidity_v1/sources/issuer.move:113:1
+    │
+113 │ public(package) fun append_initial_content(b:&mut Build,registry:&KindRegistry,kind:u32,name:String,blob:Blob,system:&System,sha256:vector<u8>,envelope:vector<u8>,clock:&Clock,ctx:&TxContext):u64 {
+    │ --------------- A 'public(package)' function can only be called from the same address and package as module 'soulidity_v1::issuer' in package 'soulidity_v1'. This call is from address 'soulidity_market' in package 'SoulidityMarket'
+    │
+    = This visibility error occurs in a macro body while expanding the macros 'std::vector::do_ref', 'std::u64::do', 'std::macros::do', and 'std::macros::range_do'
+    = Visibility inside of expanded macros is resolved in the scope of the caller.
+
+error[EC04001]: restricted visibility
+    ┌─ ./tests/fixtures.move:102:5
+    │
+102 │     issuer::finish(build,blob,system,h(60),envelope,sc.ctx())
+    │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Invalid call to 'public(package)' visible function 'soulidity_v1::issuer::finish'
+    │
+    ┌─ ../../../dependencies/soulidity_v1/sources/issuer.move:120:1
+    │
+120 │ public(package) fun finish(b:Build,render:Blob,system:&System,sha256:vector<u8>,envelope:vector<u8>,ctx:&mut TxContext):ID {
+    │ --------------- A 'public(package)' function can only be called from the same address and package as module 'soulidity_v1::issuer' in package 'soulidity_v1'. This call is from address 'soulidity_market' in package 'SoulidityMarket'
+

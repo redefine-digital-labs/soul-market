@@ -1,0 +1,87 @@
+--- old
++++ new
+@@ -8,43 +8,43 @@
+             name: IdentifierIndex(122),
+         },
+         ModuleHandle {
+-            address: AddressIdentifierIndex(6),
++            address: AddressIdentifierIndex(3),
+             name: IdentifierIndex(69),
++        },
++        ModuleHandle {
++            address: AddressIdentifierIndex(3),
++            name: IdentifierIndex(152),
++        },
++        ModuleHandle {
++            address: AddressIdentifierIndex(3),
++            name: IdentifierIndex(181),
+         },
+         ModuleHandle {
+             address: AddressIdentifierIndex(6),
+-            name: IdentifierIndex(152),
++            name: IdentifierIndex(98),
+         },
+         ModuleHandle {
+             address: AddressIdentifierIndex(6),
+-            name: IdentifierIndex(181),
++            name: IdentifierIndex(153),
++        },
++        ModuleHandle {
++            address: AddressIdentifierIndex(5),
++            name: IdentifierIndex(82),
++        },
++        ModuleHandle {
++            address: AddressIdentifierIndex(5),
++            name: IdentifierIndex(132),
++        },
++        ModuleHandle {
++            address: AddressIdentifierIndex(4),
++            name: IdentifierIndex(165),
+         },
+         ModuleHandle {
+             address: AddressIdentifierIndex(7),
+-            name: IdentifierIndex(98),
++            name: IdentifierIndex(68),
+         },
+         ModuleHandle {
+             address: AddressIdentifierIndex(7),
+-            name: IdentifierIndex(153),
+-        },
+-        ModuleHandle {
+-            address: AddressIdentifierIndex(3),
+-            name: IdentifierIndex(82),
+-        },
+-        ModuleHandle {
+-            address: AddressIdentifierIndex(3),
+-            name: IdentifierIndex(132),
+-        },
+-        ModuleHandle {
+-            address: AddressIdentifierIndex(5),
+-            name: IdentifierIndex(165),
+-        },
+-        ModuleHandle {
+-            address: AddressIdentifierIndex(4),
+-            name: IdentifierIndex(68),
+-        },
+-        ModuleHandle {
+-            address: AddressIdentifierIndex(4),
+             name: IdentifierIndex(74),
+         },
+         ModuleHandle {
+@@ -3414,11 +3414,11 @@
+         0000000000000000000000000000000000000000000000000000000000000000,
+         0000000000000000000000000000000000000000000000000000000000000001,
+         0000000000000000000000000000000000000000000000000000000000000002,
+-        0000000000000000000000000000000000000000000000000000000000000adb,
+-        000000000000000000000000000000000000000000000000000000000000aa9c,
+-        000000000000000000000000000000000000000000000000000000000000d1f8,
+-        000000000000000000000000000000000000000000000000000000000000dfcd,
+-        000000000000000000000000000000000000000000000000000000000000f8c3,
++        0000000000000000000000000000000000000000000000000000000000000d63,
++        0000000000000000000000000000000000000000000000000000000000001ea5,
++        00000000000000000000000000000000000000000000000000000000000046ef,
++        000000000000000000000000000000000000000000000000000000000000afb1,
++        000000000000000000000000000000000000000000000000000000000000e9af,
+     ],
+     constant_pool: [
+         Constant {

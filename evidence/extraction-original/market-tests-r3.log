@@ -1,0 +1,83 @@
+[NOTE] Dependencies on Sui, MoveStdlib, Bridge, DeepBook, and SuiSystem are automatically added, but this feature is disabled for your package because you have explicitly included dependencies on Sui. Consider removing these dependencies from `Move.toml`.
+INCLUDING DEPENDENCY MoveStdlib
+INCLUDING DEPENDENCY SoulidityApplication
+INCLUDING DEPENDENCY SoulidityCommunity
+INCLUDING DEPENDENCY SoulidityContent
+INCLUDING DEPENDENCY SoulidityFoundation
+INCLUDING DEPENDENCY SoulidityModel
+INCLUDING DEPENDENCY SoulidityNative
+INCLUDING DEPENDENCY SoulidityStandard
+INCLUDING DEPENDENCY SoulidityVisual
+INCLUDING DEPENDENCY Sui
+INCLUDING DEPENDENCY WAL
+INCLUDING DEPENDENCY Walrus
+INCLUDING DEPENDENCY soulidity_v1
+BUILDING SoulidityMarket
+error[EC04007]: incompatible types
+    ┌─ ../../../dependencies/soulidity_v1/tests/fixtures.move:109:82
+    │
+ 99 │ public fun setup_with_output_and_market<W:drop,R:drop>(access_price:u64,completion_mode:u8,completion_price:u64,quota:u64,cap:u64,fixed_fee:u64,protected:bool,all_packs:bool,allowed_packs:vector<vector<u8>>,market_w:W,market_r:R):Scenario {
+    │                                                                                                                                                                                                                                       -------- Expected: 'sui::test_scenario::Scenario'
+    ·
+109 │     soulidity_content::paid_access::bootstrap_for_testing(&mut config,&mut admin);
+    │                                                                                  ^
+    │                                                                                  │
+    │                                                                                  Invalid return expression
+    │                                                                                  Given: '()'
+
+error[EC01002]: unexpected token
+    ┌─ ../../../dependencies/soulidity_v1/tests/fixtures.move:110:9
+    │
+110 │     let native=soulidity_v1::native_binding::catalog_for_testing(&config,0,sc.ctx());let hash=economics::commitment(&config);
+    │         ^^^^^^
+    │         │
+    │         Unexpected 'native'
+    │         Expected a variable or struct name
+
+error[EC01002]: unexpected token
+    ┌─ ../../../dependencies/soulidity_v1/tests/fixtures.move:110:15
+    │
+110 │     let native=soulidity_v1::native_binding::catalog_for_testing(&config,0,sc.ctx());let hash=economics::commitment(&config);
+    │               ^
+    │               │
+    │               Unexpected '='
+    │               Expected a module member: 'use', 'friend', 'const', 'fun', 'struct', or 'enum'
+
+error[EC01002]: unexpected token
+    ┌─ ../../../dependencies/soulidity_v1/tests/fixtures.move:111:104
+    │
+111 │     let permit=soulidity_v1::native_binding::installation_for_testing(&config,&mut admin,0,hash,&native);
+    │                                                                                                        ^
+    │                                                                                                        │
+    │                                                                                                        Unexpected ')'
+    │                                                                                                        Expected a module member: 'use', 'friend', 'const', 'fun', 'struct', or 'enum'
+
+error[EC01002]: unexpected token
+    ┌─ ../../../dependencies/soulidity_v1/tests/fixtures.move:112:69
+    │
+112 │     let native_hash=soulidity_v1::native_binding::commitment(&native);
+    │                                                                     ^
+    │                                                                     │
+    │                                                                     Unexpected ')'
+    │                                                                     Expected a module member: 'use', 'friend', 'const', 'fun', 'struct', or 'enum'
+
+error[EC01002]: unexpected token
+    ┌─ ../../../dependencies/soulidity_v1/tests/fixtures.move:113:87
+    │
+113 │     economics::install_native_initial_for_testing(&mut config,&mut admin,permit,native,native_hash);
+    │                                                                                       ^
+    │                                                                                       │
+    │                                                                                       Unexpected ','
+    │                                                                                       Expected a module member: 'use', 'friend', 'const', 'fun', 'struct', or 'enum'
+
+error[EC04001]: restricted visibility
+   ┌─ ./tests/market_independent_gate_tests.move:60:192
+   │
+60 │ fun primary_off_blocks_free_player_entry(){let(mut sc,mut c,mut a)=setup();primary(&mut c,&mut a,false);let mut p:Product<USD> =sc.take_shared();let clock=clock::create_for_testing(sc.ctx());player::create(&mut p,&c,1,1,1000,fixtures::h(92),&clock,sc.ctx());clock::destroy_for_testing(clock);test_scenario::return_shared(p);close(sc,c,a)}
+   │                                                                                                                                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Invalid call to 'public(package)' visible function 'soulidity_v1::player::create'
+   │
+   ┌─ ../../../dependencies/soulidity_v1/sources/player.move:14:1
+   │
+14 │ public(package) fun create<C>(maker:&mut Product<C>,cfg:&Config<C>,version:u64,fee_revision:u64,expiry:u64,attempt:vector<u8>,clock:&Clock,ctx:&mut TxContext):ID {
+   │ --------------- A 'public(package)' function can only be called from the same address and package as module 'soulidity_v1::player' in package 'soulidity_v1'. This call is from address 'soulidity_market' in package 'SoulidityMarket'
+

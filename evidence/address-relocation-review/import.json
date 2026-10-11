@@ -1,0 +1,30 @@
+{
+  "source": "/var/folders/p7/xnbbfd1d3l12fp_fmj7bz85w0000gn/T/market-bytecode-difference-p2rpdbz5",
+  "files": {
+    "analysis-summary.json": "5c5c4dd31d03108f51401a1195f8be77c628f6d4bb3911f095982988ec8a23df",
+    "cli-671ba71e69c7-compiled_package.rs": "281c99129cfd14fddbd81963ebbca03e854c8bef921499e1aae5edc04f69b3f5",
+    "cli-671ba71e69c7-package_impl.rs": "b9af0f83be664cda24d6a2c48316d4b80c7eb931b2c259f1cc46d665353f7098",
+    "cli-671ba71e69c7-pin.rs": "de98089b5a9975b703a25a20e37db39f7cb2ea34db3a5dfb5c2a2c39dcef360c",
+    "compare-bytecode.py": "3aa4d18423c139416fc6a7a4cecb355905ffbab7cc80f74cab9ccbbaf16ce485",
+    "initial-comparison.json": "31d21e0af5e7d4e0800475eaa568aaf664d4d09e21b483be83e9419f721b40b0",
+    "market.debug.diff": "d08641f4fa4da5ea4e33fb2b5c1bbfd9d1e0f4324e5bbffba3a56b9b1c97a94f",
+    "market.dis.diff": "31a1e708f68693dbde7b7f3cd1a1df528824648730608a877ffe366889fe3137",
+    "new-BuildInfo.yaml": "a872dd4f358399f313ba05b0db69dd5e320ad63e84c97ba3da4de544c764c73a",
+    "new-normalized-to-old.mv": "c4cdde40f0b0fa78e76c016d6857ab2cdf2350f1315922ff2d697925146bf51e",
+    "new.debug.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "new.debug.txt": "5931c7aebde69b4c07a9670dd92d7ec268d2f2ceaf3192e186d25bf55da23a11",
+    "new.dis.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "new.dis.txt": "3ce38609458b5d4a34b7c9ee7d39ce43539c76947c7b89a06b8bac98bfdadf76",
+    "new.mv": "05fec8ae7d80ba6d645039fe57b9bfe898eea454520a39627faf722318f67312",
+    "normalized-comparison.json": "d5e7c3ff53267f3b20d8db0a6384928dca4c2ed9e95d5071793603b2f9f4a013",
+    "normalized.debug.txt": "f681f4c2a23546b68b2780cdfef459a336074d0c8964626d8114956104d8636a",
+    "old-BuildInfo.yaml": "96c466ba3bf873396c50662ddf57dc49cb2cd68d9f1e4f40c5909ac7c31d2922",
+    "old.debug.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "old.debug.txt": "f681f4c2a23546b68b2780cdfef459a336074d0c8964626d8114956104d8636a",
+    "old.dis.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "old.dis.txt": "50590d88bee7482a856b70437f45c3994a29fe9f624b8bf662eb7c06cb89243b",
+    "old.mv": "c4cdde40f0b0fa78e76c016d6857ab2cdf2350f1315922ff2d697925146bf51e"
+  },
+  "read_only_review": true,
+  "transactions": 0
+}
