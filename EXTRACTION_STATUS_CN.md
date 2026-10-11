@@ -1,0 +1,11 @@
+# Independent Market extraction review
+
+Market is now an independent production-package candidate; original consumers and on-chain routing still await transition. The new package does not require Core to import Market. Settlement, authorization clearing, Vault, cancellation, and terminal cleanup are preserved. Production build and 44/44 cross-package VM checks passed with the pinned CLI.
+
+Extraction changes module identity from `soulidity_v1::market` to `soulidity_market::market`. Two Collection membership checks use existing public read-only interfaces; conditions remain identical, while error module locations move to the new Market. Role registration for new instances requires the actual Publisher, Cap, Admin, disabled Config, and CAS. No public Cap constructor was added; no on-chain registration or authorization was performed.
+
+Directory relocation changes placeholder addresses for unpublished dependencies. All 174 production sources are identical; among 174 modules, 122 retain original bytes and 52 have address-table changes. Restoring dependency addresses and indices yields 174/174 byte equality. The original Market artifact SHA differs; the new SHAs from two local import builds match. See [address review](evidence/address-relocation-review/analysis-summary.json). Therefore deployment identity equality is not established. Before release, refreeze artifacts with exact target dependency original-id/published-at values and verify actual linkage and PTBs.
+
+Build dependencies in `candidate-dependencies/` are read-only frozen inputs. Source authority remains in the repositories specified by source-authority.json; do not modify other module implementations here. Current consumption still includes specific Catalog, Collection, Character, Vault, and Config formats. Package independence does not establish business-format independence. B0's four freezes and CASE-19 for zero forced releases under passive extensions have not run.
+
+The old Core Move.lock was subsequently refreshed to build retained consumers; see [lock refresh](evidence/post-extraction-lock-refresh.json). The extraction-time finding that source and locks were untouched is historical; it does not mean current lock bytes remain identical.

@@ -1,0 +1,37 @@
+[NOTE] Dependencies on Sui, MoveStdlib, Bridge, DeepBook, and SuiSystem are automatically added, but this feature is disabled for your package because you have explicitly included dependencies on Sui. Consider removing these dependencies from `Move.toml`.
+INCLUDING DEPENDENCY MoveStdlib
+INCLUDING DEPENDENCY SoulidityApplication
+INCLUDING DEPENDENCY SoulidityCommunity
+INCLUDING DEPENDENCY SoulidityContent
+INCLUDING DEPENDENCY SoulidityFoundation
+INCLUDING DEPENDENCY SoulidityModel
+INCLUDING DEPENDENCY SoulidityNative
+INCLUDING DEPENDENCY SoulidityStandard
+INCLUDING DEPENDENCY SoulidityVisual
+INCLUDING DEPENDENCY Sui
+INCLUDING DEPENDENCY WAL
+INCLUDING DEPENDENCY Walrus
+INCLUDING DEPENDENCY soulidity_v1
+BUILDING SoulidityMarket
+error[EC04001]: restricted visibility
+    ┌─ ./tests/market_tests.move:61:144
+    │
+ 61 │     let mut sc=fixtures::setup(0,0,0,0,0,0);sc.next_tx(@0xa);let mut p:Product<USD> = sc.take_shared();let mut c:Control=sc.take_from_sender();catalog::lifecycle(&mut p,&mut c,1,2);let cfg:Config<USD> = sc.take_shared();let clock=clock::create_for_testing(sc.ctx());market::list_control(c,&p,&cfg,101,1000,1,0,&clock,sc.ctx());clock::destroy_for_testing(clock);test_scenario::return_shared(p);test_scenario::return_shared(cfg);
+    │                                                                                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Invalid call to 'public(package)' visible function 'soulidity_v1::catalog::lifecycle'
+    │
+    ┌─ ../../../dependencies/soulidity_v1/sources/catalog.move:146:1
+    │
+146 │ public(package) fun lifecycle<C>(p:&mut Product<C>,control:&mut Control,expected:u64,state:u8) {
+    │ --------------- A 'public(package)' function can only be called from the same address and package as module 'soulidity_v1::catalog' in package 'soulidity_v1'. This call is from address 'soulidity_market' in package 'SoulidityMarket'
+
+error[EC04001]: restricted visibility
+    ┌─ ./tests/market_tests.move:102:192
+    │
+102 │     let mut sc=fixtures::setup(0,0,0,0,0,0);sc.next_tx(@0xa);let mut p:Product<USD> =sc.take_shared();let mut c:Control=sc.take_from_sender();let id=object::id(&c);let product=object::id(&p);catalog::lifecycle(&mut p,&mut c,1,2);
+    │                                                                                                                                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Invalid call to 'public(package)' visible function 'soulidity_v1::catalog::lifecycle'
+    │
+    ┌─ ../../../dependencies/soulidity_v1/sources/catalog.move:146:1
+    │
+146 │ public(package) fun lifecycle<C>(p:&mut Product<C>,control:&mut Control,expected:u64,state:u8) {
+    │ --------------- A 'public(package)' function can only be called from the same address and package as module 'soulidity_v1::catalog' in package 'soulidity_v1'. This call is from address 'soulidity_market' in package 'SoulidityMarket'
+

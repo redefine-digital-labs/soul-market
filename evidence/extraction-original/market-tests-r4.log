@@ -1,0 +1,94 @@
+[NOTE] Dependencies on Sui, MoveStdlib, Bridge, DeepBook, and SuiSystem are automatically added, but this feature is disabled for your package because you have explicitly included dependencies on Sui. Consider removing these dependencies from `Move.toml`.
+INCLUDING DEPENDENCY MoveStdlib
+INCLUDING DEPENDENCY SoulidityApplication
+INCLUDING DEPENDENCY SoulidityCommunity
+INCLUDING DEPENDENCY SoulidityContent
+INCLUDING DEPENDENCY SoulidityFoundation
+INCLUDING DEPENDENCY SoulidityModel
+INCLUDING DEPENDENCY SoulidityNative
+INCLUDING DEPENDENCY SoulidityStandard
+INCLUDING DEPENDENCY SoulidityVisual
+INCLUDING DEPENDENCY Sui
+INCLUDING DEPENDENCY WAL
+INCLUDING DEPENDENCY Walrus
+INCLUDING DEPENDENCY soulidity_v1
+BUILDING SoulidityMarket
+error[EC01002]: unexpected token
+    ┌─ ./tests/market_tests.move:155:23
+    │
+155 │     let cfg:Config<USD>=sc.take_shared();let clock=clock::create_for_testing(sc.ctx());market::list_item(it,&cfg,101,1000,0,&clock,sc.ctx());clock::destroy_for_testing(clock);test_scenario::return_shared(cfg);
+    │                   -   ^ Expected '>'
+    │                   │    
+    │                   To match this '<'
+
+error[EC01002]: unexpected token
+    ┌─ ./tests/market_tests.move:155:23
+    │
+155 │     let cfg:Config<USD>=sc.take_shared();let clock=clock::create_for_testing(sc.ctx());market::list_item(it,&cfg,101,1000,0,&clock,sc.ctx());clock::destroy_for_testing(clock);test_scenario::return_shared(cfg);
+    │                       ^^
+    │                       │
+    │                       Unexpected '>='
+    │                       Expected ';'
+
+error[EC01002]: unexpected token
+    ┌─ ./tests/market_tests.move:156:48
+    │
+156 │     sc.next_tx(@0xc);let mut l:Listing<Item,USD>=sc.take_shared();let mut cfg:Config<USD>=sc.take_shared();let clock=clock::create_for_testing(sc.ctx());
+    │                                       -        ^ Expected '>'
+    │                                       │         
+    │                                       To match this '<'
+
+error[EC01002]: unexpected token
+    ┌─ ./tests/market_tests.move:156:48
+    │
+156 │     sc.next_tx(@0xc);let mut l:Listing<Item,USD>=sc.take_shared();let mut cfg:Config<USD>=sc.take_shared();let clock=clock::create_for_testing(sc.ctx());
+    │                                                ^^
+    │                                                │
+    │                                                Unexpected '>='
+    │                                                Expected ';'
+
+error[EC01002]: unexpected token
+    ┌─ ./tests/market_tests.move:156:89
+    │
+156 │     sc.next_tx(@0xc);let mut l:Listing<Item,USD>=sc.take_shared();let mut cfg:Config<USD>=sc.take_shared();let clock=clock::create_for_testing(sc.ctx());
+    │                                                                                     -   ^ Expected '>'
+    │                                                                                     │    
+    │                                                                                     To match this '<'
+
+error[EC01002]: unexpected token
+    ┌─ ./tests/market_tests.move:156:89
+    │
+156 │     sc.next_tx(@0xc);let mut l:Listing<Item,USD>=sc.take_shared();let mut cfg:Config<USD>=sc.take_shared();let clock=clock::create_for_testing(sc.ctx());
+    │                                                                                         ^^
+    │                                                                                         │
+    │                                                                                         Unexpected '>='
+    │                                                                                         Expected ';'
+
+error[EC04007]: incompatible types
+    ┌─ ./tests/market_tests.move:158:186
+    │
+152 │ fun core_market_role_does_not_authorize_independent_market(){
+    │     ------------------------------------------------------ Expected: '()'
+    ·
+158 │     market::buy_item(&mut l,&mut cfg,0,hash,q,0,fixtures::h(90),pay,&clock,sc.ctx());clock::destroy_for_testing(clock);test_scenario::return_shared(cfg);test_scenario::return_shared(l);sc.end()
+    │                                                                                                                                                                                          ^^^^^^^^ Invalid return expression
+    │
+    ┌─ /Users/naoer/.move/git/https___github_com_MystenLabs_sui_git_2a0becb2fcc6989e492981104af67f62f2c9511a/crates/sui-framework/packages/sui-framework/sources/test/test_scenario.move:363:37
+    │
+363 │ public fun end(scenario: Scenario): TransactionEffects {
+    │                                     ------------------ Given: 'sui::test_scenario::TransactionEffects'
+
+error[EC04007]: incompatible types
+    ┌─ ./tests/collection_market_tests.move:80:262
+    │
+ 77 │ fun unbound_soul_cannot_claim_collection_membership(){
+    │     ----------------------------------------------- Expected: '()'
+    ·
+ 80 │     test_scenario::return_shared(c);test_scenario::return_shared(k);test_scenario::return_shared(cfg);test_scenario::return_shared(factory);test_scenario::return_shared(policy);sc.return_to_sender(a);sc.return_to_sender(spare);clock::destroy_for_testing(clock);sc.end()
+    │                                                                                                                                                                                                                                                                      ^^^^^^^^ Invalid return expression
+    │
+    ┌─ /Users/naoer/.move/git/https___github_com_MystenLabs_sui_git_2a0becb2fcc6989e492981104af67f62f2c9511a/crates/sui-framework/packages/sui-framework/sources/test/test_scenario.move:363:37
+    │
+363 │ public fun end(scenario: Scenario): TransactionEffects {
+    │                                     ------------------ Given: 'sui::test_scenario::TransactionEffects'
+

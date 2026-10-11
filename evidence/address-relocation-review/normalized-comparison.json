@@ -1,0 +1,1769 @@
+{
+  "method": "Module format v7: parse ULEB128 table directory; only restore AddressIdentifiers by established per-package self-ID bijection, remap AddressIdentifierIndex in ModuleHandles/FriendDecls. Every other byte must equal the old artifact. No opcode/constant/type/signature changes are permitted.",
+  "addressMapping": [
+    {
+      "package": "SoulidityApplication",
+      "old": "0xdfcd",
+      "new": "0xd63"
+    },
+    {
+      "package": "SoulidityCommunity",
+      "old": "0x5ffa",
+      "new": "0x4a8"
+    },
+    {
+      "package": "SoulidityContent",
+      "old": "0xeed3",
+      "new": "0x37cd"
+    },
+    {
+      "package": "SoulidityFoundation",
+      "old": "0xf8c3",
+      "new": "0xafb1"
+    },
+    {
+      "package": "SoulidityModel",
+      "old": "0xadb",
+      "new": "0x46ef"
+    },
+    {
+      "package": "SoulidityNative",
+      "old": "0x3a14",
+      "new": "0x39af"
+    },
+    {
+      "package": "SoulidityStandard",
+      "old": "0xd1f8",
+      "new": "0x1ea5"
+    },
+    {
+      "package": "SoulidityVisual",
+      "old": "0xfab8",
+      "new": "0x914a"
+    },
+    {
+      "package": "soulidity_v1",
+      "old": "0xaa9c",
+      "new": "0xe9af"
+    }
+  ],
+  "moduleResults": [
+    {
+      "path": "dependencies/MoveStdlib/address.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "4fb64fc8b8495a4cda67c168e53af181bdd434eb1a9b0d97f43bd6f4d10f23d6",
+      "newSHA": "4fb64fc8b8495a4cda67c168e53af181bdd434eb1a9b0d97f43bd6f4d10f23d6",
+      "normalizedSHA": "4fb64fc8b8495a4cda67c168e53af181bdd434eb1a9b0d97f43bd6f4d10f23d6"
+    },
+    {
+      "path": "dependencies/MoveStdlib/ascii.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "ad6a8d4d8f72bfb5667119fb6566b035ed6783607e016292233b83ac91747133",
+      "newSHA": "ad6a8d4d8f72bfb5667119fb6566b035ed6783607e016292233b83ac91747133",
+      "normalizedSHA": "ad6a8d4d8f72bfb5667119fb6566b035ed6783607e016292233b83ac91747133"
+    },
+    {
+      "path": "dependencies/MoveStdlib/bcs.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "9ecc5a8acb7fd9c8e4a1a79cf94e2de6c4645cf2ff9242bc0d29b85377e7e78a",
+      "newSHA": "9ecc5a8acb7fd9c8e4a1a79cf94e2de6c4645cf2ff9242bc0d29b85377e7e78a",
+      "normalizedSHA": "9ecc5a8acb7fd9c8e4a1a79cf94e2de6c4645cf2ff9242bc0d29b85377e7e78a"
+    },
+    {
+      "path": "dependencies/MoveStdlib/bit_vector.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "ae97e40361d4139fafc3f22a78fca10fb4723c8b60c6f95fb1f58b2f8bf47ea0",
+      "newSHA": "ae97e40361d4139fafc3f22a78fca10fb4723c8b60c6f95fb1f58b2f8bf47ea0",
+      "normalizedSHA": "ae97e40361d4139fafc3f22a78fca10fb4723c8b60c6f95fb1f58b2f8bf47ea0"
+    },
+    {
+      "path": "dependencies/MoveStdlib/bool.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "d162bce0817901b3299e9ee792fbd3cbb626ce65e56db7f4e6f31e7f2415758b",
+      "newSHA": "d162bce0817901b3299e9ee792fbd3cbb626ce65e56db7f4e6f31e7f2415758b",
+      "normalizedSHA": "d162bce0817901b3299e9ee792fbd3cbb626ce65e56db7f4e6f31e7f2415758b"
+    },
+    {
+      "path": "dependencies/MoveStdlib/debug.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "4b0abcacd7d76ed4c61ab0d58a27af272318b36222ac7c73c4b85eadcc625003",
+      "newSHA": "4b0abcacd7d76ed4c61ab0d58a27af272318b36222ac7c73c4b85eadcc625003",
+      "normalizedSHA": "4b0abcacd7d76ed4c61ab0d58a27af272318b36222ac7c73c4b85eadcc625003"
+    },
+    {
+      "path": "dependencies/MoveStdlib/fixed_point32.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "fb62e8fdeb04ac55ab5f32b6e40752552aabe4331ff56219f6eb9fd10107339e",
+      "newSHA": "fb62e8fdeb04ac55ab5f32b6e40752552aabe4331ff56219f6eb9fd10107339e",
+      "normalizedSHA": "fb62e8fdeb04ac55ab5f32b6e40752552aabe4331ff56219f6eb9fd10107339e"
+    },
+    {
+      "path": "dependencies/MoveStdlib/hash.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "8870240ebb077777c7286f201c96e4c7007b5ec8ff9c6483f768e144ee27308c",
+      "newSHA": "8870240ebb077777c7286f201c96e4c7007b5ec8ff9c6483f768e144ee27308c",
+      "normalizedSHA": "8870240ebb077777c7286f201c96e4c7007b5ec8ff9c6483f768e144ee27308c"
+    },
+    {
+      "path": "dependencies/MoveStdlib/internal.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "9de06b9f220247ae6de25e20b7081863d2eb40bd933032b8dff3128b779c0ddb",
+      "newSHA": "9de06b9f220247ae6de25e20b7081863d2eb40bd933032b8dff3128b779c0ddb",
+      "normalizedSHA": "9de06b9f220247ae6de25e20b7081863d2eb40bd933032b8dff3128b779c0ddb"
+    },
+    {
+      "path": "dependencies/MoveStdlib/macros.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "9096231f12a248d5f67bcdfe0580fbe24d32400a9d54c0dd4f0c5106b4ef9b92",
+      "newSHA": "9096231f12a248d5f67bcdfe0580fbe24d32400a9d54c0dd4f0c5106b4ef9b92",
+      "normalizedSHA": "9096231f12a248d5f67bcdfe0580fbe24d32400a9d54c0dd4f0c5106b4ef9b92"
+    },
+    {
+      "path": "dependencies/MoveStdlib/option.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "e4f7cd660bf588b2cfea4ece60a40bf66a48f2e153ce852220ef9ce2bf03db34",
+      "newSHA": "e4f7cd660bf588b2cfea4ece60a40bf66a48f2e153ce852220ef9ce2bf03db34",
+      "normalizedSHA": "e4f7cd660bf588b2cfea4ece60a40bf66a48f2e153ce852220ef9ce2bf03db34"
+    },
+    {
+      "path": "dependencies/MoveStdlib/string.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "188abc8147a8f37f24ebeda635f15b6d2bd008bc0d1902ca157f44c23cdffbd7",
+      "newSHA": "188abc8147a8f37f24ebeda635f15b6d2bd008bc0d1902ca157f44c23cdffbd7",
+      "normalizedSHA": "188abc8147a8f37f24ebeda635f15b6d2bd008bc0d1902ca157f44c23cdffbd7"
+    },
+    {
+      "path": "dependencies/MoveStdlib/type_name.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "0d6722ce0f17c6b75031f7121d3a704140284b796269edcd02c224d87e25c33a",
+      "newSHA": "0d6722ce0f17c6b75031f7121d3a704140284b796269edcd02c224d87e25c33a",
+      "normalizedSHA": "0d6722ce0f17c6b75031f7121d3a704140284b796269edcd02c224d87e25c33a"
+    },
+    {
+      "path": "dependencies/MoveStdlib/u128.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "aa79aac8afd1f64ca60e500d9e5235c4250da2167db102af1f5a4cec8ae3d2a4",
+      "newSHA": "aa79aac8afd1f64ca60e500d9e5235c4250da2167db102af1f5a4cec8ae3d2a4",
+      "normalizedSHA": "aa79aac8afd1f64ca60e500d9e5235c4250da2167db102af1f5a4cec8ae3d2a4"
+    },
+    {
+      "path": "dependencies/MoveStdlib/u16.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "b216b3e29fd4e35aa60febbc6b0552da18c0e8871e8a1b77329083b51ba9c329",
+      "newSHA": "b216b3e29fd4e35aa60febbc6b0552da18c0e8871e8a1b77329083b51ba9c329",
+      "normalizedSHA": "b216b3e29fd4e35aa60febbc6b0552da18c0e8871e8a1b77329083b51ba9c329"
+    },
+    {
+      "path": "dependencies/MoveStdlib/u256.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "97881d6bc1abeecb3c5feb5c4be71319cb7508707a144e9473525b3bfbb0c73a",
+      "newSHA": "97881d6bc1abeecb3c5feb5c4be71319cb7508707a144e9473525b3bfbb0c73a",
+      "normalizedSHA": "97881d6bc1abeecb3c5feb5c4be71319cb7508707a144e9473525b3bfbb0c73a"
+    },
+    {
+      "path": "dependencies/MoveStdlib/u32.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "371bbd7e5309b8eadca96183b96afaa341e4498aee0f6a76b0399f0d0dfdfb21",
+      "newSHA": "371bbd7e5309b8eadca96183b96afaa341e4498aee0f6a76b0399f0d0dfdfb21",
+      "normalizedSHA": "371bbd7e5309b8eadca96183b96afaa341e4498aee0f6a76b0399f0d0dfdfb21"
+    },
+    {
+      "path": "dependencies/MoveStdlib/u64.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "e97fa231ee3b83da978d378cb44dfac51ecd861941e1156f98b21eac3b7480eb",
+      "newSHA": "e97fa231ee3b83da978d378cb44dfac51ecd861941e1156f98b21eac3b7480eb",
+      "normalizedSHA": "e97fa231ee3b83da978d378cb44dfac51ecd861941e1156f98b21eac3b7480eb"
+    },
+    {
+      "path": "dependencies/MoveStdlib/u8.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "a55cec655fbad8e01b9aa6af508ecadbc856befef6465241ded389a1576b11fb",
+      "newSHA": "a55cec655fbad8e01b9aa6af508ecadbc856befef6465241ded389a1576b11fb",
+      "normalizedSHA": "a55cec655fbad8e01b9aa6af508ecadbc856befef6465241ded389a1576b11fb"
+    },
+    {
+      "path": "dependencies/MoveStdlib/uq32_32.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "e92321d33c381c6fa15e38b1a1f2b609f35594467897df19f9a82a2d47d35671",
+      "newSHA": "e92321d33c381c6fa15e38b1a1f2b609f35594467897df19f9a82a2d47d35671",
+      "normalizedSHA": "e92321d33c381c6fa15e38b1a1f2b609f35594467897df19f9a82a2d47d35671"
+    },
+    {
+      "path": "dependencies/MoveStdlib/uq64_64.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "b88eee6fce6d40ccc3ec84193780ab35f40f5d161767a21545f58f9d1c69b5b7",
+      "newSHA": "b88eee6fce6d40ccc3ec84193780ab35f40f5d161767a21545f58f9d1c69b5b7",
+      "normalizedSHA": "b88eee6fce6d40ccc3ec84193780ab35f40f5d161767a21545f58f9d1c69b5b7"
+    },
+    {
+      "path": "dependencies/MoveStdlib/vector.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "b5d1c80c0c09ec17c38086452434a213f7e8663c8acc9a1917c5997944edaa2c",
+      "newSHA": "b5d1c80c0c09ec17c38086452434a213f7e8663c8acc9a1917c5997944edaa2c",
+      "normalizedSHA": "b5d1c80c0c09ec17c38086452434a213f7e8663c8acc9a1917c5997944edaa2c"
+    },
+    {
+      "path": "dependencies/SoulidityApplication/character.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x1",
+        "0x8"
+      ],
+      "oldSHA": "c59f8442419086bead779771dd805fae31b1702e7a01c1638f5e730e05ac0e65",
+      "newSHA": "6b757dff034dc34d8d589821918f89abc3f3c125292ceb7f03bd43186a148cf2",
+      "normalizedSHA": "c59f8442419086bead779771dd805fae31b1702e7a01c1638f5e730e05ac0e65"
+    },
+    {
+      "path": "dependencies/SoulidityApplication/forms.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x1",
+        "0x8"
+      ],
+      "oldSHA": "6ca0cde3d1b257460192df0f0a90d71d704a7030c89efac0138f06cde011fbbe",
+      "newSHA": "f4bbce3452147282d0dde7ec2dcd49a733dec1dcc930077948b9b7408f014fa4",
+      "normalizedSHA": "6ca0cde3d1b257460192df0f0a90d71d704a7030c89efac0138f06cde011fbbe"
+    },
+    {
+      "path": "dependencies/SoulidityApplication/growth.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x8"
+      ],
+      "oldSHA": "d60ace2aa3afc277caba8415e4328e8fadc42f84c6a32a6ff7924cc419c48268",
+      "newSHA": "3afcdf2fce40cf79d79c990953e0692578fda8aadc2afa067e4827c1fbe66b99",
+      "normalizedSHA": "d60ace2aa3afc277caba8415e4328e8fadc42f84c6a32a6ff7924cc419c48268"
+    },
+    {
+      "path": "dependencies/SoulidityApplication/issuance.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x1",
+        "0x8"
+      ],
+      "oldSHA": "7e66d77d78b8fcd1a2bd05e0b2a139fe617411af768c8d5cb25077e9bf71434d",
+      "newSHA": "5cb05ddd273438c6dcf08241c289e610b824a462ce8385e48935cab5f10d617e",
+      "normalizedSHA": "7e66d77d78b8fcd1a2bd05e0b2a139fe617411af768c8d5cb25077e9bf71434d"
+    },
+    {
+      "path": "dependencies/SoulidityApplication/output.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x1",
+        "0x8"
+      ],
+      "oldSHA": "1a334eedaf9ce7156fa0587645ed2e4e6e968022f8d3cea853a14a95b2da5258",
+      "newSHA": "a61186ec22435493942432b733d2f3b087669722962ebc93ae9655731f3d67cd",
+      "normalizedSHA": "1a334eedaf9ce7156fa0587645ed2e4e6e968022f8d3cea853a14a95b2da5258"
+    },
+    {
+      "path": "dependencies/SoulidityApplication/physical_metadata.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x8"
+      ],
+      "oldSHA": "2c09531eb45b556923419aed72a27821db9f806e734c80165ac7e398740d8894",
+      "newSHA": "cf8cc57948aec1081b9650b6ee69ca04d115d239baa83aac874ee79c48790370",
+      "normalizedSHA": "2c09531eb45b556923419aed72a27821db9f806e734c80165ac7e398740d8894"
+    },
+    {
+      "path": "dependencies/SoulidityApplication/publication_rules.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x8"
+      ],
+      "oldSHA": "023e354f2a901b266bcdec1d710e8b276ed3aa11903702af9a82deca1e97eb9d",
+      "newSHA": "d6e9cd6debbcc4b3d92a8fc9adbb9e49588c58bbf69d20a6accc869be307dc54",
+      "normalizedSHA": "023e354f2a901b266bcdec1d710e8b276ed3aa11903702af9a82deca1e97eb9d"
+    },
+    {
+      "path": "dependencies/SoulidityApplication/resale.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x8"
+      ],
+      "oldSHA": "9489f5fc4c264a187bb99b0db518a1adcbfb25f79e2ef8f5d8b30cb10363f912",
+      "newSHA": "74b5c5fa6f25c792e6b8469312c809d6cc74eae14503db3bd74dde98e4e9112f",
+      "normalizedSHA": "9489f5fc4c264a187bb99b0db518a1adcbfb25f79e2ef8f5d8b30cb10363f912"
+    },
+    {
+      "path": "dependencies/SoulidityApplication/vault.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x8"
+      ],
+      "oldSHA": "32599edb2541728ba19038520aa59ff8d172761873ef9d0143c2d5387bf1f767",
+      "newSHA": "c927825561fd2058888820b3cdf19e5386717dd13864a20ab561c3ce4010ceb7",
+      "normalizedSHA": "32599edb2541728ba19038520aa59ff8d172761873ef9d0143c2d5387bf1f767"
+    },
+    {
+      "path": "dependencies/SoulidityApplication/visual_capture.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x1",
+        "0x8"
+      ],
+      "oldSHA": "d4173cb2bfd2c8bf3f15f6459e3c02141c4b3e90d6b97a86dd39d27099afeff3",
+      "newSHA": "691b07ed8e68bb5e6852ee7800eac56a7e2d54f55b4dfeec955156a1dae1d5f1",
+      "normalizedSHA": "d4173cb2bfd2c8bf3f15f6459e3c02141c4b3e90d6b97a86dd39d27099afeff3"
+    },
+    {
+      "path": "dependencies/SoulidityCommunity/community_posts.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x8"
+      ],
+      "oldSHA": "77179071a2b27fc8bf3f2259818ac24e8219156656dd1d042103364875b36d8a",
+      "newSHA": "7900d2edbf1e0eb3c30a421e644d2270baae699989cf8a35ad23c2be678529b3",
+      "normalizedSHA": "77179071a2b27fc8bf3f2259818ac24e8219156656dd1d042103364875b36d8a"
+    },
+    {
+      "path": "dependencies/SoulidityCommunity/community_votes.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x8"
+      ],
+      "oldSHA": "52fdf16b414362e20419210f6e0dba37b704cb5c415f53e972a1437ceba80eee",
+      "newSHA": "9bb18e3af591a671cf0db322fe109d11adab402027f222d8b529bb3f70f5c92a",
+      "normalizedSHA": "52fdf16b414362e20419210f6e0dba37b704cb5c415f53e972a1437ceba80eee"
+    },
+    {
+      "path": "dependencies/SoulidityCommunity/profile.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x8"
+      ],
+      "oldSHA": "bc0f3fc26fff195235cd0c00c9bd9e8eba242936ba92895327be49d8ffe98792",
+      "newSHA": "6cc5a6ecf9e752248b08ca4193ddf3eec1de5cb2e0ec94ad3cad44bfc0980015",
+      "normalizedSHA": "bc0f3fc26fff195235cd0c00c9bd9e8eba242936ba92895327be49d8ffe98792"
+    },
+    {
+      "path": "dependencies/SoulidityCommunity/social.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x8"
+      ],
+      "oldSHA": "30357dc520d220baebf53fde3dac6023cab69a05805e9549a8e56a60c39a9ba9",
+      "newSHA": "7880581422e9e03c1064569d715d42630aa03843e7888a873974d392e651fe71",
+      "normalizedSHA": "30357dc520d220baebf53fde3dac6023cab69a05805e9549a8e56a60c39a9ba9"
+    },
+    {
+      "path": "dependencies/SoulidityContent/authority.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x8"
+      ],
+      "oldSHA": "ac947679ad5b2226c0e0af10d80795d3eb8ed4a4d3674ef9801a707397113723",
+      "newSHA": "07d65323a5e8ed18421c01cea3e169cb9c67e7a6143b70ff952846bb4f6cbbe0",
+      "normalizedSHA": "ac947679ad5b2226c0e0af10d80795d3eb8ed4a4d3674ef9801a707397113723"
+    },
+    {
+      "path": "dependencies/SoulidityContent/authorization.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x8"
+      ],
+      "oldSHA": "3af3e8379ff14530971a060c7652bb25690151096f71e9b24aa1903932c90f97",
+      "newSHA": "13d75eb5980d99ba59d957c3ee75640198ed773f9879f782e1a9d5d3d0939fa1",
+      "normalizedSHA": "3af3e8379ff14530971a060c7652bb25690151096f71e9b24aa1903932c90f97"
+    },
+    {
+      "path": "dependencies/SoulidityContent/blob_custody.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x8"
+      ],
+      "oldSHA": "1d5956eb6dd30c93e3b5e48d037b2dacbc7b7d2609ad8e1884fb1379a61a943c",
+      "newSHA": "787b155eecea5c21b04f596a38c36b741c0188482429430ed7bfe675a22e95fc",
+      "normalizedSHA": "1d5956eb6dd30c93e3b5e48d037b2dacbc7b7d2609ad8e1884fb1379a61a943c"
+    },
+    {
+      "path": "dependencies/SoulidityContent/document.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x8"
+      ],
+      "oldSHA": "4f3b490f3d0711978600a28c6781ee04a3a6dfaf7fd7f354c7cf790bbf914c3c",
+      "newSHA": "187b21d0b0c5a77d7174dca400ee38fd3bf9cb315b2a15b402d39a504eae2cc6",
+      "normalizedSHA": "4f3b490f3d0711978600a28c6781ee04a3a6dfaf7fd7f354c7cf790bbf914c3c"
+    },
+    {
+      "path": "dependencies/SoulidityContent/founding_library.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x8"
+      ],
+      "oldSHA": "7a5fa3c53965fde8eea5f7fcb75d7a80b333831c851ee76e00b60017cda7ceb1",
+      "newSHA": "bb5e0a64b1e7dd24c404b43c186e3975f8a1faeb6861415f63a6ae4cdd6fc230",
+      "normalizedSHA": "7a5fa3c53965fde8eea5f7fcb75d7a80b333831c851ee76e00b60017cda7ceb1"
+    },
+    {
+      "path": "dependencies/SoulidityContent/kind_registry.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x8"
+      ],
+      "oldSHA": "8adad93948348371ed6b743100ad34ff6a14019781552613e735f280a7c3e6af",
+      "newSHA": "3a91ddb32fce0a42892765fc293fc8b5ba3a8c092d5a2e6be1b78ac65e069abd",
+      "normalizedSHA": "8adad93948348371ed6b743100ad34ff6a14019781552613e735f280a7c3e6af"
+    },
+    {
+      "path": "dependencies/SoulidityContent/loadout.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x8"
+      ],
+      "oldSHA": "04655c4fd18882597299814e9bf4c7e74ecb33800f5814c967c9972f4e14bd89",
+      "newSHA": "86146ce1bb00ebd97bfb8b9805e2d8637a952c19c9101c50f25e09f8131ecd4b",
+      "normalizedSHA": "04655c4fd18882597299814e9bf4c7e74ecb33800f5814c967c9972f4e14bd89"
+    },
+    {
+      "path": "dependencies/SoulidityContent/paged_store.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x8"
+      ],
+      "oldSHA": "6113172ef777b68dfff3b95c2a9d72bb11e49cc377d7411991e2fed4d5585eb4",
+      "newSHA": "59a1aff24644de38479324a9abf33b2e866d11095e4779c58d67a0b5d75832d8",
+      "normalizedSHA": "6113172ef777b68dfff3b95c2a9d72bb11e49cc377d7411991e2fed4d5585eb4"
+    },
+    {
+      "path": "dependencies/SoulidityContent/paid_access.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x8"
+      ],
+      "oldSHA": "2d05ad0734919e21018a69fed1e83f72988e51e456b22330b00497ecdcbf8154",
+      "newSHA": "cb6387fc176a4ca438721a44d213f0ffffa87402c0cb29a1e867471def8bd32f",
+      "normalizedSHA": "2d05ad0734919e21018a69fed1e83f72988e51e456b22330b00497ecdcbf8154"
+    },
+    {
+      "path": "dependencies/SoulidityContent/permissions.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x8"
+      ],
+      "oldSHA": "70fe1dd558e61bea8c2cdc3fd2f94ce6bd2344642b4851e0ae697c2e2d9e1c5f",
+      "newSHA": "5295622a765a9460220599deab7f2c4830c4ca200024571b9e10b62f8403917d",
+      "normalizedSHA": "70fe1dd558e61bea8c2cdc3fd2f94ce6bd2344642b4851e0ae697c2e2d9e1c5f"
+    },
+    {
+      "path": "dependencies/SoulidityContent/state_configuration.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x8"
+      ],
+      "oldSHA": "8eba61eba08ebe49999ae73e3812030ba6dfd55393e391b8ce165ef96db90169",
+      "newSHA": "b5b2de9971dba34ccbd3e7551881dec6062f746c300496800f440792e0fcc2da",
+      "normalizedSHA": "8eba61eba08ebe49999ae73e3812030ba6dfd55393e391b8ce165ef96db90169"
+    },
+    {
+      "path": "dependencies/SoulidityContent/storage.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x8"
+      ],
+      "oldSHA": "9ee8d4ae492e108836e7091d888fa8ebe3d6b72bce33568e2b01fb92b410aaa7",
+      "newSHA": "4d1a30d4c3cc18d37d3e864c703418e059155616b117309fd51d867f1ba6b1b9",
+      "normalizedSHA": "9ee8d4ae492e108836e7091d888fa8ebe3d6b72bce33568e2b01fb92b410aaa7"
+    },
+    {
+      "path": "dependencies/SoulidityFoundation/economics.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x8"
+      ],
+      "oldSHA": "604bb7e88c4f998f2a5e4767e75d88384c2d1a722a62e1826b07861a3627246a",
+      "newSHA": "2d6895d733b244c492aae1245c5b1954dd0b0986c1dcbad01466a72fb10fed98",
+      "normalizedSHA": "604bb7e88c4f998f2a5e4767e75d88384c2d1a722a62e1826b07861a3627246a"
+    },
+    {
+      "path": "dependencies/SoulidityFoundation/package_roles.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x8"
+      ],
+      "oldSHA": "022c9bdb75aff2c229d382f2c5f9b290ca937cbd7e93494a7621ed1926ee5373",
+      "newSHA": "ef6f16eef74640d61b0f33518022cb61b0998add0d921e4e13d125dc3c834f84",
+      "normalizedSHA": "022c9bdb75aff2c229d382f2c5f9b290ca937cbd7e93494a7621ed1926ee5373"
+    },
+    {
+      "path": "dependencies/SoulidityFoundation/revenue.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x8"
+      ],
+      "oldSHA": "b16cc9d3e356ba99af3e9f48c2b5268d4279e400c8797cfb6429c318ba08a8a8",
+      "newSHA": "f11ca58ac91bf802abd8f655d63b4282fd5d4ae85b4d9f6ba5f2f85bb8db8975",
+      "normalizedSHA": "b16cc9d3e356ba99af3e9f48c2b5268d4279e400c8797cfb6429c318ba08a8a8"
+    },
+    {
+      "path": "dependencies/SoulidityFoundation/source_authority.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x8"
+      ],
+      "oldSHA": "d50e956cbac7164132f0b4a7c05efdc5b3b26a3fb6462062d626a4b6b80f76ec",
+      "newSHA": "377b47d98bc43d1ebce2fd1471c789da1711f696a8798bf07ebdbb0c1f8d16db",
+      "normalizedSHA": "d50e956cbac7164132f0b4a7c05efdc5b3b26a3fb6462062d626a4b6b80f76ec"
+    },
+    {
+      "path": "dependencies/SoulidityModel/assembly.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x8"
+      ],
+      "oldSHA": "d0163eeee68806ee4e8569782fed09a842c094709e821a40fb6a74a5907e8eef",
+      "newSHA": "839b3d45062b0df7da0d8afc6b7ae4c9ae4af9ed38159d77fbaa8d0a6d7f6d9f",
+      "normalizedSHA": "d0163eeee68806ee4e8569782fed09a842c094709e821a40fb6a74a5907e8eef"
+    },
+    {
+      "path": "dependencies/SoulidityModel/components.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x8"
+      ],
+      "oldSHA": "09121c3891bdcd6505a713cde71fdb3f19d7822efc828d670adeda6a61834e2a",
+      "newSHA": "cd7f6260ebc938dcc58824fda4f56da8b2bd3bb7f1bfd3b55f18653c37cf8abf",
+      "normalizedSHA": "09121c3891bdcd6505a713cde71fdb3f19d7822efc828d670adeda6a61834e2a"
+    },
+    {
+      "path": "dependencies/SoulidityModel/material_policy.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x8"
+      ],
+      "oldSHA": "46e11a31ec96ff5a73953fe0550092d587f9c3539760b702e3f83c5188090b7e",
+      "newSHA": "7e6b885a1c65c7b578dc76699f610c74c808639b802b2a623ddabc1e2a54fad0",
+      "normalizedSHA": "46e11a31ec96ff5a73953fe0550092d587f9c3539760b702e3f83c5188090b7e"
+    },
+    {
+      "path": "dependencies/SoulidityModel/policy.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x1",
+        "0x8"
+      ],
+      "oldSHA": "5a1d016c50ca3de8c49a8c861d3d84be6bf0000cbfa489faa53a5870dfb4661c",
+      "newSHA": "2e090350354198b81bbf1f79613f7bffccefa1e8adca3c6d5e7cd06a95e31aa8",
+      "normalizedSHA": "5a1d016c50ca3de8c49a8c861d3d84be6bf0000cbfa489faa53a5870dfb4661c"
+    },
+    {
+      "path": "dependencies/SoulidityNative/birth.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x8"
+      ],
+      "oldSHA": "57e9f5a0c57393b5ee23433cb1cc51435d0bdf9fe8b1d065606b5807c8a9effe",
+      "newSHA": "c67337a04776bccd2204a654cf18b772a55519b527de2fac498cdb71527fc540",
+      "normalizedSHA": "57e9f5a0c57393b5ee23433cb1cc51435d0bdf9fe8b1d065606b5807c8a9effe"
+    },
+    {
+      "path": "dependencies/SoulidityNative/registry.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x8"
+      ],
+      "oldSHA": "d0c963e2816a83143d099ca813eccf07dc9e01e8faf7f88115e12f4c0756e424",
+      "newSHA": "9bbeec3a313bcba6de2f5cfae97043ddbd43bb6d74baaee8dd0dd9728b17e1e6",
+      "normalizedSHA": "d0c963e2816a83143d099ca813eccf07dc9e01e8faf7f88115e12f4c0756e424"
+    },
+    {
+      "path": "dependencies/SoulidityStandard/soul.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x8"
+      ],
+      "oldSHA": "7f5cf6f3f19c700a984955b148cbc3e82394c5c7a3123a03d2d2d72a7255af2a",
+      "newSHA": "70cd2a9e0f2420c656f1f19d685ddada867cfb8e860ad1991169ff021102bbcb",
+      "normalizedSHA": "7f5cf6f3f19c700a984955b148cbc3e82394c5c7a3123a03d2d2d72a7255af2a"
+    },
+    {
+      "path": "dependencies/SoulidityVisual/visual.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x8"
+      ],
+      "oldSHA": "562973b1498af19ec7dc291b8efd7807577544236ad2097c09f15e80418a1f66",
+      "newSHA": "5652e988c619dc91171a057fc140aedff6b938d846ab5f15239d693bc602c7da",
+      "normalizedSHA": "562973b1498af19ec7dc291b8efd7807577544236ad2097c09f15e80418a1f66"
+    },
+    {
+      "path": "dependencies/Sui/accumulator.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "4ded06caf12e84a0e73e803e34a8819d796350305cc6000f85a6b05b50196263",
+      "newSHA": "4ded06caf12e84a0e73e803e34a8819d796350305cc6000f85a6b05b50196263",
+      "normalizedSHA": "4ded06caf12e84a0e73e803e34a8819d796350305cc6000f85a6b05b50196263"
+    },
+    {
+      "path": "dependencies/Sui/accumulator_metadata.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "d3967229d5116b48f3689c3fa2536acaf5e047e35d2bca5a593588685dd85931",
+      "newSHA": "d3967229d5116b48f3689c3fa2536acaf5e047e35d2bca5a593588685dd85931",
+      "normalizedSHA": "d3967229d5116b48f3689c3fa2536acaf5e047e35d2bca5a593588685dd85931"
+    },
+    {
+      "path": "dependencies/Sui/accumulator_settlement.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "cb830dfb9eb0746eb5a662dc6ba4f8f8ee19172cf569b1cca00a1e931d4fe220",
+      "newSHA": "cb830dfb9eb0746eb5a662dc6ba4f8f8ee19172cf569b1cca00a1e931d4fe220",
+      "normalizedSHA": "cb830dfb9eb0746eb5a662dc6ba4f8f8ee19172cf569b1cca00a1e931d4fe220"
+    },
+    {
+      "path": "dependencies/Sui/address.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "5c98f2e0b31c272aa9425c9abb81a202689d36e661f6955b4f7bf13e0fd2b271",
+      "newSHA": "5c98f2e0b31c272aa9425c9abb81a202689d36e661f6955b4f7bf13e0fd2b271",
+      "normalizedSHA": "5c98f2e0b31c272aa9425c9abb81a202689d36e661f6955b4f7bf13e0fd2b271"
+    },
+    {
+      "path": "dependencies/Sui/address_alias.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "f49ba075669798f869b5c636ca2769a946341db4c2b470998325b327ba69c4c8",
+      "newSHA": "f49ba075669798f869b5c636ca2769a946341db4c2b470998325b327ba69c4c8",
+      "normalizedSHA": "f49ba075669798f869b5c636ca2769a946341db4c2b470998325b327ba69c4c8"
+    },
+    {
+      "path": "dependencies/Sui/authenticator_state.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "dc13fe235317916a477e3af755b9c74f04a8b7b39e0e9401fef8dd78668f07e8",
+      "newSHA": "dc13fe235317916a477e3af755b9c74f04a8b7b39e0e9401fef8dd78668f07e8",
+      "normalizedSHA": "dc13fe235317916a477e3af755b9c74f04a8b7b39e0e9401fef8dd78668f07e8"
+    },
+    {
+      "path": "dependencies/Sui/bag.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "910bd713e504c978ce772d7f740ffc5585ccdbe9015a2f3dc92e7d4a55109e3a",
+      "newSHA": "910bd713e504c978ce772d7f740ffc5585ccdbe9015a2f3dc92e7d4a55109e3a",
+      "normalizedSHA": "910bd713e504c978ce772d7f740ffc5585ccdbe9015a2f3dc92e7d4a55109e3a"
+    },
+    {
+      "path": "dependencies/Sui/balance.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "1df1564c974d75017784511221fadf9aa41d32c719df7d962a752686efdb6674",
+      "newSHA": "1df1564c974d75017784511221fadf9aa41d32c719df7d962a752686efdb6674",
+      "normalizedSHA": "1df1564c974d75017784511221fadf9aa41d32c719df7d962a752686efdb6674"
+    },
+    {
+      "path": "dependencies/Sui/bcs.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "f13721ae091740e6ddc9c5a39aaa2a1e64c73b7a64bdd4c36fb16134015f2866",
+      "newSHA": "f13721ae091740e6ddc9c5a39aaa2a1e64c73b7a64bdd4c36fb16134015f2866",
+      "normalizedSHA": "f13721ae091740e6ddc9c5a39aaa2a1e64c73b7a64bdd4c36fb16134015f2866"
+    },
+    {
+      "path": "dependencies/Sui/bls12381.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "2b27f8161de764656a04290b8e760fc6a3661172d79bfba2eaa34cf88311e990",
+      "newSHA": "2b27f8161de764656a04290b8e760fc6a3661172d79bfba2eaa34cf88311e990",
+      "normalizedSHA": "2b27f8161de764656a04290b8e760fc6a3661172d79bfba2eaa34cf88311e990"
+    },
+    {
+      "path": "dependencies/Sui/borrow.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "c6f3dfc309095e93d5c8b6864d0c1ac624b52ad31b2034bbdd51d27333b35fde",
+      "newSHA": "c6f3dfc309095e93d5c8b6864d0c1ac624b52ad31b2034bbdd51d27333b35fde",
+      "normalizedSHA": "c6f3dfc309095e93d5c8b6864d0c1ac624b52ad31b2034bbdd51d27333b35fde"
+    },
+    {
+      "path": "dependencies/Sui/clock.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "869f7f013af0cea852f70bd4a729a09b25a83fd1284e40c7919844eb2f73d634",
+      "newSHA": "869f7f013af0cea852f70bd4a729a09b25a83fd1284e40c7919844eb2f73d634",
+      "normalizedSHA": "869f7f013af0cea852f70bd4a729a09b25a83fd1284e40c7919844eb2f73d634"
+    },
+    {
+      "path": "dependencies/Sui/coin.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "e4e580a50b7a14edda7346e78e0fe38bd22ffce4a1b6b330c2942fc9a11f8478",
+      "newSHA": "e4e580a50b7a14edda7346e78e0fe38bd22ffce4a1b6b330c2942fc9a11f8478",
+      "normalizedSHA": "e4e580a50b7a14edda7346e78e0fe38bd22ffce4a1b6b330c2942fc9a11f8478"
+    },
+    {
+      "path": "dependencies/Sui/coin_registry.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "636dd724dce93749a717a833921d41aba3bbe92aa9c36b94828795b7f6d1d9e4",
+      "newSHA": "636dd724dce93749a717a833921d41aba3bbe92aa9c36b94828795b7f6d1d9e4",
+      "normalizedSHA": "636dd724dce93749a717a833921d41aba3bbe92aa9c36b94828795b7f6d1d9e4"
+    },
+    {
+      "path": "dependencies/Sui/config.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "f9e7bb1f7a5e854c48629d5bb5830b7cb82b261a0328a7dc63db4ba3f0ba494c",
+      "newSHA": "f9e7bb1f7a5e854c48629d5bb5830b7cb82b261a0328a7dc63db4ba3f0ba494c",
+      "normalizedSHA": "f9e7bb1f7a5e854c48629d5bb5830b7cb82b261a0328a7dc63db4ba3f0ba494c"
+    },
+    {
+      "path": "dependencies/Sui/deny_list.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "930a026b1113fc8d5a765bd0d5b0cbe285456c757b4c46bf576d42ee9133a805",
+      "newSHA": "930a026b1113fc8d5a765bd0d5b0cbe285456c757b4c46bf576d42ee9133a805",
+      "normalizedSHA": "930a026b1113fc8d5a765bd0d5b0cbe285456c757b4c46bf576d42ee9133a805"
+    },
+    {
+      "path": "dependencies/Sui/derived_object.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "6e489b2e5e78c993516ce2abf6e545d185dab66b7879bdfee9d119c765424ecc",
+      "newSHA": "6e489b2e5e78c993516ce2abf6e545d185dab66b7879bdfee9d119c765424ecc",
+      "normalizedSHA": "6e489b2e5e78c993516ce2abf6e545d185dab66b7879bdfee9d119c765424ecc"
+    },
+    {
+      "path": "dependencies/Sui/display.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "d3dad813c358716fc21fc8b58504f86993a6782ec0cc499fc72adba9f482ca0d",
+      "newSHA": "d3dad813c358716fc21fc8b58504f86993a6782ec0cc499fc72adba9f482ca0d",
+      "normalizedSHA": "d3dad813c358716fc21fc8b58504f86993a6782ec0cc499fc72adba9f482ca0d"
+    },
+    {
+      "path": "dependencies/Sui/display_registry.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "8f332cf20c57a917fbbdfe438bf4deaee1b612b0b2ecf3fd0b46d4502c8a42d6",
+      "newSHA": "8f332cf20c57a917fbbdfe438bf4deaee1b612b0b2ecf3fd0b46d4502c8a42d6",
+      "normalizedSHA": "8f332cf20c57a917fbbdfe438bf4deaee1b612b0b2ecf3fd0b46d4502c8a42d6"
+    },
+    {
+      "path": "dependencies/Sui/dynamic_field.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "14a99a28d71df2fc8648a5a7b05447c98672153c58dbd4f4a0d14d60388c8bcd",
+      "newSHA": "14a99a28d71df2fc8648a5a7b05447c98672153c58dbd4f4a0d14d60388c8bcd",
+      "normalizedSHA": "14a99a28d71df2fc8648a5a7b05447c98672153c58dbd4f4a0d14d60388c8bcd"
+    },
+    {
+      "path": "dependencies/Sui/dynamic_object_field.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "9e62f4e2ce11319465781aac32ec33c786f18c765affc0fa05e71956535824ca",
+      "newSHA": "9e62f4e2ce11319465781aac32ec33c786f18c765affc0fa05e71956535824ca",
+      "normalizedSHA": "9e62f4e2ce11319465781aac32ec33c786f18c765affc0fa05e71956535824ca"
+    },
+    {
+      "path": "dependencies/Sui/ecdsa_k1.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "ea6bdd087718375d558b0080bd0749c323cc6f37a09a2764f927f2b773c59180",
+      "newSHA": "ea6bdd087718375d558b0080bd0749c323cc6f37a09a2764f927f2b773c59180",
+      "normalizedSHA": "ea6bdd087718375d558b0080bd0749c323cc6f37a09a2764f927f2b773c59180"
+    },
+    {
+      "path": "dependencies/Sui/ecdsa_r1.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "6fbd3ccf29555008ac994bae52add21a298b1a031e26799d29f3dc1c3c8893b0",
+      "newSHA": "6fbd3ccf29555008ac994bae52add21a298b1a031e26799d29f3dc1c3c8893b0",
+      "normalizedSHA": "6fbd3ccf29555008ac994bae52add21a298b1a031e26799d29f3dc1c3c8893b0"
+    },
+    {
+      "path": "dependencies/Sui/ecvrf.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "daf5db79f81fe5c1279a124caa8be6746d23932575765bd0d2798c89ad493838",
+      "newSHA": "daf5db79f81fe5c1279a124caa8be6746d23932575765bd0d2798c89ad493838",
+      "normalizedSHA": "daf5db79f81fe5c1279a124caa8be6746d23932575765bd0d2798c89ad493838"
+    },
+    {
+      "path": "dependencies/Sui/ed25519.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "cfbe29c77b1b8cbe5db5f66979d2855d1ab8800603ece8dcd54669ecf06f5b9c",
+      "newSHA": "cfbe29c77b1b8cbe5db5f66979d2855d1ab8800603ece8dcd54669ecf06f5b9c",
+      "normalizedSHA": "cfbe29c77b1b8cbe5db5f66979d2855d1ab8800603ece8dcd54669ecf06f5b9c"
+    },
+    {
+      "path": "dependencies/Sui/event.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "00810b5866d27215fd11e6ea3349d932e49cc266d663efd6aa5e084bed8a599c",
+      "newSHA": "00810b5866d27215fd11e6ea3349d932e49cc266d663efd6aa5e084bed8a599c",
+      "normalizedSHA": "00810b5866d27215fd11e6ea3349d932e49cc266d663efd6aa5e084bed8a599c"
+    },
+    {
+      "path": "dependencies/Sui/forwarding_address.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "9b92045d7e9c8b423a849933c93817bdbba2a9616a0cd20f6ab2d71457688908",
+      "newSHA": "9b92045d7e9c8b423a849933c93817bdbba2a9616a0cd20f6ab2d71457688908",
+      "normalizedSHA": "9b92045d7e9c8b423a849933c93817bdbba2a9616a0cd20f6ab2d71457688908"
+    },
+    {
+      "path": "dependencies/Sui/funds_accumulator.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "725b6ea331f4391f4e739fc7bffb8f0e1a70e54976031f825214cec3404f8f0c",
+      "newSHA": "725b6ea331f4391f4e739fc7bffb8f0e1a70e54976031f825214cec3404f8f0c",
+      "normalizedSHA": "725b6ea331f4391f4e739fc7bffb8f0e1a70e54976031f825214cec3404f8f0c"
+    },
+    {
+      "path": "dependencies/Sui/groth16.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "5549bed59d3b98de3932a935b3e8dfbce06505d8a369ca54b5b358f815fc9b0c",
+      "newSHA": "5549bed59d3b98de3932a935b3e8dfbce06505d8a369ca54b5b358f815fc9b0c",
+      "normalizedSHA": "5549bed59d3b98de3932a935b3e8dfbce06505d8a369ca54b5b358f815fc9b0c"
+    },
+    {
+      "path": "dependencies/Sui/group_ops.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "64522af09d6bb9cbed6beed3dbd1a291f5be7ab358e7e2931937527c188995b5",
+      "newSHA": "64522af09d6bb9cbed6beed3dbd1a291f5be7ab358e7e2931937527c188995b5",
+      "normalizedSHA": "64522af09d6bb9cbed6beed3dbd1a291f5be7ab358e7e2931937527c188995b5"
+    },
+    {
+      "path": "dependencies/Sui/hash.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "b2453502dc8b5924c8f78198e18b9259b80990372a19e89a44a8c4db2eaf6639",
+      "newSHA": "b2453502dc8b5924c8f78198e18b9259b80990372a19e89a44a8c4db2eaf6639",
+      "normalizedSHA": "b2453502dc8b5924c8f78198e18b9259b80990372a19e89a44a8c4db2eaf6639"
+    },
+    {
+      "path": "dependencies/Sui/hex.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "61a8f671942f2d4c96bfa797e0826eeadb2f4ed8bee13c4a9f1fafb067a28903",
+      "newSHA": "61a8f671942f2d4c96bfa797e0826eeadb2f4ed8bee13c4a9f1fafb067a28903",
+      "normalizedSHA": "61a8f671942f2d4c96bfa797e0826eeadb2f4ed8bee13c4a9f1fafb067a28903"
+    },
+    {
+      "path": "dependencies/Sui/hmac.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "5700c8553134ca045057c0c0fdbf175abe560557fa2351029851532af83f6e6c",
+      "newSHA": "5700c8553134ca045057c0c0fdbf175abe560557fa2351029851532af83f6e6c",
+      "normalizedSHA": "5700c8553134ca045057c0c0fdbf175abe560557fa2351029851532af83f6e6c"
+    },
+    {
+      "path": "dependencies/Sui/kiosk.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "976d0875a6d089cc370689da34c916fa7132a6368b634059fa3149d2b35f3705",
+      "newSHA": "976d0875a6d089cc370689da34c916fa7132a6368b634059fa3149d2b35f3705",
+      "normalizedSHA": "976d0875a6d089cc370689da34c916fa7132a6368b634059fa3149d2b35f3705"
+    },
+    {
+      "path": "dependencies/Sui/kiosk_extension.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "276afbf51157bdafa497e186c529ab18133c93c1a4d2c36615b9d0fc2f2a933f",
+      "newSHA": "276afbf51157bdafa497e186c529ab18133c93c1a4d2c36615b9d0fc2f2a933f",
+      "normalizedSHA": "276afbf51157bdafa497e186c529ab18133c93c1a4d2c36615b9d0fc2f2a933f"
+    },
+    {
+      "path": "dependencies/Sui/linked_table.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "9ce848b6037d6d12251e4196009419723ed21a778cfbe2c4636f5774586aed34",
+      "newSHA": "9ce848b6037d6d12251e4196009419723ed21a778cfbe2c4636f5774586aed34",
+      "normalizedSHA": "9ce848b6037d6d12251e4196009419723ed21a778cfbe2c4636f5774586aed34"
+    },
+    {
+      "path": "dependencies/Sui/math.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "af30b6982e79f90e970fd65a192acfb75d42d1b213c0d7683a21d9620ed786e0",
+      "newSHA": "af30b6982e79f90e970fd65a192acfb75d42d1b213c0d7683a21d9620ed786e0",
+      "normalizedSHA": "af30b6982e79f90e970fd65a192acfb75d42d1b213c0d7683a21d9620ed786e0"
+    },
+    {
+      "path": "dependencies/Sui/nitro_attestation.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "d01dc66a6d34e42ab171d507e7b6a60e3070386fabf9ed75c9d71c6c75f1c110",
+      "newSHA": "d01dc66a6d34e42ab171d507e7b6a60e3070386fabf9ed75c9d71c6c75f1c110",
+      "normalizedSHA": "d01dc66a6d34e42ab171d507e7b6a60e3070386fabf9ed75c9d71c6c75f1c110"
+    },
+    {
+      "path": "dependencies/Sui/object.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "34452a7325790136cc94da6a541f0bc1ca6bfb7aa6befe394ef0d7dfaca92e0f",
+      "newSHA": "34452a7325790136cc94da6a541f0bc1ca6bfb7aa6befe394ef0d7dfaca92e0f",
+      "normalizedSHA": "34452a7325790136cc94da6a541f0bc1ca6bfb7aa6befe394ef0d7dfaca92e0f"
+    },
+    {
+      "path": "dependencies/Sui/object_bag.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "adcd29f7d05deb3ccfdafd8bad73fd19eedba915ace40f299202843cabf379db",
+      "newSHA": "adcd29f7d05deb3ccfdafd8bad73fd19eedba915ace40f299202843cabf379db",
+      "normalizedSHA": "adcd29f7d05deb3ccfdafd8bad73fd19eedba915ace40f299202843cabf379db"
+    },
+    {
+      "path": "dependencies/Sui/object_table.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "c1e5880387b01e9b5d73eb9a4383d2bb8bacb2fdb0281b81ec51849f8767d7ce",
+      "newSHA": "c1e5880387b01e9b5d73eb9a4383d2bb8bacb2fdb0281b81ec51849f8767d7ce",
+      "normalizedSHA": "c1e5880387b01e9b5d73eb9a4383d2bb8bacb2fdb0281b81ec51849f8767d7ce"
+    },
+    {
+      "path": "dependencies/Sui/package.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "ec52881dca71207509093d538134c441af84ced16215fc0c8110fc317eb06d10",
+      "newSHA": "ec52881dca71207509093d538134c441af84ced16215fc0c8110fc317eb06d10",
+      "normalizedSHA": "ec52881dca71207509093d538134c441af84ced16215fc0c8110fc317eb06d10"
+    },
+    {
+      "path": "dependencies/Sui/party.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "6699a0dc801b8eb950a4e3a2afa4f122736e981d9848d374a8f87b9708c7249d",
+      "newSHA": "6699a0dc801b8eb950a4e3a2afa4f122736e981d9848d374a8f87b9708c7249d",
+      "normalizedSHA": "6699a0dc801b8eb950a4e3a2afa4f122736e981d9848d374a8f87b9708c7249d"
+    },
+    {
+      "path": "dependencies/Sui/pay.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "997389a543c773d140c5f6029a9d123ed08dc019a057acdda1b53bb4d0f87b47",
+      "newSHA": "997389a543c773d140c5f6029a9d123ed08dc019a057acdda1b53bb4d0f87b47",
+      "normalizedSHA": "997389a543c773d140c5f6029a9d123ed08dc019a057acdda1b53bb4d0f87b47"
+    },
+    {
+      "path": "dependencies/Sui/poseidon.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "b6dc80136e57afbabe13f7e8f3f8b10282236ec632dad04ff8c293e29e4cd9b3",
+      "newSHA": "b6dc80136e57afbabe13f7e8f3f8b10282236ec632dad04ff8c293e29e4cd9b3",
+      "normalizedSHA": "b6dc80136e57afbabe13f7e8f3f8b10282236ec632dad04ff8c293e29e4cd9b3"
+    },
+    {
+      "path": "dependencies/Sui/priority_queue.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "45a0ceae8584fcff009f9fc2e4df626d5ced97a39231f6cff85c9be635d6f256",
+      "newSHA": "45a0ceae8584fcff009f9fc2e4df626d5ced97a39231f6cff85c9be635d6f256",
+      "normalizedSHA": "45a0ceae8584fcff009f9fc2e4df626d5ced97a39231f6cff85c9be635d6f256"
+    },
+    {
+      "path": "dependencies/Sui/protocol_config.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "c57185dd4be98d692a142083d982f109c2aca16da60f5ff99fbc2f75bc1cdba8",
+      "newSHA": "c57185dd4be98d692a142083d982f109c2aca16da60f5ff99fbc2f75bc1cdba8",
+      "normalizedSHA": "c57185dd4be98d692a142083d982f109c2aca16da60f5ff99fbc2f75bc1cdba8"
+    },
+    {
+      "path": "dependencies/Sui/prover.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "65d181faf252a5b1f980cad694597951572a4a7daafa4902f6076a1c6a60a115",
+      "newSHA": "65d181faf252a5b1f980cad694597951572a4a7daafa4902f6076a1c6a60a115",
+      "normalizedSHA": "65d181faf252a5b1f980cad694597951572a4a7daafa4902f6076a1c6a60a115"
+    },
+    {
+      "path": "dependencies/Sui/random.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "33ee28509bd09bd4ee8eb4881c0be492986b468784376e7b324f0aa4688c3a68",
+      "newSHA": "33ee28509bd09bd4ee8eb4881c0be492986b468784376e7b324f0aa4688c3a68",
+      "normalizedSHA": "33ee28509bd09bd4ee8eb4881c0be492986b468784376e7b324f0aa4688c3a68"
+    },
+    {
+      "path": "dependencies/Sui/rangeproofs.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "8cfd83fc7ee98a3e994a0738683cd7f80abb51311e278a47be822992a08ee962",
+      "newSHA": "8cfd83fc7ee98a3e994a0738683cd7f80abb51311e278a47be822992a08ee962",
+      "normalizedSHA": "8cfd83fc7ee98a3e994a0738683cd7f80abb51311e278a47be822992a08ee962"
+    },
+    {
+      "path": "dependencies/Sui/ristretto255.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "0d1317c09c9afb8bb93e65800df7ec2b7109385678893da6b0142a50cb90a652",
+      "newSHA": "0d1317c09c9afb8bb93e65800df7ec2b7109385678893da6b0142a50cb90a652",
+      "normalizedSHA": "0d1317c09c9afb8bb93e65800df7ec2b7109385678893da6b0142a50cb90a652"
+    },
+    {
+      "path": "dependencies/Sui/scratch.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "437994a69842f5d6496cc7e2668adc684f02f4c031102c96492cfc16941aac16",
+      "newSHA": "437994a69842f5d6496cc7e2668adc684f02f4c031102c96492cfc16941aac16",
+      "normalizedSHA": "437994a69842f5d6496cc7e2668adc684f02f4c031102c96492cfc16941aac16"
+    },
+    {
+      "path": "dependencies/Sui/sui.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "0afe999667c0b36a3cc3fc63688b5a53d1f2b350de7ea75c76e3fb228f4f1462",
+      "newSHA": "0afe999667c0b36a3cc3fc63688b5a53d1f2b350de7ea75c76e3fb228f4f1462",
+      "normalizedSHA": "0afe999667c0b36a3cc3fc63688b5a53d1f2b350de7ea75c76e3fb228f4f1462"
+    },
+    {
+      "path": "dependencies/Sui/table.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "5142ae5884e310d95fa306fdc8823d12913a61565a0fafaf0e6bdf4ca34fe446",
+      "newSHA": "5142ae5884e310d95fa306fdc8823d12913a61565a0fafaf0e6bdf4ca34fe446",
+      "normalizedSHA": "5142ae5884e310d95fa306fdc8823d12913a61565a0fafaf0e6bdf4ca34fe446"
+    },
+    {
+      "path": "dependencies/Sui/table_vec.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "f7c201ad8849a0400b80c7da0920dee612e54ad2cd42a862a31773ef3782faee",
+      "newSHA": "f7c201ad8849a0400b80c7da0920dee612e54ad2cd42a862a31773ef3782faee",
+      "normalizedSHA": "f7c201ad8849a0400b80c7da0920dee612e54ad2cd42a862a31773ef3782faee"
+    },
+    {
+      "path": "dependencies/Sui/token.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "f284f0685979b1d89c2f6c6f9b0ae50c7cff379e0a1cd46ffef963b0e7dd683d",
+      "newSHA": "f284f0685979b1d89c2f6c6f9b0ae50c7cff379e0a1cd46ffef963b0e7dd683d",
+      "normalizedSHA": "f284f0685979b1d89c2f6c6f9b0ae50c7cff379e0a1cd46ffef963b0e7dd683d"
+    },
+    {
+      "path": "dependencies/Sui/transfer.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "5649fc676b02d08d038fe1545aa503a8fc5fcfcc61a188e43eb31068788d5680",
+      "newSHA": "5649fc676b02d08d038fe1545aa503a8fc5fcfcc61a188e43eb31068788d5680",
+      "normalizedSHA": "5649fc676b02d08d038fe1545aa503a8fc5fcfcc61a188e43eb31068788d5680"
+    },
+    {
+      "path": "dependencies/Sui/transfer_policy.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "3349d3be4ecd88aa491fc88cd7527f4e263ab13173954c8d45f212d8c69c4d7c",
+      "newSHA": "3349d3be4ecd88aa491fc88cd7527f4e263ab13173954c8d45f212d8c69c4d7c",
+      "normalizedSHA": "3349d3be4ecd88aa491fc88cd7527f4e263ab13173954c8d45f212d8c69c4d7c"
+    },
+    {
+      "path": "dependencies/Sui/tx_context.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "f6bbb2284a96f45d5d9a717f92901cfa58b98faa83cecf5208fc54e39bc2c4dc",
+      "newSHA": "f6bbb2284a96f45d5d9a717f92901cfa58b98faa83cecf5208fc54e39bc2c4dc",
+      "normalizedSHA": "f6bbb2284a96f45d5d9a717f92901cfa58b98faa83cecf5208fc54e39bc2c4dc"
+    },
+    {
+      "path": "dependencies/Sui/types.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "feff7d755b970e8ec1257c5d6175e7e04e80d5ce81f7c447a580353da37bc753",
+      "newSHA": "feff7d755b970e8ec1257c5d6175e7e04e80d5ce81f7c447a580353da37bc753",
+      "normalizedSHA": "feff7d755b970e8ec1257c5d6175e7e04e80d5ce81f7c447a580353da37bc753"
+    },
+    {
+      "path": "dependencies/Sui/url.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "584767a41099acb6215a2064bffea5f648a830cd6e8cd6d6e376af5efceb4c5e",
+      "newSHA": "584767a41099acb6215a2064bffea5f648a830cd6e8cd6d6e376af5efceb4c5e",
+      "normalizedSHA": "584767a41099acb6215a2064bffea5f648a830cd6e8cd6d6e376af5efceb4c5e"
+    },
+    {
+      "path": "dependencies/Sui/vdf.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "d29d83e7f7505b621a917411801933deac49bb9cac67f827cf56d95407129d5e",
+      "newSHA": "d29d83e7f7505b621a917411801933deac49bb9cac67f827cf56d95407129d5e",
+      "normalizedSHA": "d29d83e7f7505b621a917411801933deac49bb9cac67f827cf56d95407129d5e"
+    },
+    {
+      "path": "dependencies/Sui/vec_map.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "2776e38d4036a2b5bfc01e4620a8bc21e47325cb3cf5aad9803b765536085581",
+      "newSHA": "2776e38d4036a2b5bfc01e4620a8bc21e47325cb3cf5aad9803b765536085581",
+      "normalizedSHA": "2776e38d4036a2b5bfc01e4620a8bc21e47325cb3cf5aad9803b765536085581"
+    },
+    {
+      "path": "dependencies/Sui/vec_set.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "c1518e4657e2756d84d57daadbe04cb961b7a5bcd5b9eb6646c899a5485b0366",
+      "newSHA": "c1518e4657e2756d84d57daadbe04cb961b7a5bcd5b9eb6646c899a5485b0366",
+      "normalizedSHA": "c1518e4657e2756d84d57daadbe04cb961b7a5bcd5b9eb6646c899a5485b0366"
+    },
+    {
+      "path": "dependencies/Sui/versioned.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "4a68e4b5bc7b75152b6275429d802fa11ad64d3a11db3751fbbe85566e4805a1",
+      "newSHA": "4a68e4b5bc7b75152b6275429d802fa11ad64d3a11db3751fbbe85566e4805a1",
+      "normalizedSHA": "4a68e4b5bc7b75152b6275429d802fa11ad64d3a11db3751fbbe85566e4805a1"
+    },
+    {
+      "path": "dependencies/Sui/zklogin_verified_id.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "d7f899df6b1977a8bd73546f046e18ce0c2690fd71af1429802a9d1273b131d3",
+      "newSHA": "d7f899df6b1977a8bd73546f046e18ce0c2690fd71af1429802a9d1273b131d3",
+      "normalizedSHA": "d7f899df6b1977a8bd73546f046e18ce0c2690fd71af1429802a9d1273b131d3"
+    },
+    {
+      "path": "dependencies/Sui/zklogin_verified_issuer.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "f6cfa778be8e1a600a7da1155cd508817584d565b345e6cab8f855866910f23d",
+      "newSHA": "f6cfa778be8e1a600a7da1155cd508817584d565b345e6cab8f855866910f23d",
+      "normalizedSHA": "f6cfa778be8e1a600a7da1155cd508817584d565b345e6cab8f855866910f23d"
+    },
+    {
+      "path": "dependencies/WAL/wal.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "eaf0e8bcba10bda3071842045d099dc303dad268d6f1d9db93ebe6e04e87582f",
+      "newSHA": "eaf0e8bcba10bda3071842045d099dc303dad268d6f1d9db93ebe6e04e87582f",
+      "normalizedSHA": "eaf0e8bcba10bda3071842045d099dc303dad268d6f1d9db93ebe6e04e87582f"
+    },
+    {
+      "path": "dependencies/Walrus/active_set.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "c4932a96d648ff549d464d41016bcc245fd969dd7052e203a4e09db87dc76b82",
+      "newSHA": "c4932a96d648ff549d464d41016bcc245fd969dd7052e203a4e09db87dc76b82",
+      "normalizedSHA": "c4932a96d648ff549d464d41016bcc245fd969dd7052e203a4e09db87dc76b82"
+    },
+    {
+      "path": "dependencies/Walrus/apportionment_queue.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "ca66ab91308d09682cfba3488a724615da6f904846376edefe9f98d1c1921630",
+      "newSHA": "ca66ab91308d09682cfba3488a724615da6f904846376edefe9f98d1c1921630",
+      "normalizedSHA": "ca66ab91308d09682cfba3488a724615da6f904846376edefe9f98d1c1921630"
+    },
+    {
+      "path": "dependencies/Walrus/auth.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "b7eb3c9fad8cedc25b69f741e6fd6b461d2837129314c9fdf1567c1109cf903d",
+      "newSHA": "b7eb3c9fad8cedc25b69f741e6fd6b461d2837129314c9fdf1567c1109cf903d",
+      "normalizedSHA": "b7eb3c9fad8cedc25b69f741e6fd6b461d2837129314c9fdf1567c1109cf903d"
+    },
+    {
+      "path": "dependencies/Walrus/blob.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "2f7d73f914eb5fe7eadccfe7e058e9bf0a2f4b2d439ad038e0ad9a834497a45b",
+      "newSHA": "2f7d73f914eb5fe7eadccfe7e058e9bf0a2f4b2d439ad038e0ad9a834497a45b",
+      "normalizedSHA": "2f7d73f914eb5fe7eadccfe7e058e9bf0a2f4b2d439ad038e0ad9a834497a45b"
+    },
+    {
+      "path": "dependencies/Walrus/bls_aggregate.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "53e84e12b5ec5b77d533a50e5139cfedc29f739da05b6a29618e38d3adad3d04",
+      "newSHA": "53e84e12b5ec5b77d533a50e5139cfedc29f739da05b6a29618e38d3adad3d04",
+      "normalizedSHA": "53e84e12b5ec5b77d533a50e5139cfedc29f739da05b6a29618e38d3adad3d04"
+    },
+    {
+      "path": "dependencies/Walrus/committee.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "e82c0d0acb576b2f6b2649291bf3e1407f764b03d2441601ad363c5c909a8d62",
+      "newSHA": "e82c0d0acb576b2f6b2649291bf3e1407f764b03d2441601ad363c5c909a8d62",
+      "normalizedSHA": "e82c0d0acb576b2f6b2649291bf3e1407f764b03d2441601ad363c5c909a8d62"
+    },
+    {
+      "path": "dependencies/Walrus/display.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "6d3a6937eaaacfd490be54629f30b8de367ec94d356ecedddfe8a079a0d69f5e",
+      "newSHA": "6d3a6937eaaacfd490be54629f30b8de367ec94d356ecedddfe8a079a0d69f5e",
+      "normalizedSHA": "6d3a6937eaaacfd490be54629f30b8de367ec94d356ecedddfe8a079a0d69f5e"
+    },
+    {
+      "path": "dependencies/Walrus/encoding.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "8f2c89c98e8a336f2fa7e5198ff4d78a3a2686a0c312d0c9ea47be5925877b0a",
+      "newSHA": "8f2c89c98e8a336f2fa7e5198ff4d78a3a2686a0c312d0c9ea47be5925877b0a",
+      "normalizedSHA": "8f2c89c98e8a336f2fa7e5198ff4d78a3a2686a0c312d0c9ea47be5925877b0a"
+    },
+    {
+      "path": "dependencies/Walrus/epoch_parameters.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "6065721377b59aae5da1e342c1b63a8935e2db1ed299c8ce109b9008c121e5ea",
+      "newSHA": "6065721377b59aae5da1e342c1b63a8935e2db1ed299c8ce109b9008c121e5ea",
+      "normalizedSHA": "6065721377b59aae5da1e342c1b63a8935e2db1ed299c8ce109b9008c121e5ea"
+    },
+    {
+      "path": "dependencies/Walrus/event_blob.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "2606477d74ab26d664d7b09d9d257ad5ae0ed1e5829ac1b5732071e2fef7176f",
+      "newSHA": "2606477d74ab26d664d7b09d9d257ad5ae0ed1e5829ac1b5732071e2fef7176f",
+      "normalizedSHA": "2606477d74ab26d664d7b09d9d257ad5ae0ed1e5829ac1b5732071e2fef7176f"
+    },
+    {
+      "path": "dependencies/Walrus/events.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "3ec77be39a6da260889fcded76d522d8beced58fa4351be592e5b031ed632e40",
+      "newSHA": "3ec77be39a6da260889fcded76d522d8beced58fa4351be592e5b031ed632e40",
+      "normalizedSHA": "3ec77be39a6da260889fcded76d522d8beced58fa4351be592e5b031ed632e40"
+    },
+    {
+      "path": "dependencies/Walrus/extended_field.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "fcaab2190589809d5ac250bf349441fcdebb2fe7fc740db42f44adbb93e01bfc",
+      "newSHA": "fcaab2190589809d5ac250bf349441fcdebb2fe7fc740db42f44adbb93e01bfc",
+      "normalizedSHA": "fcaab2190589809d5ac250bf349441fcdebb2fe7fc740db42f44adbb93e01bfc"
+    },
+    {
+      "path": "dependencies/Walrus/init.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "4d494cb7ae3e0f08a8d891b5643578dfbb0458015e919c9839a2ce425d37fa65",
+      "newSHA": "4d494cb7ae3e0f08a8d891b5643578dfbb0458015e919c9839a2ce425d37fa65",
+      "normalizedSHA": "4d494cb7ae3e0f08a8d891b5643578dfbb0458015e919c9839a2ce425d37fa65"
+    },
+    {
+      "path": "dependencies/Walrus/messages.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "19619b73a4e4e62174aaf36a5e28c6147379554994054e2e728d477d4ddc0b7d",
+      "newSHA": "19619b73a4e4e62174aaf36a5e28c6147379554994054e2e728d477d4ddc0b7d",
+      "normalizedSHA": "19619b73a4e4e62174aaf36a5e28c6147379554994054e2e728d477d4ddc0b7d"
+    },
+    {
+      "path": "dependencies/Walrus/metadata.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "ae5b5bbf025d0ef1b78f560b130b9678920b31a75f2ae4874603c0257e7d71f5",
+      "newSHA": "ae5b5bbf025d0ef1b78f560b130b9678920b31a75f2ae4874603c0257e7d71f5",
+      "normalizedSHA": "ae5b5bbf025d0ef1b78f560b130b9678920b31a75f2ae4874603c0257e7d71f5"
+    },
+    {
+      "path": "dependencies/Walrus/node_metadata.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "db7aabf474f228c8b163806056d98daed9ecf3deef3aa216fd4d116c289c1ff1",
+      "newSHA": "db7aabf474f228c8b163806056d98daed9ecf3deef3aa216fd4d116c289c1ff1",
+      "normalizedSHA": "db7aabf474f228c8b163806056d98daed9ecf3deef3aa216fd4d116c289c1ff1"
+    },
+    {
+      "path": "dependencies/Walrus/pending_values.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "bceb701d740e76663e51281d15fcd86d26114674d4d46b4736f8527aba8a3c92",
+      "newSHA": "bceb701d740e76663e51281d15fcd86d26114674d4d46b4736f8527aba8a3c92",
+      "normalizedSHA": "bceb701d740e76663e51281d15fcd86d26114674d4d46b4736f8527aba8a3c92"
+    },
+    {
+      "path": "dependencies/Walrus/pool_exchange_rate.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "a95a59bfbe771bb11d5935345ca7ae477969e6ac7a585525a47098fdf3922037",
+      "newSHA": "a95a59bfbe771bb11d5935345ca7ae477969e6ac7a585525a47098fdf3922037",
+      "normalizedSHA": "a95a59bfbe771bb11d5935345ca7ae477969e6ac7a585525a47098fdf3922037"
+    },
+    {
+      "path": "dependencies/Walrus/redstuff.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "b63eb05ce488c8e06101f8592e58ccbf58a68ef800f698393b5612e7ae611cf8",
+      "newSHA": "b63eb05ce488c8e06101f8592e58ccbf58a68ef800f698393b5612e7ae611cf8",
+      "normalizedSHA": "b63eb05ce488c8e06101f8592e58ccbf58a68ef800f698393b5612e7ae611cf8"
+    },
+    {
+      "path": "dependencies/Walrus/shared_blob.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "5ac70301c972496c27ea857bc9e52546e3510ac397842af22041308d97d37b06",
+      "newSHA": "5ac70301c972496c27ea857bc9e52546e3510ac397842af22041308d97d37b06",
+      "normalizedSHA": "5ac70301c972496c27ea857bc9e52546e3510ac397842af22041308d97d37b06"
+    },
+    {
+      "path": "dependencies/Walrus/sort.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "b2dcd2a3ba7515b4b41918506f87be64362e63d7e1dac623fa74168eca1db8db",
+      "newSHA": "b2dcd2a3ba7515b4b41918506f87be64362e63d7e1dac623fa74168eca1db8db",
+      "normalizedSHA": "b2dcd2a3ba7515b4b41918506f87be64362e63d7e1dac623fa74168eca1db8db"
+    },
+    {
+      "path": "dependencies/Walrus/staked_wal.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "f56774d818e7b67b81d6dfd34f222f7fa127e3f9945bfa76efb7fe5870997fa4",
+      "newSHA": "f56774d818e7b67b81d6dfd34f222f7fa127e3f9945bfa76efb7fe5870997fa4",
+      "normalizedSHA": "f56774d818e7b67b81d6dfd34f222f7fa127e3f9945bfa76efb7fe5870997fa4"
+    },
+    {
+      "path": "dependencies/Walrus/staking.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "7163880418956f5a6ad9e5a17d0313f42599a8dc3461de979d11b13954418b7d",
+      "newSHA": "7163880418956f5a6ad9e5a17d0313f42599a8dc3461de979d11b13954418b7d",
+      "normalizedSHA": "7163880418956f5a6ad9e5a17d0313f42599a8dc3461de979d11b13954418b7d"
+    },
+    {
+      "path": "dependencies/Walrus/staking_inner.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "e05998d45c42109153b19b514bb201091008775c52e63268aa98e478295e881a",
+      "newSHA": "e05998d45c42109153b19b514bb201091008775c52e63268aa98e478295e881a",
+      "normalizedSHA": "e05998d45c42109153b19b514bb201091008775c52e63268aa98e478295e881a"
+    },
+    {
+      "path": "dependencies/Walrus/staking_pool.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "1b29cb4a0ed1add16cddb0a14d38092d1679020bc3699a0b391bf593b70ab203",
+      "newSHA": "1b29cb4a0ed1add16cddb0a14d38092d1679020bc3699a0b391bf593b70ab203",
+      "normalizedSHA": "1b29cb4a0ed1add16cddb0a14d38092d1679020bc3699a0b391bf593b70ab203"
+    },
+    {
+      "path": "dependencies/Walrus/storage_accounting.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "909b10c344105819cdb29b6055d868fcba8906cfcc5568a976f88b58a7ea11d3",
+      "newSHA": "909b10c344105819cdb29b6055d868fcba8906cfcc5568a976f88b58a7ea11d3",
+      "normalizedSHA": "909b10c344105819cdb29b6055d868fcba8906cfcc5568a976f88b58a7ea11d3"
+    },
+    {
+      "path": "dependencies/Walrus/storage_node.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "a09194f19b99fc992f9583be5e5c667a87fcf4a4ecd222dbfd28b4088c013bb3",
+      "newSHA": "a09194f19b99fc992f9583be5e5c667a87fcf4a4ecd222dbfd28b4088c013bb3",
+      "normalizedSHA": "a09194f19b99fc992f9583be5e5c667a87fcf4a4ecd222dbfd28b4088c013bb3"
+    },
+    {
+      "path": "dependencies/Walrus/storage_resource.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "b64e5bb66a8a141d9b6db59d4b1fb5065c4ac78c475813692e0fcab2e710879a",
+      "newSHA": "b64e5bb66a8a141d9b6db59d4b1fb5065c4ac78c475813692e0fcab2e710879a",
+      "normalizedSHA": "b64e5bb66a8a141d9b6db59d4b1fb5065c4ac78c475813692e0fcab2e710879a"
+    },
+    {
+      "path": "dependencies/Walrus/system.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "a4a7b6da17aaf3d2f5bf938affb6dc43c828f0dd3fc53157d60a975c36d16035",
+      "newSHA": "a4a7b6da17aaf3d2f5bf938affb6dc43c828f0dd3fc53157d60a975c36d16035",
+      "normalizedSHA": "a4a7b6da17aaf3d2f5bf938affb6dc43c828f0dd3fc53157d60a975c36d16035"
+    },
+    {
+      "path": "dependencies/Walrus/system_state_inner.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "db6b4299e3d0a58a181634d79c637ca6ccdf7a36104be158a421f8453c2a85e7",
+      "newSHA": "db6b4299e3d0a58a181634d79c637ca6ccdf7a36104be158a421f8453c2a85e7",
+      "normalizedSHA": "db6b4299e3d0a58a181634d79c637ca6ccdf7a36104be158a421f8453c2a85e7"
+    },
+    {
+      "path": "dependencies/Walrus/upgrade.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "dafc81ff469de9897e833ae9be98d07b6ba70b15e4ede8d1d79376a85d656001",
+      "newSHA": "dafc81ff469de9897e833ae9be98d07b6ba70b15e4ede8d1d79376a85d656001",
+      "normalizedSHA": "dafc81ff469de9897e833ae9be98d07b6ba70b15e4ede8d1d79376a85d656001"
+    },
+    {
+      "path": "dependencies/Walrus/walrus_context.mv",
+      "rawEqual": true,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [],
+      "oldSHA": "ba49f311ed8b6bba068d32531b2de42230512e890a2103cbdc752f6ad5eaba82",
+      "newSHA": "ba49f311ed8b6bba068d32531b2de42230512e890a2103cbdc752f6ad5eaba82",
+      "normalizedSHA": "ba49f311ed8b6bba068d32531b2de42230512e890a2103cbdc752f6ad5eaba82"
+    },
+    {
+      "path": "dependencies/soulidity_v1/access.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x1",
+        "0x8"
+      ],
+      "oldSHA": "1a5d96e202704565279964e5bc5130efe0cbaacba798d9723e58090e3a8b83f1",
+      "newSHA": "130d535bdbe12fde6a786e84f6c0ca5770a247da88bc7e9e9c53c044996935d0",
+      "normalizedSHA": "1a5d96e202704565279964e5bc5130efe0cbaacba798d9723e58090e3a8b83f1"
+    },
+    {
+      "path": "dependencies/soulidity_v1/application_operator.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x8"
+      ],
+      "oldSHA": "a1dd6fe52865277367e855ffa77522d9a47de373d66586f033dfc17541ac1bf4",
+      "newSHA": "f056ec07f94cb7fe1c2fdf737cf8253a3612cff0913db2dda9bc5e8974baae65",
+      "normalizedSHA": "a1dd6fe52865277367e855ffa77522d9a47de373d66586f033dfc17541ac1bf4"
+    },
+    {
+      "path": "dependencies/soulidity_v1/catalog.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x1",
+        "0x8"
+      ],
+      "oldSHA": "d6aafa0a6f2a343747bd1e1f17bc089635481f9693b0e7440e697372bf839ce3",
+      "newSHA": "e7fa620b9eea32f803678e9130a491374c15bd43388d92bf808e0a30c9681a05",
+      "normalizedSHA": "d6aafa0a6f2a343747bd1e1f17bc089635481f9693b0e7440e697372bf839ce3"
+    },
+    {
+      "path": "dependencies/soulidity_v1/collection.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x1",
+        "0x8"
+      ],
+      "oldSHA": "03ccb54df58d19a2111c1d41e4532404b00c1f7763fcb82f8b42cd5f70d50024",
+      "newSHA": "e8c2bfb8f341e69187b1efaf331ed7cb13cb55e86fdd6be27f345700c92090b8",
+      "normalizedSHA": "03ccb54df58d19a2111c1d41e4532404b00c1f7763fcb82f8b42cd5f70d50024"
+    },
+    {
+      "path": "dependencies/soulidity_v1/custody.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x1",
+        "0x8"
+      ],
+      "oldSHA": "2d0de9c9b9249cdc6d99422706c0e0be8f946ecf6669354053f61178a301c28c",
+      "newSHA": "1875ac6c1a6dcb9c9ef1f6b9a43b8c102674daa92dc5fc588b3f2dee46d9d6ce",
+      "normalizedSHA": "2d0de9c9b9249cdc6d99422706c0e0be8f946ecf6669354053f61178a301c28c"
+    },
+    {
+      "path": "dependencies/soulidity_v1/issuer.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x1",
+        "0x8"
+      ],
+      "oldSHA": "d3363bb417e80e1486c7226e82984f1a2cef16dd1c2cda039b01bdcabb372092",
+      "newSHA": "cf8c5a645df572bb4ecc600bf5c6d574b5eee8b6bbd5e161f800025906ae45e5",
+      "normalizedSHA": "d3363bb417e80e1486c7226e82984f1a2cef16dd1c2cda039b01bdcabb372092"
+    },
+    {
+      "path": "dependencies/soulidity_v1/metadata.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x1",
+        "0x8"
+      ],
+      "oldSHA": "174ce174667a6425aba5cc58f5acd550b2430573bacbc502649bb5013d2aab23",
+      "newSHA": "9ca3fcae90bee9d1a3460a93af354e4efe2336bdb415c32235c46a2cc1e1990b",
+      "normalizedSHA": "174ce174667a6425aba5cc58f5acd550b2430573bacbc502649bb5013d2aab23"
+    },
+    {
+      "path": "dependencies/soulidity_v1/native_binding.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x1",
+        "0x8"
+      ],
+      "oldSHA": "a4a3b0bdfbd120b232f6db25a76a4ad62fcc2bd80fff64393b7de4083eabdca1",
+      "newSHA": "a88ba0ff4dfe00767ddf4503118411d4ac0ad716f95863230d104ab0b40067f4",
+      "normalizedSHA": "a4a3b0bdfbd120b232f6db25a76a4ad62fcc2bd80fff64393b7de4083eabdca1"
+    },
+    {
+      "path": "dependencies/soulidity_v1/native_creation.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x1",
+        "0x8"
+      ],
+      "oldSHA": "18848ff62adfdb75c845eb038b6b9cd056ca955995606dc9300f384b70efa679",
+      "newSHA": "f1f2c9659dd24e438d92d6ceafbb0235b84af1dbfe1dd0d1822885ef5e8af53f",
+      "normalizedSHA": "18848ff62adfdb75c845eb038b6b9cd056ca955995606dc9300f384b70efa679"
+    },
+    {
+      "path": "dependencies/soulidity_v1/physical.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x1",
+        "0x8"
+      ],
+      "oldSHA": "3b4a98a53ddc83ccefa9188eec01675214883adb8c2cb46b353aea2cd408e4e8",
+      "newSHA": "b3663075fd976181e07b782ca3b6c677efe39c97695d90af1d9ac1d8f30a32c5",
+      "normalizedSHA": "3b4a98a53ddc83ccefa9188eec01675214883adb8c2cb46b353aea2cd408e4e8"
+    },
+    {
+      "path": "dependencies/soulidity_v1/player.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x1",
+        "0x8"
+      ],
+      "oldSHA": "8a2461cc9317f7ed373470f904cabd9b1c6531c1cb58a15f511ead2abaacec6b",
+      "newSHA": "b898c57e686d2a3462786e01fcda35710243c26493c6598b00226100c67e6f18",
+      "normalizedSHA": "8a2461cc9317f7ed373470f904cabd9b1c6531c1cb58a15f511ead2abaacec6b"
+    },
+    {
+      "path": "dependencies/soulidity_v1/release.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x1",
+        "0x8"
+      ],
+      "oldSHA": "e243dafc47762be64b4b8d077226a442d095c79271020809dc162ed55e242f6e",
+      "newSHA": "52bb711601008ff9efc03415fa03faef9e00335ef7405b94391071b59e931bd1",
+      "normalizedSHA": "e243dafc47762be64b4b8d077226a442d095c79271020809dc162ed55e242f6e"
+    },
+    {
+      "path": "dependencies/soulidity_v1/runtime.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x1",
+        "0x8"
+      ],
+      "oldSHA": "fc04fd576a00f2bc309c90e3a5682093952e14be93d35912190ead5fa12a2905",
+      "newSHA": "79708d9148c8fb9d777079303bc06fac20552f3e77ed14c0e1fdca8ad6867d19",
+      "normalizedSHA": "fc04fd576a00f2bc309c90e3a5682093952e14be93d35912190ead5fa12a2905"
+    },
+    {
+      "path": "market.mv",
+      "rawEqual": false,
+      "addressNormalizedByteEqual": true,
+      "changedTableKinds": [
+        "0x1",
+        "0x8"
+      ],
+      "oldSHA": "c4cdde40f0b0fa78e76c016d6857ab2cdf2350f1315922ff2d697925146bf51e",
+      "newSHA": "05fec8ae7d80ba6d645039fe57b9bfe898eea454520a39627faf722318f67312",
+      "normalizedSHA": "c4cdde40f0b0fa78e76c016d6857ab2cdf2350f1315922ff2d697925146bf51e"
+    }
+  ],
+  "marketDifferingByteOffsets": [
+    69,
+    71,
+    74,
+    77,
+    79,
+    82,
+    84,
+    87,
+    90,
+    92,
+    4560,
+    4561,
+    4592,
+    4593,
+    4624,
+    4625,
+    4656,
+    4657,
+    4688,
+    4689
+  ],
+  "summary": {
+    "total": 174,
+    "rawEqual": 122,
+    "rawDifferent": 52,
+    "normalizedEqual": 174
+  }
+}

@@ -1,0 +1,2307 @@
+// Move bytecode v7
+module 0.market {
+use 000000000000000000000000000000000000000000000000000000000000dfcd::character;
+use 000000000000000000000000000000000000000000000000000000000000dfcd::resale;
+use 000000000000000000000000000000000000000000000000000000000000dfcd::vault;
+use 000000000000000000000000000000000000000000000000000000000000f8c3::economics;
+use 000000000000000000000000000000000000000000000000000000000000f8c3::revenue;
+use 0000000000000000000000000000000000000000000000000000000000000adb::components;
+use 0000000000000000000000000000000000000000000000000000000000000adb::policy;
+use 000000000000000000000000000000000000000000000000000000000000d1f8::soul;
+use 000000000000000000000000000000000000000000000000000000000000aa9c::catalog;
+use 000000000000000000000000000000000000000000000000000000000000aa9c::collection;
+use 0000000000000000000000000000000000000000000000000000000000000001::bcs;
+use 0000000000000000000000000000000000000000000000000000000000000001::option;
+use 0000000000000000000000000000000000000000000000000000000000000001::type_name;
+use 0000000000000000000000000000000000000000000000000000000000000002::clock;
+use 0000000000000000000000000000000000000000000000000000000000000002::coin;
+use 0000000000000000000000000000000000000000000000000000000000000002::dynamic_object_field;
+use 0000000000000000000000000000000000000000000000000000000000000002::event;
+use 0000000000000000000000000000000000000000000000000000000000000002::object;
+use 0000000000000000000000000000000000000000000000000000000000000002::package;
+use 0000000000000000000000000000000000000000000000000000000000000002::transfer;
+use 0000000000000000000000000000000000000000000000000000000000000002::tx_context;
+
+struct MarketAuthority1 has drop {
+	dummy_field: bool
+}
+
+struct MarketRevision1 has drop {
+	dummy_field: bool
+}
+
+struct MarketRevision2 has drop {
+	dummy_field: bool
+}
+
+struct MarketRevision3 has drop {
+	dummy_field: bool
+}
+
+struct MARKET has drop {
+	dummy_field: bool
+}
+
+struct AssetKey has copy, drop, store {
+	dummy_field: bool
+}
+
+struct Listing<phantom Ty0: store + key, phantom Ty1> has key {
+	id: UID,
+	asset: ID,
+	protocol: ID,
+	seller: address,
+	price: u64,
+	expiry: u64,
+	state: u8,
+	revision: u64,
+	manifest_hash: vector<u8>,
+	commerce: Option<MarketPolicy>,
+	commerce_settlement: Option<MarketReceipt>,
+	buyer: Option<address>,
+	attempt: Option<vector<u8>>,
+	collection: Option<CollectionFee>,
+	rights: Option<Snapshot>,
+	settlement: Option<Receipt>
+}
+
+struct CollectionFee has copy, drop, store {
+	id: ID,
+	extra: u16
+}
+
+struct Listed has copy, drop {
+	listing: ID,
+	asset: ID,
+	seller: address,
+	price: u64,
+	expiry: u64,
+	manifest_hash: vector<u8>
+}
+
+struct Sold has copy, drop {
+	listing: ID,
+	asset: ID,
+	buyer: address,
+	seller: address,
+	price: u64,
+	attempt: vector<u8>,
+	manifest_hash: vector<u8>
+}
+
+struct Cancelled has copy, drop {
+	listing: ID,
+	asset: ID,
+	seller: address
+}
+
+struct ListingDeleted has copy, drop {
+	listing: ID,
+	asset: ID,
+	protocol: ID,
+	seller: address,
+	deleted_by: address,
+	state: u8,
+	asset_type: TypeName,
+	payment_coin: TypeName,
+	manifest_hash: vector<u8>,
+	buyer: Option<address>,
+	attempt: Option<vector<u8>>,
+	commerce_settlement: Option<MarketReceipt>,
+	settlement: Option<Receipt>
+}
+
+struct Repriced has copy, drop {
+	listing: ID,
+	asset: ID,
+	seller: address,
+	previous_revision: u64,
+	revision: u64,
+	previous_price: u64,
+	price: u64,
+	expiry: u64
+}
+
+struct ControlManifest has copy, drop, store {
+	control: ID,
+	product: ID,
+	version: u64,
+	policy_hash: vector<u8>,
+	market: MarketPolicy,
+	income: Snapshot
+}
+
+struct AssetQuote has copy, drop, store {
+	domain: vector<u8>,
+	listing: ID,
+	asset: ID,
+	revision: u64,
+	manifest: vector<u8>,
+	receipt: MarketReceipt,
+	buyer: address,
+	expiry: u64
+}
+
+struct SoulQuote has copy, drop, store {
+	domain: vector<u8>,
+	listing: ID,
+	asset: ID,
+	revision: u64,
+	manifest: vector<u8>,
+	rights_hash: vector<u8>,
+	receipt: Receipt,
+	buyer: address,
+	expiry: u64,
+	collection_snapshot: Option<vector<u8>>
+}
+
+init(Arg0: MARKET, Arg1: &mut TxContext) {
+B0:
+	0: MoveLoc[0](Arg0: MARKET)
+	1: MoveLoc[1](Arg1: &mut TxContext)
+	2: Call package::claim_and_keep<MARKET>(MARKET, &mut TxContext)
+	3: Ret
+}
+
+assert_collection_member(Arg0: &Collection, Arg1: &Soul) {
+L2:	loc0: bool
+B0:
+	0: CopyLoc[1](Arg1: &Soul)
+	1: Call character::protocol(&Soul): ID
+	2: CopyLoc[0](Arg0: &Collection)
+	3: Call collection::protocol(&Collection): ID
+	4: Eq
+	5: BrFalse(26)
+B1:
+	6: CopyLoc[1](Arg1: &Soul)
+	7: Call character::collection_id(&Soul): Option<ID>
+	8: CopyLoc[0](Arg0: &Collection)
+	9: Call object::id<Collection>(&Collection): ID
+	10: Call option::some<ID>(ID): Option<ID>
+	11: Eq
+	12: BrFalse(19)
+B2:
+	13: MoveLoc[0](Arg0: &Collection)
+	14: MoveLoc[1](Arg1: &Soul)
+	15: Call object::id<Soul>(&Soul): ID
+	16: Call collection::contains(&Collection, ID): bool
+	17: StLoc[2](loc0: bool)
+	18: Branch(32)
+B3:
+	19: MoveLoc[1](Arg1: &Soul)
+	20: Pop
+	21: MoveLoc[0](Arg0: &Collection)
+	22: Pop
+	23: LdFalse
+	24: StLoc[2](loc0: bool)
+	25: Branch(32)
+B4:
+	26: MoveLoc[1](Arg1: &Soul)
+	27: Pop
+	28: MoveLoc[0](Arg0: &Collection)
+	29: Pop
+	30: LdFalse
+	31: StLoc[2](loc0: bool)
+B5:
+	32: MoveLoc[2](loc0: bool)
+	33: BrFalse(35)
+B6:
+	34: Branch(37)
+B7:
+	35: LdU64(3)
+	36: Abort
+B8:
+	37: Ret
+}
+
+public list_soul<Ty0>(Arg0: Soul, Arg1: &Config<Ty0>, Arg2: u64, Arg3: u64, Arg4: u64, Arg5: vector<u8>, Arg6: u64, Arg7: &Clock, Arg8: &mut TxContext): ID {
+L9:	loc0: Option<ID>
+L10:	loc1: Snapshot
+B0:
+	0: ImmBorrowLoc[0](Arg0: Soul)
+	1: Call character::protocol(&Soul): ID
+	2: CopyLoc[1](Arg1: &Config<Ty0>)
+	3: Call object::id<Config<Ty0>>(&Config<Ty0>): ID
+	4: Eq
+	5: BrFalse(7)
+B1:
+	6: Branch(15)
+B2:
+	7: MoveLoc[8](Arg8: &mut TxContext)
+	8: Pop
+	9: MoveLoc[7](Arg7: &Clock)
+	10: Pop
+	11: MoveLoc[1](Arg1: &Config<Ty0>)
+	12: Pop
+	13: LdConst[3](u64: 4)
+	14: Abort
+B3:
+	15: ImmBorrowLoc[0](Arg0: Soul)
+	16: MoveLoc[4](Arg4: u64)
+	17: Call character::assert_revision(&Soul, u64)
+	18: ImmBorrowLoc[0](Arg0: Soul)
+	19: Call character::collection_id(&Soul): Option<ID>
+	20: StLoc[9](loc0: Option<ID>)
+	21: ImmBorrowLoc[9](loc0: Option<ID>)
+	22: Call option::is_none<ID>(&Option<ID>): bool
+	23: BrFalse(25)
+B4:
+	24: Branch(33)
+B5:
+	25: MoveLoc[8](Arg8: &mut TxContext)
+	26: Pop
+	27: MoveLoc[7](Arg7: &Clock)
+	28: Pop
+	29: MoveLoc[1](Arg1: &Config<Ty0>)
+	30: Pop
+	31: LdConst[3](u64: 4)
+	32: Abort
+B6:
+	33: ImmBorrowLoc[0](Arg0: Soul)
+	34: Call character::manifest_hash(&Soul): vector<u8>
+	35: CopyLoc[5](Arg5: vector<u8>)
+	36: Eq
+	37: BrFalse(39)
+B7:
+	38: Branch(47)
+B8:
+	39: MoveLoc[8](Arg8: &mut TxContext)
+	40: Pop
+	41: MoveLoc[7](Arg7: &Clock)
+	42: Pop
+	43: MoveLoc[1](Arg1: &Config<Ty0>)
+	44: Pop
+	45: LdConst[1](u64: 2)
+	46: Abort
+B9:
+	47: ImmBorrowLoc[0](Arg0: Soul)
+	48: Call character::resale(&Soul): &Snapshot
+	49: ReadRef
+	50: StLoc[10](loc1: Snapshot)
+	51: ImmBorrowLoc[10](loc1: Snapshot)
+	52: CopyLoc[1](Arg1: &Config<Ty0>)
+	53: CopyLoc[2](Arg2: u64)
+	54: CopyLoc[8](Arg8: &mut TxContext)
+	55: FreezeRef
+	56: Call tx_context::sender(&TxContext): address
+	57: Call resale::quote_gross<Ty0>(&Snapshot, &Config<Ty0>, u64, address): Receipt
+	58: Pop
+	59: MoveLoc[0](Arg0: Soul)
+	60: MoveLoc[1](Arg1: &Config<Ty0>)
+	61: MoveLoc[2](Arg2: u64)
+	62: MoveLoc[3](Arg3: u64)
+	63: MoveLoc[5](Arg5: vector<u8>)
+	64: Call option::none<MarketPolicy>(): Option<MarketPolicy>
+	65: Call option::none<CollectionFee>(): Option<CollectionFee>
+	66: MoveLoc[10](loc1: Snapshot)
+	67: Call option::some<Snapshot>(Snapshot): Option<Snapshot>
+	68: MoveLoc[6](Arg6: u64)
+	69: MoveLoc[7](Arg7: &Clock)
+	70: MoveLoc[8](Arg8: &mut TxContext)
+	71: Call create<Soul, Ty0>(Soul, &Config<Ty0>, u64, u64, vector<u8>, Option<MarketPolicy>, Option<CollectionFee>, Option<Snapshot>, u64, &Clock, &mut TxContext): ID
+	72: Ret
+}
+
+public list_soul_with_collection<Ty0>(Arg0: Soul, Arg1: &Collection, Arg2: &Config<Ty0>, Arg3: u64, Arg4: u64, Arg5: u64, Arg6: vector<u8>, Arg7: u64, Arg8: &Clock, Arg9: &mut TxContext): ID {
+L10:	loc0: Snapshot
+B0:
+	0: CopyLoc[1](Arg1: &Collection)
+	1: ImmBorrowLoc[0](Arg0: Soul)
+	2: Call assert_collection_member(&Collection, &Soul)
+	3: ImmBorrowLoc[0](Arg0: Soul)
+	4: Call character::protocol(&Soul): ID
+	5: CopyLoc[2](Arg2: &Config<Ty0>)
+	6: Call object::id<Config<Ty0>>(&Config<Ty0>): ID
+	7: Eq
+	8: BrFalse(10)
+B1:
+	9: Branch(20)
+B2:
+	10: MoveLoc[9](Arg9: &mut TxContext)
+	11: Pop
+	12: MoveLoc[8](Arg8: &Clock)
+	13: Pop
+	14: MoveLoc[2](Arg2: &Config<Ty0>)
+	15: Pop
+	16: MoveLoc[1](Arg1: &Collection)
+	17: Pop
+	18: LdConst[3](u64: 4)
+	19: Abort
+B3:
+	20: ImmBorrowLoc[0](Arg0: Soul)
+	21: MoveLoc[5](Arg5: u64)
+	22: Call character::assert_revision(&Soul, u64)
+	23: ImmBorrowLoc[0](Arg0: Soul)
+	24: Call character::manifest_hash(&Soul): vector<u8>
+	25: CopyLoc[6](Arg6: vector<u8>)
+	26: Eq
+	27: BrFalse(29)
+B4:
+	28: Branch(39)
+B5:
+	29: MoveLoc[9](Arg9: &mut TxContext)
+	30: Pop
+	31: MoveLoc[8](Arg8: &Clock)
+	32: Pop
+	33: MoveLoc[2](Arg2: &Config<Ty0>)
+	34: Pop
+	35: MoveLoc[1](Arg1: &Collection)
+	36: Pop
+	37: LdConst[1](u64: 2)
+	38: Abort
+B6:
+	39: ImmBorrowLoc[0](Arg0: Soul)
+	40: Call character::resale(&Soul): &Snapshot
+	41: ReadRef
+	42: StLoc[10](loc0: Snapshot)
+	43: ImmBorrowLoc[10](loc0: Snapshot)
+	44: CopyLoc[2](Arg2: &Config<Ty0>)
+	45: CopyLoc[3](Arg3: u64)
+	46: CopyLoc[9](Arg9: &mut TxContext)
+	47: FreezeRef
+	48: Call tx_context::sender(&TxContext): address
+	49: CopyLoc[1](Arg1: &Collection)
+	50: Call object::id<Collection>(&Collection): ID
+	51: CopyLoc[1](Arg1: &Collection)
+	52: Call collection::current_holder(&Collection): address
+	53: CopyLoc[1](Arg1: &Collection)
+	54: Call collection::extra_royalty(&Collection): u16
+	55: Call resale::quote_collection<Ty0>(&Snapshot, &Config<Ty0>, u64, address, ID, address, u16): Receipt
+	56: Pop
+	57: MoveLoc[0](Arg0: Soul)
+	58: MoveLoc[2](Arg2: &Config<Ty0>)
+	59: MoveLoc[3](Arg3: u64)
+	60: MoveLoc[4](Arg4: u64)
+	61: MoveLoc[6](Arg6: vector<u8>)
+	62: Call option::none<MarketPolicy>(): Option<MarketPolicy>
+	63: CopyLoc[1](Arg1: &Collection)
+	64: Call object::id<Collection>(&Collection): ID
+	65: MoveLoc[1](Arg1: &Collection)
+	66: Call collection::extra_royalty(&Collection): u16
+	67: Pack[7](CollectionFee)
+	68: Call option::some<CollectionFee>(CollectionFee): Option<CollectionFee>
+	69: MoveLoc[10](loc0: Snapshot)
+	70: Call option::some<Snapshot>(Snapshot): Option<Snapshot>
+	71: MoveLoc[7](Arg7: u64)
+	72: MoveLoc[8](Arg8: &Clock)
+	73: MoveLoc[9](Arg9: &mut TxContext)
+	74: Call create<Soul, Ty0>(Soul, &Config<Ty0>, u64, u64, vector<u8>, Option<MarketPolicy>, Option<CollectionFee>, Option<Snapshot>, u64, &Clock, &mut TxContext): ID
+	75: Ret
+}
+
+public list_item<Ty0>(Arg0: Item, Arg1: &Config<Ty0>, Arg2: u64, Arg3: u64, Arg4: u64, Arg5: &Clock, Arg6: &mut TxContext): ID {
+L7:	loc0: vector<u8>
+L8:	loc1: MarketPolicy
+L9:	loc2: &Source
+B0:
+	0: ImmBorrowLoc[0](Arg0: Item)
+	1: Call components::source(&Item): &Source
+	2: StLoc[9](loc2: &Source)
+	3: CopyLoc[9](loc2: &Source)
+	4: Call policy::source_protocol(&Source): ID
+	5: CopyLoc[1](Arg1: &Config<Ty0>)
+	6: Call object::id<Config<Ty0>>(&Config<Ty0>): ID
+	7: Eq
+	8: BrFalse(10)
+B1:
+	9: Branch(20)
+B2:
+	10: MoveLoc[9](loc2: &Source)
+	11: Pop
+	12: MoveLoc[6](Arg6: &mut TxContext)
+	13: Pop
+	14: MoveLoc[5](Arg5: &Clock)
+	15: Pop
+	16: MoveLoc[1](Arg1: &Config<Ty0>)
+	17: Pop
+	18: LdConst[3](u64: 4)
+	19: Abort
+B3:
+	20: CopyLoc[9](loc2: &Source)
+	21: Call policy::source_hash(&Source): vector<u8>
+	22: StLoc[7](loc0: vector<u8>)
+	23: MoveLoc[9](loc2: &Source)
+	24: Call policy::source_market(&Source): MarketPolicy
+	25: StLoc[8](loc1: MarketPolicy)
+	26: ImmBorrowLoc[8](loc1: MarketPolicy)
+	27: CopyLoc[1](Arg1: &Config<Ty0>)
+	28: LdU8(1)
+	29: CopyLoc[2](Arg2: u64)
+	30: CopyLoc[6](Arg6: &mut TxContext)
+	31: FreezeRef
+	32: Call tx_context::sender(&TxContext): address
+	33: Call economics::market_quote<Ty0>(&MarketPolicy, &Config<Ty0>, u8, u64, address): MarketReceipt
+	34: Pop
+	35: MoveLoc[0](Arg0: Item)
+	36: MoveLoc[1](Arg1: &Config<Ty0>)
+	37: MoveLoc[2](Arg2: u64)
+	38: MoveLoc[3](Arg3: u64)
+	39: MoveLoc[7](loc0: vector<u8>)
+	40: MoveLoc[8](loc1: MarketPolicy)
+	41: Call option::some<MarketPolicy>(MarketPolicy): Option<MarketPolicy>
+	42: Call option::none<CollectionFee>(): Option<CollectionFee>
+	43: Call option::none<Snapshot>(): Option<Snapshot>
+	44: MoveLoc[4](Arg4: u64)
+	45: MoveLoc[5](Arg5: &Clock)
+	46: MoveLoc[6](Arg6: &mut TxContext)
+	47: Call create<Item, Ty0>(Item, &Config<Ty0>, u64, u64, vector<u8>, Option<MarketPolicy>, Option<CollectionFee>, Option<Snapshot>, u64, &Clock, &mut TxContext): ID
+	48: Ret
+}
+
+public list_control<Ty0>(Arg0: Control, Arg1: &Product<Ty0>, Arg2: &Config<Ty0>, Arg3: u64, Arg4: u64, Arg5: u64, Arg6: u64, Arg7: &Clock, Arg8: &mut TxContext): ID {
+L9:	loc0: bool
+L10:	loc1: vector<u8>
+L11:	loc2: MarketPolicy
+B0:
+	0: CopyLoc[1](Arg1: &Product<Ty0>)
+	1: Call catalog::assert_paused<Ty0>(&Product<Ty0>)
+	2: CopyLoc[1](Arg1: &Product<Ty0>)
+	3: ImmBorrowLoc[0](Arg0: Control)
+	4: Call catalog::assert_control<Ty0>(&Product<Ty0>, &Control)
+	5: CopyLoc[1](Arg1: &Product<Ty0>)
+	6: Call catalog::protocol<Ty0>(&Product<Ty0>): ID
+	7: CopyLoc[2](Arg2: &Config<Ty0>)
+	8: Call object::id<Config<Ty0>>(&Config<Ty0>): ID
+	9: Eq
+	10: BrFalse(17)
+B1:
+	11: CopyLoc[1](Arg1: &Product<Ty0>)
+	12: Call catalog::current_version<Ty0>(&Product<Ty0>): u64
+	13: MoveLoc[5](Arg5: u64)
+	14: Eq
+	15: StLoc[9](loc0: bool)
+	16: Branch(19)
+B2:
+	17: LdFalse
+	18: StLoc[9](loc0: bool)
+B3:
+	19: MoveLoc[9](loc0: bool)
+	20: BrFalse(22)
+B4:
+	21: Branch(32)
+B5:
+	22: MoveLoc[1](Arg1: &Product<Ty0>)
+	23: Pop
+	24: MoveLoc[8](Arg8: &mut TxContext)
+	25: Pop
+	26: MoveLoc[7](Arg7: &Clock)
+	27: Pop
+	28: MoveLoc[2](Arg2: &Config<Ty0>)
+	29: Pop
+	30: LdConst[3](u64: 4)
+	31: Abort
+B6:
+	32: CopyLoc[1](Arg1: &Product<Ty0>)
+	33: Call catalog::market_policy<Ty0>(&Product<Ty0>): MarketPolicy
+	34: StLoc[11](loc2: MarketPolicy)
+	35: ImmBorrowLoc[11](loc2: MarketPolicy)
+	36: CopyLoc[2](Arg2: &Config<Ty0>)
+	37: LdU8(0)
+	38: CopyLoc[3](Arg3: u64)
+	39: CopyLoc[8](Arg8: &mut TxContext)
+	40: FreezeRef
+	41: Call tx_context::sender(&TxContext): address
+	42: Call economics::market_quote<Ty0>(&MarketPolicy, &Config<Ty0>, u8, u64, address): MarketReceipt
+	43: Pop
+	44: ImmBorrowLoc[0](Arg0: Control)
+	45: MoveLoc[1](Arg1: &Product<Ty0>)
+	46: Call control_hash<Ty0>(&Control, &Product<Ty0>): vector<u8>
+	47: StLoc[10](loc1: vector<u8>)
+	48: MoveLoc[0](Arg0: Control)
+	49: MoveLoc[2](Arg2: &Config<Ty0>)
+	50: MoveLoc[3](Arg3: u64)
+	51: MoveLoc[4](Arg4: u64)
+	52: MoveLoc[10](loc1: vector<u8>)
+	53: MoveLoc[11](loc2: MarketPolicy)
+	54: Call option::some<MarketPolicy>(MarketPolicy): Option<MarketPolicy>
+	55: Call option::none<CollectionFee>(): Option<CollectionFee>
+	56: Call option::none<Snapshot>(): Option<Snapshot>
+	57: MoveLoc[6](Arg6: u64)
+	58: MoveLoc[7](Arg7: &Clock)
+	59: MoveLoc[8](Arg8: &mut TxContext)
+	60: Call create<Control, Ty0>(Control, &Config<Ty0>, u64, u64, vector<u8>, Option<MarketPolicy>, Option<CollectionFee>, Option<Snapshot>, u64, &Clock, &mut TxContext): ID
+	61: Ret
+}
+
+control_hash<Ty0>(Arg0: &Control, Arg1: &Product<Ty0>): vector<u8> {
+L2:	loc0: ControlManifest
+L3:	loc1: u64
+B0:
+	0: CopyLoc[1](Arg1: &Product<Ty0>)
+	1: Call catalog::current_version<Ty0>(&Product<Ty0>): u64
+	2: StLoc[3](loc1: u64)
+	3: MoveLoc[0](Arg0: &Control)
+	4: Call object::id<Control>(&Control): ID
+	5: CopyLoc[1](Arg1: &Product<Ty0>)
+	6: Call object::id<Product<Ty0>>(&Product<Ty0>): ID
+	7: CopyLoc[3](loc1: u64)
+	8: CopyLoc[1](Arg1: &Product<Ty0>)
+	9: MoveLoc[3](loc1: u64)
+	10: Call catalog::published<Ty0>(&Product<Ty0>, u64): &Version
+	11: Call catalog::policy_hash(&Version): vector<u8>
+	12: CopyLoc[1](Arg1: &Product<Ty0>)
+	13: Call catalog::market_policy<Ty0>(&Product<Ty0>): MarketPolicy
+	14: MoveLoc[1](Arg1: &Product<Ty0>)
+	15: Call catalog::income<Ty0>(&Product<Ty0>): &Ledger<Ty0>
+	16: Call revenue::snapshot<Ty0>(&Ledger<Ty0>): Snapshot
+	17: Pack[13](ControlManifest)
+	18: StLoc[2](loc0: ControlManifest)
+	19: ImmBorrowLoc[2](loc0: ControlManifest)
+	20: Call bcs::to_bytes<ControlManifest>(&ControlManifest): vector<u8>
+	21: Call policy::hash_bytes(vector<u8>): vector<u8>
+	22: Ret
+}
+
+create<Ty0: store + key, Ty1>(Arg0: Ty0, Arg1: &Config<Ty1>, Arg2: u64, Arg3: u64, Arg4: vector<u8>, Arg5: Option<MarketPolicy>, Arg6: Option<CollectionFee>, Arg7: Option<Snapshot>, Arg8: u64, Arg9: &Clock, Arg10: &mut TxContext): ID {
+L11:	loc0: bool
+L12:	loc1: vector<u8>
+L13:	loc2: Option<MarketPolicy>
+L14:	loc3: Option<MarketReceipt>
+L15:	loc4: Option<CollectionFee>
+L16:	loc5: Option<Snapshot>
+L17:	loc6: Option<Receipt>
+L18:	loc7: Option<address>
+L19:	loc8: Option<vector<u8>>
+L20:	loc9: UID
+L21:	loc10: ID
+L22:	loc11: ID
+L23:	loc12: address
+L24:	loc13: u64
+L25:	loc14: u64
+L26:	loc15: ID
+L27:	loc16: Listing<Ty0, Ty1>
+B0:
+	0: CopyLoc[1](Arg1: &Config<Ty1>)
+	1: MoveLoc[8](Arg8: u64)
+	2: CopyLoc[3](Arg3: u64)
+	3: CopyLoc[9](Arg9: &Clock)
+	4: Call economics::assert_secondary_live<Ty1>(&Config<Ty1>, u64, u64, &Clock)
+	5: CopyLoc[2](Arg2: u64)
+	6: LdU64(0)
+	7: Gt
+	8: BrFalse(15)
+B1:
+	9: CopyLoc[3](Arg3: u64)
+	10: MoveLoc[9](Arg9: &Clock)
+	11: Call clock::timestamp_ms(&Clock): u64
+	12: Gt
+	13: StLoc[11](loc0: bool)
+	14: Branch(19)
+B2:
+	15: MoveLoc[9](Arg9: &Clock)
+	16: Pop
+	17: LdFalse
+	18: StLoc[11](loc0: bool)
+B3:
+	19: MoveLoc[11](loc0: bool)
+	20: BrFalse(22)
+B4:
+	21: Branch(28)
+B5:
+	22: MoveLoc[10](Arg10: &mut TxContext)
+	23: Pop
+	24: MoveLoc[1](Arg1: &Config<Ty1>)
+	25: Pop
+	26: LdConst[1](u64: 2)
+	27: Abort
+B6:
+	28: CopyLoc[10](Arg10: &mut TxContext)
+	29: Call object::new(&mut TxContext): UID
+	30: StLoc[20](loc9: UID)
+	31: ImmBorrowLoc[0](Arg0: Ty0)
+	32: Call object::id<Ty0>(&Ty0): ID
+	33: StLoc[21](loc10: ID)
+	34: MoveLoc[1](Arg1: &Config<Ty1>)
+	35: Call object::id<Config<Ty1>>(&Config<Ty1>): ID
+	36: StLoc[22](loc11: ID)
+	37: MoveLoc[10](Arg10: &mut TxContext)
+	38: FreezeRef
+	39: Call tx_context::sender(&TxContext): address
+	40: StLoc[23](loc12: address)
+	41: CopyLoc[2](Arg2: u64)
+	42: StLoc[24](loc13: u64)
+	43: CopyLoc[3](Arg3: u64)
+	44: StLoc[25](loc14: u64)
+	45: CopyLoc[4](Arg4: vector<u8>)
+	46: StLoc[12](loc1: vector<u8>)
+	47: MoveLoc[5](Arg5: Option<MarketPolicy>)
+	48: StLoc[13](loc2: Option<MarketPolicy>)
+	49: Call option::none<MarketReceipt>(): Option<MarketReceipt>
+	50: StLoc[14](loc3: Option<MarketReceipt>)
+	51: MoveLoc[6](Arg6: Option<CollectionFee>)
+	52: StLoc[15](loc4: Option<CollectionFee>)
+	53: MoveLoc[7](Arg7: Option<Snapshot>)
+	54: StLoc[16](loc5: Option<Snapshot>)
+	55: Call option::none<Receipt>(): Option<Receipt>
+	56: StLoc[17](loc6: Option<Receipt>)
+	57: Call option::none<address>(): Option<address>
+	58: StLoc[18](loc7: Option<address>)
+	59: Call option::none<vector<u8>>(): Option<vector<u8>>
+	60: StLoc[19](loc8: Option<vector<u8>>)
+	61: MoveLoc[20](loc9: UID)
+	62: MoveLoc[21](loc10: ID)
+	63: MoveLoc[22](loc11: ID)
+	64: MoveLoc[23](loc12: address)
+	65: MoveLoc[24](loc13: u64)
+	66: MoveLoc[25](loc14: u64)
+	67: LdU8(0)
+	68: LdU64(0)
+	69: MoveLoc[12](loc1: vector<u8>)
+	70: MoveLoc[13](loc2: Option<MarketPolicy>)
+	71: MoveLoc[14](loc3: Option<MarketReceipt>)
+	72: MoveLoc[18](loc7: Option<address>)
+	73: MoveLoc[19](loc8: Option<vector<u8>>)
+	74: MoveLoc[15](loc4: Option<CollectionFee>)
+	75: MoveLoc[16](loc5: Option<Snapshot>)
+	76: MoveLoc[17](loc6: Option<Receipt>)
+	77: PackGeneric[0](Listing<Ty0, Ty1>)
+	78: StLoc[27](loc16: Listing<Ty0, Ty1>)
+	79: ImmBorrowLoc[27](loc16: Listing<Ty0, Ty1>)
+	80: Call object::id<Listing<Ty0, Ty1>>(&Listing<Ty0, Ty1>): ID
+	81: StLoc[26](loc15: ID)
+	82: MutBorrowLoc[27](loc16: Listing<Ty0, Ty1>)
+	83: MutBorrowFieldGeneric[0](Listing.id: UID)
+	84: LdFalse
+	85: Pack[5](AssetKey)
+	86: MoveLoc[0](Arg0: Ty0)
+	87: Call dynamic_object_field::add<AssetKey, Ty0>(&mut UID, AssetKey, Ty0)
+	88: CopyLoc[26](loc15: ID)
+	89: ImmBorrowLoc[27](loc16: Listing<Ty0, Ty1>)
+	90: ImmBorrowFieldGeneric[1](Listing.asset: ID)
+	91: ReadRef
+	92: ImmBorrowLoc[27](loc16: Listing<Ty0, Ty1>)
+	93: ImmBorrowFieldGeneric[2](Listing.seller: address)
+	94: ReadRef
+	95: MoveLoc[2](Arg2: u64)
+	96: MoveLoc[3](Arg3: u64)
+	97: MoveLoc[4](Arg4: vector<u8>)
+	98: Pack[8](Listed)
+	99: Call event::emit<Listed>(Listed)
+	100: MoveLoc[27](loc16: Listing<Ty0, Ty1>)
+	101: Call transfer::share_object<Listing<Ty0, Ty1>>(Listing<Ty0, Ty1>)
+	102: MoveLoc[26](loc15: ID)
+	103: Ret
+}
+
+public bundle<Ty0>(Arg0: &Listing<Soul, Ty0>): Manifest {
+B0:
+	0: CopyLoc[0](Arg0: &Listing<Soul, Ty0>)
+	1: ImmBorrowFieldGeneric[3](Listing.state: u8)
+	2: ReadRef
+	3: LdU8(0)
+	4: Eq
+	5: BrFalse(7)
+B1:
+	6: Branch(11)
+B2:
+	7: MoveLoc[0](Arg0: &Listing<Soul, Ty0>)
+	8: Pop
+	9: LdConst[0](u64: 1)
+	10: Abort
+B3:
+	11: MoveLoc[0](Arg0: &Listing<Soul, Ty0>)
+	12: ImmBorrowFieldGeneric[4](Listing.id: UID)
+	13: LdFalse
+	14: Pack[5](AssetKey)
+	15: Call dynamic_object_field::borrow<AssetKey, Soul>(&UID, AssetKey): &Soul
+	16: Call character::manifest(&Soul): Manifest
+	17: Ret
+}
+
+public bundle_vault<Ty0>(Arg0: &Listing<Soul, Ty0>): Option<Snapshot> {
+L1:	loc0: Option<Snapshot>
+L2:	loc1: &Soul
+B0:
+	0: CopyLoc[0](Arg0: &Listing<Soul, Ty0>)
+	1: ImmBorrowFieldGeneric[3](Listing.state: u8)
+	2: ReadRef
+	3: LdU8(0)
+	4: Eq
+	5: BrFalse(7)
+B1:
+	6: Branch(11)
+B2:
+	7: MoveLoc[0](Arg0: &Listing<Soul, Ty0>)
+	8: Pop
+	9: LdConst[0](u64: 1)
+	10: Abort
+B3:
+	11: MoveLoc[0](Arg0: &Listing<Soul, Ty0>)
+	12: ImmBorrowFieldGeneric[4](Listing.id: UID)
+	13: LdFalse
+	14: Pack[5](AssetKey)
+	15: Call dynamic_object_field::borrow<AssetKey, Soul>(&UID, AssetKey): &Soul
+	16: StLoc[2](loc1: &Soul)
+	17: CopyLoc[2](loc1: &Soul)
+	18: Call vault::installed(&Soul): bool
+	19: BrFalse(25)
+B4:
+	20: MoveLoc[2](loc1: &Soul)
+	21: Call vault::snapshot(&Soul): Snapshot
+	22: Call option::some<Snapshot>(Snapshot): Option<Snapshot>
+	23: StLoc[1](loc0: Option<Snapshot>)
+	24: Branch(29)
+B5:
+	25: MoveLoc[2](loc1: &Soul)
+	26: Pop
+	27: Call option::none<Snapshot>(): Option<Snapshot>
+	28: StLoc[1](loc0: Option<Snapshot>)
+B6:
+	29: MoveLoc[1](loc0: Option<Snapshot>)
+	30: Ret
+}
+
+public bundle_standard<Ty0>(Arg0: &Listing<Soul, Ty0>): Manifest {
+B0:
+	0: CopyLoc[0](Arg0: &Listing<Soul, Ty0>)
+	1: ImmBorrowFieldGeneric[3](Listing.state: u8)
+	2: ReadRef
+	3: LdU8(0)
+	4: Eq
+	5: BrFalse(7)
+B1:
+	6: Branch(11)
+B2:
+	7: MoveLoc[0](Arg0: &Listing<Soul, Ty0>)
+	8: Pop
+	9: LdConst[0](u64: 1)
+	10: Abort
+B3:
+	11: MoveLoc[0](Arg0: &Listing<Soul, Ty0>)
+	12: ImmBorrowFieldGeneric[4](Listing.id: UID)
+	13: LdFalse
+	14: Pack[5](AssetKey)
+	15: Call dynamic_object_field::borrow<AssetKey, Soul>(&UID, AssetKey): &Soul
+	16: Call character::standard_manifest(&Soul): Manifest
+	17: Ret
+}
+
+public bundle_bound_source<Ty0>(Arg0: &Listing<Soul, Ty0>, Arg1: u64): Source {
+B0:
+	0: CopyLoc[0](Arg0: &Listing<Soul, Ty0>)
+	1: ImmBorrowFieldGeneric[3](Listing.state: u8)
+	2: ReadRef
+	3: LdU8(0)
+	4: Eq
+	5: BrFalse(7)
+B1:
+	6: Branch(11)
+B2:
+	7: MoveLoc[0](Arg0: &Listing<Soul, Ty0>)
+	8: Pop
+	9: LdConst[0](u64: 1)
+	10: Abort
+B3:
+	11: MoveLoc[0](Arg0: &Listing<Soul, Ty0>)
+	12: ImmBorrowFieldGeneric[4](Listing.id: UID)
+	13: LdFalse
+	14: Pack[5](AssetKey)
+	15: Call dynamic_object_field::borrow<AssetKey, Soul>(&UID, AssetKey): &Soul
+	16: MoveLoc[1](Arg1: u64)
+	17: Call character::bound_source(&Soul, u64): &Source
+	18: ReadRef
+	19: Ret
+}
+
+public bundle_reference_source<Ty0>(Arg0: &Listing<Soul, Ty0>, Arg1: u64): Source {
+B0:
+	0: CopyLoc[0](Arg0: &Listing<Soul, Ty0>)
+	1: ImmBorrowFieldGeneric[3](Listing.state: u8)
+	2: ReadRef
+	3: LdU8(0)
+	4: Eq
+	5: BrFalse(7)
+B1:
+	6: Branch(11)
+B2:
+	7: MoveLoc[0](Arg0: &Listing<Soul, Ty0>)
+	8: Pop
+	9: LdConst[0](u64: 1)
+	10: Abort
+B3:
+	11: MoveLoc[0](Arg0: &Listing<Soul, Ty0>)
+	12: ImmBorrowFieldGeneric[4](Listing.id: UID)
+	13: LdFalse
+	14: Pack[5](AssetKey)
+	15: Call dynamic_object_field::borrow<AssetKey, Soul>(&UID, AssetKey): &Soul
+	16: MoveLoc[1](Arg1: u64)
+	17: Call character::reference_source(&Soul, u64): &Source
+	18: ReadRef
+	19: Ret
+}
+
+public price<Ty0: store + key, Ty1>(Arg0: &Listing<Ty0, Ty1>): u64 {
+B0:
+	0: MoveLoc[0](Arg0: &Listing<Ty0, Ty1>)
+	1: ImmBorrowFieldGeneric[5](Listing.price: u64)
+	2: ReadRef
+	3: Ret
+}
+
+public status<Ty0: store + key, Ty1>(Arg0: &Listing<Ty0, Ty1>): u8 {
+B0:
+	0: MoveLoc[0](Arg0: &Listing<Ty0, Ty1>)
+	1: ImmBorrowFieldGeneric[6](Listing.state: u8)
+	2: ReadRef
+	3: Ret
+}
+
+public revision<Ty0: store + key, Ty1>(Arg0: &Listing<Ty0, Ty1>): u64 {
+B0:
+	0: MoveLoc[0](Arg0: &Listing<Ty0, Ty1>)
+	1: ImmBorrowFieldGeneric[7](Listing.revision: u64)
+	2: ReadRef
+	3: Ret
+}
+
+public manifest_hash<Ty0: store + key, Ty1>(Arg0: &Listing<Ty0, Ty1>): vector<u8> {
+B0:
+	0: MoveLoc[0](Arg0: &Listing<Ty0, Ty1>)
+	1: ImmBorrowFieldGeneric[8](Listing.manifest_hash: vector<u8>)
+	2: ReadRef
+	3: Ret
+}
+
+public buyer<Ty0: store + key, Ty1>(Arg0: &Listing<Ty0, Ty1>): Option<address> {
+B0:
+	0: MoveLoc[0](Arg0: &Listing<Ty0, Ty1>)
+	1: ImmBorrowFieldGeneric[9](Listing.buyer: Option<address>)
+	2: ReadRef
+	3: Ret
+}
+
+public receipt<Ty0: store + key, Ty1>(Arg0: &Listing<Ty0, Ty1>): Option<vector<u8>> {
+B0:
+	0: MoveLoc[0](Arg0: &Listing<Ty0, Ty1>)
+	1: ImmBorrowFieldGeneric[10](Listing.attempt: Option<vector<u8>>)
+	2: ReadRef
+	3: Ret
+}
+
+public rights<Ty0>(Arg0: &Listing<Soul, Ty0>): Snapshot {
+B0:
+	0: MoveLoc[0](Arg0: &Listing<Soul, Ty0>)
+	1: ImmBorrowFieldGeneric[11](Listing.rights: Option<Snapshot>)
+	2: ReadRef
+	3: Call option::destroy_some<Snapshot>(Option<Snapshot>): Snapshot
+	4: Ret
+}
+
+public settlement<Ty0: store + key, Ty1>(Arg0: &Listing<Ty0, Ty1>): Option<Receipt> {
+B0:
+	0: MoveLoc[0](Arg0: &Listing<Ty0, Ty1>)
+	1: ImmBorrowFieldGeneric[12](Listing.settlement: Option<Receipt>)
+	2: ReadRef
+	3: Ret
+}
+
+public asset_settlement<Ty0: store + key, Ty1>(Arg0: &Listing<Ty0, Ty1>): Option<MarketReceipt> {
+B0:
+	0: MoveLoc[0](Arg0: &Listing<Ty0, Ty1>)
+	1: ImmBorrowFieldGeneric[13](Listing.commerce_settlement: Option<MarketReceipt>)
+	2: ReadRef
+	3: Ret
+}
+
+public item_quote<Ty0>(Arg0: &Listing<Item, Ty0>, Arg1: &Config<Ty0>): MarketReceipt {
+B0:
+	0: MoveLoc[0](Arg0: &Listing<Item, Ty0>)
+	1: MoveLoc[1](Arg1: &Config<Ty0>)
+	2: LdU8(1)
+	3: Call asset_quote<Item, Ty0>(&Listing<Item, Ty0>, &Config<Ty0>, u8): MarketReceipt
+	4: Ret
+}
+
+public control_quote<Ty0>(Arg0: &Listing<Control, Ty0>, Arg1: &Config<Ty0>): MarketReceipt {
+B0:
+	0: MoveLoc[0](Arg0: &Listing<Control, Ty0>)
+	1: MoveLoc[1](Arg1: &Config<Ty0>)
+	2: LdU8(0)
+	3: Call asset_quote<Control, Ty0>(&Listing<Control, Ty0>, &Config<Ty0>, u8): MarketReceipt
+	4: Ret
+}
+
+asset_quote<Ty0: store + key, Ty1>(Arg0: &Listing<Ty0, Ty1>, Arg1: &Config<Ty1>, Arg2: u8): MarketReceipt {
+B0:
+	0: CopyLoc[0](Arg0: &Listing<Ty0, Ty1>)
+	1: ImmBorrowFieldGeneric[14](Listing.protocol: ID)
+	2: ReadRef
+	3: CopyLoc[1](Arg1: &Config<Ty1>)
+	4: Call object::id<Config<Ty1>>(&Config<Ty1>): ID
+	5: Eq
+	6: BrFalse(8)
+B1:
+	7: Branch(14)
+B2:
+	8: MoveLoc[0](Arg0: &Listing<Ty0, Ty1>)
+	9: Pop
+	10: MoveLoc[1](Arg1: &Config<Ty1>)
+	11: Pop
+	12: LdConst[3](u64: 4)
+	13: Abort
+B3:
+	14: CopyLoc[0](Arg0: &Listing<Ty0, Ty1>)
+	15: ImmBorrowFieldGeneric[15](Listing.commerce: Option<MarketPolicy>)
+	16: Call option::borrow<MarketPolicy>(&Option<MarketPolicy>): &MarketPolicy
+	17: MoveLoc[1](Arg1: &Config<Ty1>)
+	18: MoveLoc[2](Arg2: u8)
+	19: CopyLoc[0](Arg0: &Listing<Ty0, Ty1>)
+	20: ImmBorrowFieldGeneric[5](Listing.price: u64)
+	21: ReadRef
+	22: MoveLoc[0](Arg0: &Listing<Ty0, Ty1>)
+	23: ImmBorrowFieldGeneric[2](Listing.seller: address)
+	24: ReadRef
+	25: Call economics::market_quote<Ty1>(&MarketPolicy, &Config<Ty1>, u8, u64, address): MarketReceipt
+	26: Ret
+}
+
+asset_quote_hash<Ty0: store + key, Ty1>(Arg0: &Listing<Ty0, Ty1>, Arg1: MarketReceipt, Arg2: address): vector<u8> {
+L3:	loc0: AssetQuote
+B0:
+	0: LdConst[4](vector<u8>: "sou..)
+	1: CopyLoc[0](Arg0: &Listing<Ty0, Ty1>)
+	2: Call object::id<Listing<Ty0, Ty1>>(&Listing<Ty0, Ty1>): ID
+	3: CopyLoc[0](Arg0: &Listing<Ty0, Ty1>)
+	4: ImmBorrowFieldGeneric[1](Listing.asset: ID)
+	5: ReadRef
+	6: CopyLoc[0](Arg0: &Listing<Ty0, Ty1>)
+	7: ImmBorrowFieldGeneric[7](Listing.revision: u64)
+	8: ReadRef
+	9: CopyLoc[0](Arg0: &Listing<Ty0, Ty1>)
+	10: ImmBorrowFieldGeneric[8](Listing.manifest_hash: vector<u8>)
+	11: ReadRef
+	12: MoveLoc[1](Arg1: MarketReceipt)
+	13: MoveLoc[2](Arg2: address)
+	14: MoveLoc[0](Arg0: &Listing<Ty0, Ty1>)
+	15: ImmBorrowFieldGeneric[16](Listing.expiry: u64)
+	16: ReadRef
+	17: Pack[14](AssetQuote)
+	18: StLoc[3](loc0: AssetQuote)
+	19: ImmBorrowLoc[3](loc0: AssetQuote)
+	20: Call bcs::to_bytes<AssetQuote>(&AssetQuote): vector<u8>
+	21: Call policy::hash_bytes(vector<u8>): vector<u8>
+	22: Ret
+}
+
+public item_quote_hash<Ty0>(Arg0: &Listing<Item, Ty0>, Arg1: &Config<Ty0>, Arg2: address): vector<u8> {
+B0:
+	0: CopyLoc[0](Arg0: &Listing<Item, Ty0>)
+	1: MoveLoc[0](Arg0: &Listing<Item, Ty0>)
+	2: MoveLoc[1](Arg1: &Config<Ty0>)
+	3: Call item_quote<Ty0>(&Listing<Item, Ty0>, &Config<Ty0>): MarketReceipt
+	4: MoveLoc[2](Arg2: address)
+	5: Call asset_quote_hash<Item, Ty0>(&Listing<Item, Ty0>, MarketReceipt, address): vector<u8>
+	6: Ret
+}
+
+public control_quote_hash<Ty0>(Arg0: &Listing<Control, Ty0>, Arg1: &Config<Ty0>, Arg2: address): vector<u8> {
+B0:
+	0: CopyLoc[0](Arg0: &Listing<Control, Ty0>)
+	1: MoveLoc[0](Arg0: &Listing<Control, Ty0>)
+	2: MoveLoc[1](Arg1: &Config<Ty0>)
+	3: Call control_quote<Ty0>(&Listing<Control, Ty0>, &Config<Ty0>): MarketReceipt
+	4: MoveLoc[2](Arg2: address)
+	5: Call asset_quote_hash<Control, Ty0>(&Listing<Control, Ty0>, MarketReceipt, address): vector<u8>
+	6: Ret
+}
+
+public reprice_item<Ty0>(Arg0: &mut Listing<Item, Ty0>, Arg1: &Config<Ty0>, Arg2: u64, Arg3: vector<u8>, Arg4: u64, Arg5: u64, Arg6: u64, Arg7: &Clock, Arg8: &TxContext) {
+L9:	loc0: bool
+L10:	loc1: bool
+L11:	loc2: u64
+B0:
+	0: CopyLoc[0](Arg0: &mut Listing<Item, Ty0>)
+	1: ImmBorrowFieldGeneric[17](Listing.state: u8)
+	2: ReadRef
+	3: LdU8(0)
+	4: Eq
+	5: BrFalse(13)
+B1:
+	6: CopyLoc[0](Arg0: &mut Listing<Item, Ty0>)
+	7: ImmBorrowFieldGeneric[18](Listing.revision: u64)
+	8: ReadRef
+	9: CopyLoc[2](Arg2: u64)
+	10: Eq
+	11: StLoc[9](loc0: bool)
+	12: Branch(15)
+B2:
+	13: LdFalse
+	14: StLoc[9](loc0: bool)
+B3:
+	15: MoveLoc[9](loc0: bool)
+	16: BrFalse(18)
+B4:
+	17: Branch(28)
+B5:
+	18: MoveLoc[0](Arg0: &mut Listing<Item, Ty0>)
+	19: Pop
+	20: MoveLoc[8](Arg8: &TxContext)
+	21: Pop
+	22: MoveLoc[7](Arg7: &Clock)
+	23: Pop
+	24: MoveLoc[1](Arg1: &Config<Ty0>)
+	25: Pop
+	26: LdConst[0](u64: 1)
+	27: Abort
+B6:
+	28: MoveLoc[8](Arg8: &TxContext)
+	29: Call tx_context::sender(&TxContext): address
+	30: CopyLoc[0](Arg0: &mut Listing<Item, Ty0>)
+	31: ImmBorrowFieldGeneric[19](Listing.seller: address)
+	32: ReadRef
+	33: Eq
+	34: BrFalse(36)
+B7:
+	35: Branch(44)
+B8:
+	36: MoveLoc[0](Arg0: &mut Listing<Item, Ty0>)
+	37: Pop
+	38: MoveLoc[7](Arg7: &Clock)
+	39: Pop
+	40: MoveLoc[1](Arg1: &Config<Ty0>)
+	41: Pop
+	42: LdConst[2](u64: 3)
+	43: Abort
+B9:
+	44: CopyLoc[0](Arg0: &mut Listing<Item, Ty0>)
+	45: ImmBorrowFieldGeneric[20](Listing.protocol: ID)
+	46: ReadRef
+	47: CopyLoc[1](Arg1: &Config<Ty0>)
+	48: Call object::id<Config<Ty0>>(&Config<Ty0>): ID
+	49: Eq
+	50: BrFalse(52)
+B10:
+	51: Branch(60)
+B11:
+	52: MoveLoc[0](Arg0: &mut Listing<Item, Ty0>)
+	53: Pop
+	54: MoveLoc[7](Arg7: &Clock)
+	55: Pop
+	56: MoveLoc[1](Arg1: &Config<Ty0>)
+	57: Pop
+	58: LdConst[3](u64: 4)
+	59: Abort
+B12:
+	60: CopyLoc[0](Arg0: &mut Listing<Item, Ty0>)
+	61: ImmBorrowFieldGeneric[21](Listing.manifest_hash: vector<u8>)
+	62: ReadRef
+	63: MoveLoc[3](Arg3: vector<u8>)
+	64: Eq
+	65: BrFalse(72)
+B13:
+	66: CopyLoc[5](Arg5: u64)
+	67: CopyLoc[7](Arg7: &Clock)
+	68: Call clock::timestamp_ms(&Clock): u64
+	69: Gt
+	70: StLoc[10](loc1: bool)
+	71: Branch(74)
+B14:
+	72: LdFalse
+	73: StLoc[10](loc1: bool)
+B15:
+	74: MoveLoc[10](loc1: bool)
+	75: BrFalse(77)
+B16:
+	76: Branch(85)
+B17:
+	77: MoveLoc[0](Arg0: &mut Listing<Item, Ty0>)
+	78: Pop
+	79: MoveLoc[7](Arg7: &Clock)
+	80: Pop
+	81: MoveLoc[1](Arg1: &Config<Ty0>)
+	82: Pop
+	83: LdConst[1](u64: 2)
+	84: Abort
+B18:
+	85: CopyLoc[1](Arg1: &Config<Ty0>)
+	86: MoveLoc[6](Arg6: u64)
+	87: CopyLoc[5](Arg5: u64)
+	88: MoveLoc[7](Arg7: &Clock)
+	89: Call economics::assert_secondary_live<Ty0>(&Config<Ty0>, u64, u64, &Clock)
+	90: CopyLoc[0](Arg0: &mut Listing<Item, Ty0>)
+	91: ImmBorrowFieldGeneric[22](Listing.commerce: Option<MarketPolicy>)
+	92: Call option::borrow<MarketPolicy>(&Option<MarketPolicy>): &MarketPolicy
+	93: MoveLoc[1](Arg1: &Config<Ty0>)
+	94: LdU8(1)
+	95: CopyLoc[4](Arg4: u64)
+	96: CopyLoc[0](Arg0: &mut Listing<Item, Ty0>)
+	97: ImmBorrowFieldGeneric[19](Listing.seller: address)
+	98: ReadRef
+	99: Call economics::market_quote<Ty0>(&MarketPolicy, &Config<Ty0>, u8, u64, address): MarketReceipt
+	100: Pop
+	101: CopyLoc[0](Arg0: &mut Listing<Item, Ty0>)
+	102: ImmBorrowFieldGeneric[23](Listing.price: u64)
+	103: ReadRef
+	104: StLoc[11](loc2: u64)
+	105: CopyLoc[4](Arg4: u64)
+	106: CopyLoc[0](Arg0: &mut Listing<Item, Ty0>)
+	107: MutBorrowFieldGeneric[23](Listing.price: u64)
+	108: WriteRef
+	109: CopyLoc[5](Arg5: u64)
+	110: CopyLoc[0](Arg0: &mut Listing<Item, Ty0>)
+	111: MutBorrowFieldGeneric[24](Listing.expiry: u64)
+	112: WriteRef
+	113: CopyLoc[0](Arg0: &mut Listing<Item, Ty0>)
+	114: ImmBorrowFieldGeneric[18](Listing.revision: u64)
+	115: ReadRef
+	116: LdU64(1)
+	117: Add
+	118: CopyLoc[0](Arg0: &mut Listing<Item, Ty0>)
+	119: MutBorrowFieldGeneric[18](Listing.revision: u64)
+	120: WriteRef
+	121: CopyLoc[0](Arg0: &mut Listing<Item, Ty0>)
+	122: FreezeRef
+	123: Call object::id<Listing<Item, Ty0>>(&Listing<Item, Ty0>): ID
+	124: CopyLoc[0](Arg0: &mut Listing<Item, Ty0>)
+	125: ImmBorrowFieldGeneric[25](Listing.asset: ID)
+	126: ReadRef
+	127: CopyLoc[0](Arg0: &mut Listing<Item, Ty0>)
+	128: ImmBorrowFieldGeneric[19](Listing.seller: address)
+	129: ReadRef
+	130: MoveLoc[2](Arg2: u64)
+	131: MoveLoc[0](Arg0: &mut Listing<Item, Ty0>)
+	132: ImmBorrowFieldGeneric[18](Listing.revision: u64)
+	133: ReadRef
+	134: MoveLoc[11](loc2: u64)
+	135: MoveLoc[4](Arg4: u64)
+	136: MoveLoc[5](Arg5: u64)
+	137: Pack[12](Repriced)
+	138: Call event::emit<Repriced>(Repriced)
+	139: Ret
+}
+
+public soul_quote<Ty0>(Arg0: &Listing<Soul, Ty0>, Arg1: &Config<Ty0>): Receipt {
+L2:	loc0: bool
+B0:
+	0: CopyLoc[1](Arg1: &Config<Ty0>)
+	1: Call economics::assert_secondary<Ty0>(&Config<Ty0>)
+	2: CopyLoc[0](Arg0: &Listing<Soul, Ty0>)
+	3: ImmBorrowFieldGeneric[26](Listing.collection: Option<CollectionFee>)
+	4: Call option::is_none<CollectionFee>(&Option<CollectionFee>): bool
+	5: BrFalse(14)
+B1:
+	6: CopyLoc[0](Arg0: &Listing<Soul, Ty0>)
+	7: ImmBorrowFieldGeneric[27](Listing.protocol: ID)
+	8: ReadRef
+	9: CopyLoc[1](Arg1: &Config<Ty0>)
+	10: Call object::id<Config<Ty0>>(&Config<Ty0>): ID
+	11: Eq
+	12: StLoc[2](loc0: bool)
+	13: Branch(16)
+B2:
+	14: LdFalse
+	15: StLoc[2](loc0: bool)
+B3:
+	16: MoveLoc[2](loc0: bool)
+	17: BrFalse(19)
+B4:
+	18: Branch(25)
+B5:
+	19: MoveLoc[0](Arg0: &Listing<Soul, Ty0>)
+	20: Pop
+	21: MoveLoc[1](Arg1: &Config<Ty0>)
+	22: Pop
+	23: LdConst[3](u64: 4)
+	24: Abort
+B6:
+	25: CopyLoc[0](Arg0: &Listing<Soul, Ty0>)
+	26: ImmBorrowFieldGeneric[11](Listing.rights: Option<Snapshot>)
+	27: Call option::borrow<Snapshot>(&Option<Snapshot>): &Snapshot
+	28: MoveLoc[1](Arg1: &Config<Ty0>)
+	29: CopyLoc[0](Arg0: &Listing<Soul, Ty0>)
+	30: ImmBorrowFieldGeneric[28](Listing.price: u64)
+	31: ReadRef
+	32: MoveLoc[0](Arg0: &Listing<Soul, Ty0>)
+	33: ImmBorrowFieldGeneric[29](Listing.seller: address)
+	34: ReadRef
+	35: Call resale::quote_gross<Ty0>(&Snapshot, &Config<Ty0>, u64, address): Receipt
+	36: Ret
+}
+
+public collection_quote<Ty0>(Arg0: &Listing<Soul, Ty0>, Arg1: &Collection, Arg2: &Config<Ty0>): Receipt {
+L3:	loc0: bool
+B0:
+	0: CopyLoc[2](Arg2: &Config<Ty0>)
+	1: Call economics::assert_secondary<Ty0>(&Config<Ty0>)
+	2: CopyLoc[0](Arg0: &Listing<Soul, Ty0>)
+	3: ImmBorrowFieldGeneric[27](Listing.protocol: ID)
+	4: ReadRef
+	5: CopyLoc[2](Arg2: &Config<Ty0>)
+	6: Call object::id<Config<Ty0>>(&Config<Ty0>): ID
+	7: Eq
+	8: BrFalse(31)
+B1:
+	9: CopyLoc[1](Arg1: &Collection)
+	10: Call collection::protocol(&Collection): ID
+	11: CopyLoc[0](Arg0: &Listing<Soul, Ty0>)
+	12: ImmBorrowFieldGeneric[27](Listing.protocol: ID)
+	13: ReadRef
+	14: Eq
+	15: BrFalse(28)
+B2:
+	16: CopyLoc[0](Arg0: &Listing<Soul, Ty0>)
+	17: ImmBorrowFieldGeneric[26](Listing.collection: Option<CollectionFee>)
+	18: ReadRef
+	19: CopyLoc[1](Arg1: &Collection)
+	20: Call object::id<Collection>(&Collection): ID
+	21: CopyLoc[1](Arg1: &Collection)
+	22: Call collection::extra_royalty(&Collection): u16
+	23: Pack[7](CollectionFee)
+	24: Call option::some<CollectionFee>(CollectionFee): Option<CollectionFee>
+	25: Eq
+	26: StLoc[3](loc0: bool)
+	27: Branch(33)
+B3:
+	28: LdFalse
+	29: StLoc[3](loc0: bool)
+	30: Branch(33)
+B4:
+	31: LdFalse
+	32: StLoc[3](loc0: bool)
+B5:
+	33: MoveLoc[3](loc0: bool)
+	34: BrFalse(36)
+B6:
+	35: Branch(44)
+B7:
+	36: MoveLoc[0](Arg0: &Listing<Soul, Ty0>)
+	37: Pop
+	38: MoveLoc[2](Arg2: &Config<Ty0>)
+	39: Pop
+	40: MoveLoc[1](Arg1: &Collection)
+	41: Pop
+	42: LdConst[3](u64: 4)
+	43: Abort
+B8:
+	44: CopyLoc[0](Arg0: &Listing<Soul, Ty0>)
+	45: ImmBorrowFieldGeneric[11](Listing.rights: Option<Snapshot>)
+	46: Call option::borrow<Snapshot>(&Option<Snapshot>): &Snapshot
+	47: MoveLoc[2](Arg2: &Config<Ty0>)
+	48: CopyLoc[0](Arg0: &Listing<Soul, Ty0>)
+	49: ImmBorrowFieldGeneric[28](Listing.price: u64)
+	50: ReadRef
+	51: MoveLoc[0](Arg0: &Listing<Soul, Ty0>)
+	52: ImmBorrowFieldGeneric[29](Listing.seller: address)
+	53: ReadRef
+	54: CopyLoc[1](Arg1: &Collection)
+	55: Call object::id<Collection>(&Collection): ID
+	56: CopyLoc[1](Arg1: &Collection)
+	57: Call collection::current_holder(&Collection): address
+	58: MoveLoc[1](Arg1: &Collection)
+	59: Call collection::extra_royalty(&Collection): u16
+	60: Call resale::quote_collection<Ty0>(&Snapshot, &Config<Ty0>, u64, address, ID, address, u16): Receipt
+	61: Ret
+}
+
+public collection_total<Ty0>(Arg0: &Listing<Soul, Ty0>, Arg1: &Collection, Arg2: &Config<Ty0>): u64 {
+L3:	loc0: Receipt
+B0:
+	0: MoveLoc[0](Arg0: &Listing<Soul, Ty0>)
+	1: MoveLoc[1](Arg1: &Collection)
+	2: MoveLoc[2](Arg2: &Config<Ty0>)
+	3: Call collection_quote<Ty0>(&Listing<Soul, Ty0>, &Collection, &Config<Ty0>): Receipt
+	4: StLoc[3](loc0: Receipt)
+	5: ImmBorrowLoc[3](loc0: Receipt)
+	6: Call resale::total(&Receipt): u64
+	7: Ret
+}
+
+quote_hash<Ty0>(Arg0: &Listing<Soul, Ty0>, Arg1: Receipt, Arg2: address, Arg3: Option<vector<u8>>): vector<u8> {
+L4:	loc0: SoulQuote
+B0:
+	0: LdConst[5](vector<u8>: "sou..)
+	1: CopyLoc[0](Arg0: &Listing<Soul, Ty0>)
+	2: Call object::id<Listing<Soul, Ty0>>(&Listing<Soul, Ty0>): ID
+	3: CopyLoc[0](Arg0: &Listing<Soul, Ty0>)
+	4: ImmBorrowFieldGeneric[30](Listing.asset: ID)
+	5: ReadRef
+	6: CopyLoc[0](Arg0: &Listing<Soul, Ty0>)
+	7: ImmBorrowFieldGeneric[31](Listing.revision: u64)
+	8: ReadRef
+	9: CopyLoc[0](Arg0: &Listing<Soul, Ty0>)
+	10: ImmBorrowFieldGeneric[32](Listing.manifest_hash: vector<u8>)
+	11: ReadRef
+	12: CopyLoc[0](Arg0: &Listing<Soul, Ty0>)
+	13: ImmBorrowFieldGeneric[11](Listing.rights: Option<Snapshot>)
+	14: Call option::borrow<Snapshot>(&Option<Snapshot>): &Snapshot
+	15: Call resale::hash(&Snapshot): vector<u8>
+	16: MoveLoc[1](Arg1: Receipt)
+	17: MoveLoc[2](Arg2: address)
+	18: MoveLoc[0](Arg0: &Listing<Soul, Ty0>)
+	19: ImmBorrowFieldGeneric[33](Listing.expiry: u64)
+	20: ReadRef
+	21: MoveLoc[3](Arg3: Option<vector<u8>>)
+	22: Pack[15](SoulQuote)
+	23: StLoc[4](loc0: SoulQuote)
+	24: ImmBorrowLoc[4](loc0: SoulQuote)
+	25: Call bcs::to_bytes<SoulQuote>(&SoulQuote): vector<u8>
+	26: Call policy::hash_bytes(vector<u8>): vector<u8>
+	27: Ret
+}
+
+public soul_quote_hash<Ty0>(Arg0: &Listing<Soul, Ty0>, Arg1: &Config<Ty0>, Arg2: address): vector<u8> {
+B0:
+	0: CopyLoc[0](Arg0: &Listing<Soul, Ty0>)
+	1: MoveLoc[0](Arg0: &Listing<Soul, Ty0>)
+	2: MoveLoc[1](Arg1: &Config<Ty0>)
+	3: Call soul_quote<Ty0>(&Listing<Soul, Ty0>, &Config<Ty0>): Receipt
+	4: MoveLoc[2](Arg2: address)
+	5: Call option::none<vector<u8>>(): Option<vector<u8>>
+	6: Call quote_hash<Ty0>(&Listing<Soul, Ty0>, Receipt, address, Option<vector<u8>>): vector<u8>
+	7: Ret
+}
+
+public collection_quote_hash<Ty0>(Arg0: &Listing<Soul, Ty0>, Arg1: &Collection, Arg2: &Config<Ty0>, Arg3: address): vector<u8> {
+B0:
+	0: CopyLoc[0](Arg0: &Listing<Soul, Ty0>)
+	1: MoveLoc[0](Arg0: &Listing<Soul, Ty0>)
+	2: CopyLoc[1](Arg1: &Collection)
+	3: MoveLoc[2](Arg2: &Config<Ty0>)
+	4: Call collection_quote<Ty0>(&Listing<Soul, Ty0>, &Collection, &Config<Ty0>): Receipt
+	5: MoveLoc[3](Arg3: address)
+	6: MoveLoc[1](Arg1: &Collection)
+	7: Call collection::snapshot_hash(&Collection): vector<u8>
+	8: Call option::some<vector<u8>>(vector<u8>): Option<vector<u8>>
+	9: Call quote_hash<Ty0>(&Listing<Soul, Ty0>, Receipt, address, Option<vector<u8>>): vector<u8>
+	10: Ret
+}
+
+public cancel<Ty0: store + key, Ty1>(Arg0: &mut Listing<Ty0, Ty1>, Arg1: u64, Arg2: &TxContext) {
+L3:	loc0: bool
+L4:	loc1: Ty0
+B0:
+	0: CopyLoc[0](Arg0: &mut Listing<Ty0, Ty1>)
+	1: ImmBorrowFieldGeneric[6](Listing.state: u8)
+	2: ReadRef
+	3: LdU8(0)
+	4: Eq
+	5: BrFalse(13)
+B1:
+	6: CopyLoc[0](Arg0: &mut Listing<Ty0, Ty1>)
+	7: ImmBorrowFieldGeneric[7](Listing.revision: u64)
+	8: ReadRef
+	9: MoveLoc[1](Arg1: u64)
+	10: Eq
+	11: StLoc[3](loc0: bool)
+	12: Branch(15)
+B2:
+	13: LdFalse
+	14: StLoc[3](loc0: bool)
+B3:
+	15: MoveLoc[3](loc0: bool)
+	16: BrFalse(18)
+B4:
+	17: Branch(24)
+B5:
+	18: MoveLoc[0](Arg0: &mut Listing<Ty0, Ty1>)
+	19: Pop
+	20: MoveLoc[2](Arg2: &TxContext)
+	21: Pop
+	22: LdConst[0](u64: 1)
+	23: Abort
+B6:
+	24: MoveLoc[2](Arg2: &TxContext)
+	25: Call tx_context::sender(&TxContext): address
+	26: CopyLoc[0](Arg0: &mut Listing<Ty0, Ty1>)
+	27: ImmBorrowFieldGeneric[2](Listing.seller: address)
+	28: ReadRef
+	29: Eq
+	30: BrFalse(32)
+B7:
+	31: Branch(36)
+B8:
+	32: MoveLoc[0](Arg0: &mut Listing<Ty0, Ty1>)
+	33: Pop
+	34: LdConst[2](u64: 3)
+	35: Abort
+B9:
+	36: CopyLoc[0](Arg0: &mut Listing<Ty0, Ty1>)
+	37: MutBorrowFieldGeneric[0](Listing.id: UID)
+	38: LdFalse
+	39: Pack[5](AssetKey)
+	40: Call dynamic_object_field::remove<AssetKey, Ty0>(&mut UID, AssetKey): Ty0
+	41: StLoc[4](loc1: Ty0)
+	42: LdU8(2)
+	43: CopyLoc[0](Arg0: &mut Listing<Ty0, Ty1>)
+	44: MutBorrowFieldGeneric[6](Listing.state: u8)
+	45: WriteRef
+	46: CopyLoc[0](Arg0: &mut Listing<Ty0, Ty1>)
+	47: ImmBorrowFieldGeneric[7](Listing.revision: u64)
+	48: ReadRef
+	49: LdU64(1)
+	50: Add
+	51: CopyLoc[0](Arg0: &mut Listing<Ty0, Ty1>)
+	52: MutBorrowFieldGeneric[7](Listing.revision: u64)
+	53: WriteRef
+	54: CopyLoc[0](Arg0: &mut Listing<Ty0, Ty1>)
+	55: FreezeRef
+	56: Call object::id<Listing<Ty0, Ty1>>(&Listing<Ty0, Ty1>): ID
+	57: CopyLoc[0](Arg0: &mut Listing<Ty0, Ty1>)
+	58: ImmBorrowFieldGeneric[1](Listing.asset: ID)
+	59: ReadRef
+	60: CopyLoc[0](Arg0: &mut Listing<Ty0, Ty1>)
+	61: ImmBorrowFieldGeneric[2](Listing.seller: address)
+	62: ReadRef
+	63: Pack[10](Cancelled)
+	64: Call event::emit<Cancelled>(Cancelled)
+	65: MoveLoc[4](loc1: Ty0)
+	66: MoveLoc[0](Arg0: &mut Listing<Ty0, Ty1>)
+	67: ImmBorrowFieldGeneric[2](Listing.seller: address)
+	68: ReadRef
+	69: Call transfer::public_transfer<Ty0>(Ty0, address)
+	70: Ret
+}
+
+public delete_listing<Ty0: store + key, Ty1>(Arg0: Listing<Ty0, Ty1>, Arg1: &TxContext) {
+L2:	loc0: bool
+B0:
+	0: ImmBorrowLoc[0](Arg0: Listing<Ty0, Ty1>)
+	1: ImmBorrowFieldGeneric[6](Listing.state: u8)
+	2: ReadRef
+	3: LdU8(1)
+	4: Eq
+	5: BrFalse(9)
+B1:
+	6: LdTrue
+	7: StLoc[2](loc0: bool)
+	8: Branch(15)
+B2:
+	9: ImmBorrowLoc[0](Arg0: Listing<Ty0, Ty1>)
+	10: ImmBorrowFieldGeneric[6](Listing.state: u8)
+	11: ReadRef
+	12: LdU8(2)
+	13: Eq
+	14: StLoc[2](loc0: bool)
+B3:
+	15: MoveLoc[2](loc0: bool)
+	16: BrFalse(18)
+B4:
+	17: Branch(22)
+B5:
+	18: MoveLoc[1](Arg1: &TxContext)
+	19: Pop
+	20: LdConst[0](u64: 1)
+	21: Abort
+B6:
+	22: ImmBorrowLoc[0](Arg0: Listing<Ty0, Ty1>)
+	23: ImmBorrowFieldGeneric[0](Listing.id: UID)
+	24: LdFalse
+	25: Pack[5](AssetKey)
+	26: Call dynamic_object_field::exists<AssetKey>(&UID, AssetKey): bool
+	27: Not
+	28: BrFalse(30)
+B7:
+	29: Branch(34)
+B8:
+	30: MoveLoc[1](Arg1: &TxContext)
+	31: Pop
+	32: LdConst[0](u64: 1)
+	33: Abort
+B9:
+	34: ImmBorrowLoc[0](Arg0: Listing<Ty0, Ty1>)
+	35: Call object::id<Listing<Ty0, Ty1>>(&Listing<Ty0, Ty1>): ID
+	36: ImmBorrowLoc[0](Arg0: Listing<Ty0, Ty1>)
+	37: ImmBorrowFieldGeneric[1](Listing.asset: ID)
+	38: ReadRef
+	39: ImmBorrowLoc[0](Arg0: Listing<Ty0, Ty1>)
+	40: ImmBorrowFieldGeneric[14](Listing.protocol: ID)
+	41: ReadRef
+	42: ImmBorrowLoc[0](Arg0: Listing<Ty0, Ty1>)
+	43: ImmBorrowFieldGeneric[2](Listing.seller: address)
+	44: ReadRef
+	45: MoveLoc[1](Arg1: &TxContext)
+	46: Call tx_context::sender(&TxContext): address
+	47: ImmBorrowLoc[0](Arg0: Listing<Ty0, Ty1>)
+	48: ImmBorrowFieldGeneric[6](Listing.state: u8)
+	49: ReadRef
+	50: Call type_name::with_original_ids<Ty0>(): TypeName
+	51: Call type_name::with_original_ids<Ty1>(): TypeName
+	52: ImmBorrowLoc[0](Arg0: Listing<Ty0, Ty1>)
+	53: ImmBorrowFieldGeneric[8](Listing.manifest_hash: vector<u8>)
+	54: ReadRef
+	55: ImmBorrowLoc[0](Arg0: Listing<Ty0, Ty1>)
+	56: ImmBorrowFieldGeneric[9](Listing.buyer: Option<address>)
+	57: ReadRef
+	58: ImmBorrowLoc[0](Arg0: Listing<Ty0, Ty1>)
+	59: ImmBorrowFieldGeneric[10](Listing.attempt: Option<vector<u8>>)
+	60: ReadRef
+	61: ImmBorrowLoc[0](Arg0: Listing<Ty0, Ty1>)
+	62: ImmBorrowFieldGeneric[13](Listing.commerce_settlement: Option<MarketReceipt>)
+	63: ReadRef
+	64: ImmBorrowLoc[0](Arg0: Listing<Ty0, Ty1>)
+	65: ImmBorrowFieldGeneric[12](Listing.settlement: Option<Receipt>)
+	66: ReadRef
+	67: Pack[11](ListingDeleted)
+	68: Call event::emit<ListingDeleted>(ListingDeleted)
+	69: MoveLoc[0](Arg0: Listing<Ty0, Ty1>)
+	70: UnpackGeneric[0](Listing<Ty0, Ty1>)
+	71: Pop
+	72: Pop
+	73: Pop
+	74: Pop
+	75: Pop
+	76: Pop
+	77: Pop
+	78: Pop
+	79: Pop
+	80: Pop
+	81: Pop
+	82: Pop
+	83: Pop
+	84: Pop
+	85: Pop
+	86: Call object::delete(UID)
+	87: Ret
+}
+
+public buy_soul<Ty0>(Arg0: &mut Listing<Soul, Ty0>, Arg1: &mut Config<Ty0>, Arg2: u64, Arg3: vector<u8>, Arg4: vector<u8>, Arg5: u64, Arg6: vector<u8>, Arg7: Coin<Ty0>, Arg8: &Clock, Arg9: &mut TxContext) {
+L10:	loc0: bool
+L11:	loc1: Receipt
+L12:	loc2: Soul
+B0:
+	0: CopyLoc[0](Arg0: &mut Listing<Soul, Ty0>)
+	1: ImmBorrowFieldGeneric[26](Listing.collection: Option<CollectionFee>)
+	2: Call option::is_none<CollectionFee>(&Option<CollectionFee>): bool
+	3: BrFalse(5)
+B1:
+	4: Branch(15)
+B2:
+	5: MoveLoc[0](Arg0: &mut Listing<Soul, Ty0>)
+	6: Pop
+	7: MoveLoc[9](Arg9: &mut TxContext)
+	8: Pop
+	9: MoveLoc[8](Arg8: &Clock)
+	10: Pop
+	11: MoveLoc[1](Arg1: &mut Config<Ty0>)
+	12: Pop
+	13: LdConst[3](u64: 4)
+	14: Abort
+B3:
+	15: CopyLoc[0](Arg0: &mut Listing<Soul, Ty0>)
+	16: FreezeRef
+	17: CopyLoc[1](Arg1: &mut Config<Ty0>)
+	18: FreezeRef
+	19: MoveLoc[2](Arg2: u64)
+	20: MoveLoc[3](Arg3: vector<u8>)
+	21: MoveLoc[5](Arg5: u64)
+	22: ImmBorrowLoc[6](Arg6: vector<u8>)
+	23: MoveLoc[8](Arg8: &Clock)
+	24: CopyLoc[9](Arg9: &mut TxContext)
+	25: FreezeRef
+	26: Call quote<Soul, Ty0>(&Listing<Soul, Ty0>, &Config<Ty0>, u64, vector<u8>, u64, &vector<u8>, &Clock, &TxContext)
+	27: MoveLoc[4](Arg4: vector<u8>)
+	28: CopyLoc[0](Arg0: &mut Listing<Soul, Ty0>)
+	29: FreezeRef
+	30: CopyLoc[1](Arg1: &mut Config<Ty0>)
+	31: FreezeRef
+	32: CopyLoc[9](Arg9: &mut TxContext)
+	33: FreezeRef
+	34: Call tx_context::sender(&TxContext): address
+	35: Call soul_quote_hash<Ty0>(&Listing<Soul, Ty0>, &Config<Ty0>, address): vector<u8>
+	36: Eq
+	37: BrFalse(39)
+B4:
+	38: Branch(47)
+B5:
+	39: MoveLoc[0](Arg0: &mut Listing<Soul, Ty0>)
+	40: Pop
+	41: MoveLoc[9](Arg9: &mut TxContext)
+	42: Pop
+	43: MoveLoc[1](Arg1: &mut Config<Ty0>)
+	44: Pop
+	45: LdConst[1](u64: 2)
+	46: Abort
+B6:
+	47: CopyLoc[0](Arg0: &mut Listing<Soul, Ty0>)
+	48: FreezeRef
+	49: CopyLoc[1](Arg1: &mut Config<Ty0>)
+	50: FreezeRef
+	51: Call soul_quote<Ty0>(&Listing<Soul, Ty0>, &Config<Ty0>): Receipt
+	52: StLoc[11](loc1: Receipt)
+	53: CopyLoc[0](Arg0: &mut Listing<Soul, Ty0>)
+	54: MutBorrowFieldGeneric[4](Listing.id: UID)
+	55: LdFalse
+	56: Pack[5](AssetKey)
+	57: Call dynamic_object_field::remove<AssetKey, Soul>(&mut UID, AssetKey): Soul
+	58: StLoc[12](loc2: Soul)
+	59: ImmBorrowLoc[12](loc2: Soul)
+	60: Call character::manifest_hash(&Soul): vector<u8>
+	61: CopyLoc[0](Arg0: &mut Listing<Soul, Ty0>)
+	62: ImmBorrowFieldGeneric[32](Listing.manifest_hash: vector<u8>)
+	63: ReadRef
+	64: Eq
+	65: BrFalse(75)
+B7:
+	66: ImmBorrowLoc[12](loc2: Soul)
+	67: Call character::resale(&Soul): &Snapshot
+	68: ReadRef
+	69: CopyLoc[0](Arg0: &mut Listing<Soul, Ty0>)
+	70: FreezeRef
+	71: Call rights<Ty0>(&Listing<Soul, Ty0>): Snapshot
+	72: Eq
+	73: StLoc[10](loc0: bool)
+	74: Branch(77)
+B8:
+	75: LdFalse
+	76: StLoc[10](loc0: bool)
+B9:
+	77: MoveLoc[10](loc0: bool)
+	78: BrFalse(80)
+B10:
+	79: Branch(88)
+B11:
+	80: MoveLoc[0](Arg0: &mut Listing<Soul, Ty0>)
+	81: Pop
+	82: MoveLoc[9](Arg9: &mut TxContext)
+	83: Pop
+	84: MoveLoc[1](Arg1: &mut Config<Ty0>)
+	85: Pop
+	86: LdConst[1](u64: 2)
+	87: Abort
+B12:
+	88: MutBorrowLoc[12](loc2: Soul)
+	89: Call character::clear_authorizations(&mut Soul)
+	90: MutBorrowLoc[12](loc2: Soul)
+	91: Call vault::prepare_handover(&mut Soul)
+	92: LdFalse
+	93: Pack[0](MarketAuthority1)
+	94: LdFalse
+	95: Pack[3](MarketRevision3)
+	96: MoveLoc[1](Arg1: &mut Config<Ty0>)
+	97: CopyLoc[0](Arg0: &mut Listing<Soul, Ty0>)
+	98: ImmBorrowFieldGeneric[11](Listing.rights: Option<Snapshot>)
+	99: Call option::borrow<Snapshot>(&Option<Snapshot>): &Snapshot
+	100: CopyLoc[11](loc1: Receipt)
+	101: MoveLoc[7](Arg7: Coin<Ty0>)
+	102: CopyLoc[0](Arg0: &mut Listing<Soul, Ty0>)
+	103: ImmBorrowFieldGeneric[30](Listing.asset: ID)
+	104: ReadRef
+	105: CopyLoc[6](Arg6: vector<u8>)
+	106: CopyLoc[9](Arg9: &mut TxContext)
+	107: Call resale::settle<Ty0, MarketAuthority1, MarketRevision3>(MarketAuthority1, MarketRevision3, &mut Config<Ty0>, &Snapshot, Receipt, Coin<Ty0>, ID, vector<u8>, &mut TxContext)
+	108: MoveLoc[11](loc1: Receipt)
+	109: Call option::some<Receipt>(Receipt): Option<Receipt>
+	110: CopyLoc[0](Arg0: &mut Listing<Soul, Ty0>)
+	111: MutBorrowFieldGeneric[34](Listing.settlement: Option<Receipt>)
+	112: WriteRef
+	113: MoveLoc[0](Arg0: &mut Listing<Soul, Ty0>)
+	114: MoveLoc[6](Arg6: vector<u8>)
+	115: CopyLoc[9](Arg9: &mut TxContext)
+	116: FreezeRef
+	117: Call mark_sale<Soul, Ty0>(&mut Listing<Soul, Ty0>, vector<u8>, &TxContext)
+	118: MoveLoc[12](loc2: Soul)
+	119: MoveLoc[9](Arg9: &mut TxContext)
+	120: FreezeRef
+	121: Call tx_context::sender(&TxContext): address
+	122: Call transfer::public_transfer<Soul>(Soul, address)
+	123: Ret
+}
+
+public buy_soul_with_collection<Ty0>(Arg0: &mut Listing<Soul, Ty0>, Arg1: &Collection, Arg2: &mut Config<Ty0>, Arg3: u64, Arg4: vector<u8>, Arg5: vector<u8>, Arg6: vector<u8>, Arg7: u64, Arg8: vector<u8>, Arg9: Coin<Ty0>, Arg10: &Clock, Arg11: &mut TxContext) {
+L12:	loc0: bool
+L13:	loc1: bool
+L14:	loc2: Receipt
+L15:	loc3: Soul
+B0:
+	0: CopyLoc[0](Arg0: &mut Listing<Soul, Ty0>)
+	1: ImmBorrowFieldGeneric[26](Listing.collection: Option<CollectionFee>)
+	2: ReadRef
+	3: CopyLoc[1](Arg1: &Collection)
+	4: Call object::id<Collection>(&Collection): ID
+	5: CopyLoc[1](Arg1: &Collection)
+	6: Call collection::extra_royalty(&Collection): u16
+	7: Pack[7](CollectionFee)
+	8: Call option::some<CollectionFee>(CollectionFee): Option<CollectionFee>
+	9: Eq
+	10: BrFalse(17)
+B1:
+	11: MoveLoc[5](Arg5: vector<u8>)
+	12: CopyLoc[1](Arg1: &Collection)
+	13: Call collection::snapshot_hash(&Collection): vector<u8>
+	14: Eq
+	15: StLoc[12](loc0: bool)
+	16: Branch(19)
+B2:
+	17: LdFalse
+	18: StLoc[12](loc0: bool)
+B3:
+	19: MoveLoc[12](loc0: bool)
+	20: BrFalse(22)
+B4:
+	21: Branch(34)
+B5:
+	22: MoveLoc[0](Arg0: &mut Listing<Soul, Ty0>)
+	23: Pop
+	24: MoveLoc[11](Arg11: &mut TxContext)
+	25: Pop
+	26: MoveLoc[10](Arg10: &Clock)
+	27: Pop
+	28: MoveLoc[2](Arg2: &mut Config<Ty0>)
+	29: Pop
+	30: MoveLoc[1](Arg1: &Collection)
+	31: Pop
+	32: LdConst[1](u64: 2)
+	33: Abort
+B6:
+	34: CopyLoc[0](Arg0: &mut Listing<Soul, Ty0>)
+	35: FreezeRef
+	36: CopyLoc[2](Arg2: &mut Config<Ty0>)
+	37: FreezeRef
+	38: MoveLoc[3](Arg3: u64)
+	39: MoveLoc[4](Arg4: vector<u8>)
+	40: MoveLoc[7](Arg7: u64)
+	41: ImmBorrowLoc[8](Arg8: vector<u8>)
+	42: MoveLoc[10](Arg10: &Clock)
+	43: CopyLoc[11](Arg11: &mut TxContext)
+	44: FreezeRef
+	45: Call quote<Soul, Ty0>(&Listing<Soul, Ty0>, &Config<Ty0>, u64, vector<u8>, u64, &vector<u8>, &Clock, &TxContext)
+	46: MoveLoc[6](Arg6: vector<u8>)
+	47: CopyLoc[0](Arg0: &mut Listing<Soul, Ty0>)
+	48: FreezeRef
+	49: CopyLoc[1](Arg1: &Collection)
+	50: CopyLoc[2](Arg2: &mut Config<Ty0>)
+	51: FreezeRef
+	52: CopyLoc[11](Arg11: &mut TxContext)
+	53: FreezeRef
+	54: Call tx_context::sender(&TxContext): address
+	55: Call collection_quote_hash<Ty0>(&Listing<Soul, Ty0>, &Collection, &Config<Ty0>, address): vector<u8>
+	56: Eq
+	57: BrFalse(59)
+B7:
+	58: Branch(69)
+B8:
+	59: MoveLoc[0](Arg0: &mut Listing<Soul, Ty0>)
+	60: Pop
+	61: MoveLoc[11](Arg11: &mut TxContext)
+	62: Pop
+	63: MoveLoc[2](Arg2: &mut Config<Ty0>)
+	64: Pop
+	65: MoveLoc[1](Arg1: &Collection)
+	66: Pop
+	67: LdConst[1](u64: 2)
+	68: Abort
+B9:
+	69: CopyLoc[0](Arg0: &mut Listing<Soul, Ty0>)
+	70: FreezeRef
+	71: CopyLoc[1](Arg1: &Collection)
+	72: CopyLoc[2](Arg2: &mut Config<Ty0>)
+	73: FreezeRef
+	74: Call collection_quote<Ty0>(&Listing<Soul, Ty0>, &Collection, &Config<Ty0>): Receipt
+	75: StLoc[14](loc2: Receipt)
+	76: CopyLoc[0](Arg0: &mut Listing<Soul, Ty0>)
+	77: MutBorrowFieldGeneric[4](Listing.id: UID)
+	78: LdFalse
+	79: Pack[5](AssetKey)
+	80: Call dynamic_object_field::remove<AssetKey, Soul>(&mut UID, AssetKey): Soul
+	81: StLoc[15](loc3: Soul)
+	82: MoveLoc[1](Arg1: &Collection)
+	83: ImmBorrowLoc[15](loc3: Soul)
+	84: Call assert_collection_member(&Collection, &Soul)
+	85: ImmBorrowLoc[15](loc3: Soul)
+	86: Call character::manifest_hash(&Soul): vector<u8>
+	87: CopyLoc[0](Arg0: &mut Listing<Soul, Ty0>)
+	88: ImmBorrowFieldGeneric[32](Listing.manifest_hash: vector<u8>)
+	89: ReadRef
+	90: Eq
+	91: BrFalse(101)
+B10:
+	92: ImmBorrowLoc[15](loc3: Soul)
+	93: Call character::resale(&Soul): &Snapshot
+	94: ReadRef
+	95: CopyLoc[0](Arg0: &mut Listing<Soul, Ty0>)
+	96: FreezeRef
+	97: Call rights<Ty0>(&Listing<Soul, Ty0>): Snapshot
+	98: Eq
+	99: StLoc[13](loc1: bool)
+	100: Branch(103)
+B11:
+	101: LdFalse
+	102: StLoc[13](loc1: bool)
+B12:
+	103: MoveLoc[13](loc1: bool)
+	104: BrFalse(106)
+B13:
+	105: Branch(114)
+B14:
+	106: MoveLoc[0](Arg0: &mut Listing<Soul, Ty0>)
+	107: Pop
+	108: MoveLoc[11](Arg11: &mut TxContext)
+	109: Pop
+	110: MoveLoc[2](Arg2: &mut Config<Ty0>)
+	111: Pop
+	112: LdConst[1](u64: 2)
+	113: Abort
+B15:
+	114: MutBorrowLoc[15](loc3: Soul)
+	115: Call character::clear_authorizations(&mut Soul)
+	116: MutBorrowLoc[15](loc3: Soul)
+	117: Call vault::prepare_handover(&mut Soul)
+	118: LdFalse
+	119: Pack[0](MarketAuthority1)
+	120: LdFalse
+	121: Pack[3](MarketRevision3)
+	122: MoveLoc[2](Arg2: &mut Config<Ty0>)
+	123: CopyLoc[0](Arg0: &mut Listing<Soul, Ty0>)
+	124: ImmBorrowFieldGeneric[11](Listing.rights: Option<Snapshot>)
+	125: Call option::borrow<Snapshot>(&Option<Snapshot>): &Snapshot
+	126: CopyLoc[14](loc2: Receipt)
+	127: MoveLoc[9](Arg9: Coin<Ty0>)
+	128: CopyLoc[0](Arg0: &mut Listing<Soul, Ty0>)
+	129: ImmBorrowFieldGeneric[30](Listing.asset: ID)
+	130: ReadRef
+	131: CopyLoc[8](Arg8: vector<u8>)
+	132: CopyLoc[11](Arg11: &mut TxContext)
+	133: Call resale::settle<Ty0, MarketAuthority1, MarketRevision3>(MarketAuthority1, MarketRevision3, &mut Config<Ty0>, &Snapshot, Receipt, Coin<Ty0>, ID, vector<u8>, &mut TxContext)
+	134: MoveLoc[14](loc2: Receipt)
+	135: Call option::some<Receipt>(Receipt): Option<Receipt>
+	136: CopyLoc[0](Arg0: &mut Listing<Soul, Ty0>)
+	137: MutBorrowFieldGeneric[34](Listing.settlement: Option<Receipt>)
+	138: WriteRef
+	139: MoveLoc[0](Arg0: &mut Listing<Soul, Ty0>)
+	140: MoveLoc[8](Arg8: vector<u8>)
+	141: CopyLoc[11](Arg11: &mut TxContext)
+	142: FreezeRef
+	143: Call mark_sale<Soul, Ty0>(&mut Listing<Soul, Ty0>, vector<u8>, &TxContext)
+	144: MoveLoc[15](loc3: Soul)
+	145: MoveLoc[11](Arg11: &mut TxContext)
+	146: FreezeRef
+	147: Call tx_context::sender(&TxContext): address
+	148: Call transfer::public_transfer<Soul>(Soul, address)
+	149: Ret
+}
+
+public buy_item<Ty0>(Arg0: &mut Listing<Item, Ty0>, Arg1: &mut Config<Ty0>, Arg2: u64, Arg3: vector<u8>, Arg4: vector<u8>, Arg5: u64, Arg6: vector<u8>, Arg7: Coin<Ty0>, Arg8: &Clock, Arg9: &mut TxContext) {
+L10:	loc0: bool
+L11:	loc1: Item
+L12:	loc2: MarketReceipt
+B0:
+	0: CopyLoc[0](Arg0: &mut Listing<Item, Ty0>)
+	1: FreezeRef
+	2: CopyLoc[1](Arg1: &mut Config<Ty0>)
+	3: FreezeRef
+	4: MoveLoc[2](Arg2: u64)
+	5: MoveLoc[3](Arg3: vector<u8>)
+	6: MoveLoc[5](Arg5: u64)
+	7: ImmBorrowLoc[6](Arg6: vector<u8>)
+	8: MoveLoc[8](Arg8: &Clock)
+	9: CopyLoc[9](Arg9: &mut TxContext)
+	10: FreezeRef
+	11: Call quote<Item, Ty0>(&Listing<Item, Ty0>, &Config<Ty0>, u64, vector<u8>, u64, &vector<u8>, &Clock, &TxContext)
+	12: MoveLoc[4](Arg4: vector<u8>)
+	13: CopyLoc[0](Arg0: &mut Listing<Item, Ty0>)
+	14: FreezeRef
+	15: CopyLoc[1](Arg1: &mut Config<Ty0>)
+	16: FreezeRef
+	17: CopyLoc[9](Arg9: &mut TxContext)
+	18: FreezeRef
+	19: Call tx_context::sender(&TxContext): address
+	20: Call item_quote_hash<Ty0>(&Listing<Item, Ty0>, &Config<Ty0>, address): vector<u8>
+	21: Eq
+	22: BrFalse(24)
+B1:
+	23: Branch(32)
+B2:
+	24: MoveLoc[0](Arg0: &mut Listing<Item, Ty0>)
+	25: Pop
+	26: MoveLoc[9](Arg9: &mut TxContext)
+	27: Pop
+	28: MoveLoc[1](Arg1: &mut Config<Ty0>)
+	29: Pop
+	30: LdConst[1](u64: 2)
+	31: Abort
+B3:
+	32: CopyLoc[0](Arg0: &mut Listing<Item, Ty0>)
+	33: FreezeRef
+	34: CopyLoc[1](Arg1: &mut Config<Ty0>)
+	35: FreezeRef
+	36: Call item_quote<Ty0>(&Listing<Item, Ty0>, &Config<Ty0>): MarketReceipt
+	37: StLoc[12](loc2: MarketReceipt)
+	38: CopyLoc[0](Arg0: &mut Listing<Item, Ty0>)
+	39: MutBorrowFieldGeneric[35](Listing.id: UID)
+	40: LdFalse
+	41: Pack[5](AssetKey)
+	42: Call dynamic_object_field::remove<AssetKey, Item>(&mut UID, AssetKey): Item
+	43: StLoc[11](loc1: Item)
+	44: ImmBorrowLoc[11](loc1: Item)
+	45: Call components::source(&Item): &Source
+	46: Call policy::source_hash(&Source): vector<u8>
+	47: CopyLoc[0](Arg0: &mut Listing<Item, Ty0>)
+	48: ImmBorrowFieldGeneric[21](Listing.manifest_hash: vector<u8>)
+	49: ReadRef
+	50: Eq
+	51: BrFalse(62)
+B4:
+	52: ImmBorrowLoc[11](loc1: Item)
+	53: Call components::source(&Item): &Source
+	54: Call policy::source_market(&Source): MarketPolicy
+	55: CopyLoc[0](Arg0: &mut Listing<Item, Ty0>)
+	56: ImmBorrowFieldGeneric[22](Listing.commerce: Option<MarketPolicy>)
+	57: ReadRef
+	58: Call option::destroy_some<MarketPolicy>(Option<MarketPolicy>): MarketPolicy
+	59: Eq
+	60: StLoc[10](loc0: bool)
+	61: Branch(64)
+B5:
+	62: LdFalse
+	63: StLoc[10](loc0: bool)
+B6:
+	64: MoveLoc[10](loc0: bool)
+	65: BrFalse(67)
+B7:
+	66: Branch(75)
+B8:
+	67: MoveLoc[0](Arg0: &mut Listing<Item, Ty0>)
+	68: Pop
+	69: MoveLoc[9](Arg9: &mut TxContext)
+	70: Pop
+	71: MoveLoc[1](Arg1: &mut Config<Ty0>)
+	72: Pop
+	73: LdConst[1](u64: 2)
+	74: Abort
+B9:
+	75: MoveLoc[1](Arg1: &mut Config<Ty0>)
+	76: LdFalse
+	77: Pack[0](MarketAuthority1)
+	78: LdFalse
+	79: Pack[3](MarketRevision3)
+	80: CopyLoc[12](loc2: MarketReceipt)
+	81: MoveLoc[7](Arg7: Coin<Ty0>)
+	82: CopyLoc[0](Arg0: &mut Listing<Item, Ty0>)
+	83: ImmBorrowFieldGeneric[25](Listing.asset: ID)
+	84: ReadRef
+	85: CopyLoc[6](Arg6: vector<u8>)
+	86: CopyLoc[9](Arg9: &mut TxContext)
+	87: Call economics::market_settle<Ty0, MarketAuthority1, MarketRevision3>(&mut Config<Ty0>, MarketAuthority1, MarketRevision3, MarketReceipt, Coin<Ty0>, ID, vector<u8>, &mut TxContext)
+	88: MoveLoc[12](loc2: MarketReceipt)
+	89: Call option::some<MarketReceipt>(MarketReceipt): Option<MarketReceipt>
+	90: CopyLoc[0](Arg0: &mut Listing<Item, Ty0>)
+	91: MutBorrowFieldGeneric[36](Listing.commerce_settlement: Option<MarketReceipt>)
+	92: WriteRef
+	93: MoveLoc[0](Arg0: &mut Listing<Item, Ty0>)
+	94: MoveLoc[6](Arg6: vector<u8>)
+	95: CopyLoc[9](Arg9: &mut TxContext)
+	96: FreezeRef
+	97: Call mark_sale<Item, Ty0>(&mut Listing<Item, Ty0>, vector<u8>, &TxContext)
+	98: MoveLoc[11](loc1: Item)
+	99: MoveLoc[9](Arg9: &mut TxContext)
+	100: FreezeRef
+	101: Call tx_context::sender(&TxContext): address
+	102: Call transfer::public_transfer<Item>(Item, address)
+	103: Ret
+}
+
+public buy_control<Ty0>(Arg0: &mut Listing<Control, Ty0>, Arg1: &Product<Ty0>, Arg2: &mut Config<Ty0>, Arg3: u64, Arg4: vector<u8>, Arg5: vector<u8>, Arg6: u64, Arg7: vector<u8>, Arg8: Coin<Ty0>, Arg9: &Clock, Arg10: &mut TxContext) {
+L11:	loc0: bool
+L12:	loc1: Control
+L13:	loc2: MarketReceipt
+B0:
+	0: CopyLoc[1](Arg1: &Product<Ty0>)
+	1: Call catalog::assert_paused<Ty0>(&Product<Ty0>)
+	2: CopyLoc[0](Arg0: &mut Listing<Control, Ty0>)
+	3: FreezeRef
+	4: CopyLoc[2](Arg2: &mut Config<Ty0>)
+	5: FreezeRef
+	6: MoveLoc[3](Arg3: u64)
+	7: MoveLoc[4](Arg4: vector<u8>)
+	8: MoveLoc[6](Arg6: u64)
+	9: ImmBorrowLoc[7](Arg7: vector<u8>)
+	10: MoveLoc[9](Arg9: &Clock)
+	11: CopyLoc[10](Arg10: &mut TxContext)
+	12: FreezeRef
+	13: Call quote<Control, Ty0>(&Listing<Control, Ty0>, &Config<Ty0>, u64, vector<u8>, u64, &vector<u8>, &Clock, &TxContext)
+	14: MoveLoc[5](Arg5: vector<u8>)
+	15: CopyLoc[0](Arg0: &mut Listing<Control, Ty0>)
+	16: FreezeRef
+	17: CopyLoc[2](Arg2: &mut Config<Ty0>)
+	18: FreezeRef
+	19: CopyLoc[10](Arg10: &mut TxContext)
+	20: FreezeRef
+	21: Call tx_context::sender(&TxContext): address
+	22: Call control_quote_hash<Ty0>(&Listing<Control, Ty0>, &Config<Ty0>, address): vector<u8>
+	23: Eq
+	24: BrFalse(26)
+B1:
+	25: Branch(36)
+B2:
+	26: MoveLoc[1](Arg1: &Product<Ty0>)
+	27: Pop
+	28: MoveLoc[0](Arg0: &mut Listing<Control, Ty0>)
+	29: Pop
+	30: MoveLoc[10](Arg10: &mut TxContext)
+	31: Pop
+	32: MoveLoc[2](Arg2: &mut Config<Ty0>)
+	33: Pop
+	34: LdConst[1](u64: 2)
+	35: Abort
+B3:
+	36: CopyLoc[0](Arg0: &mut Listing<Control, Ty0>)
+	37: FreezeRef
+	38: CopyLoc[2](Arg2: &mut Config<Ty0>)
+	39: FreezeRef
+	40: Call control_quote<Ty0>(&Listing<Control, Ty0>, &Config<Ty0>): MarketReceipt
+	41: StLoc[13](loc2: MarketReceipt)
+	42: CopyLoc[0](Arg0: &mut Listing<Control, Ty0>)
+	43: MutBorrowFieldGeneric[37](Listing.id: UID)
+	44: LdFalse
+	45: Pack[5](AssetKey)
+	46: Call dynamic_object_field::remove<AssetKey, Control>(&mut UID, AssetKey): Control
+	47: StLoc[12](loc1: Control)
+	48: CopyLoc[1](Arg1: &Product<Ty0>)
+	49: ImmBorrowLoc[12](loc1: Control)
+	50: Call catalog::assert_control<Ty0>(&Product<Ty0>, &Control)
+	51: ImmBorrowLoc[12](loc1: Control)
+	52: CopyLoc[1](Arg1: &Product<Ty0>)
+	53: Call control_hash<Ty0>(&Control, &Product<Ty0>): vector<u8>
+	54: CopyLoc[0](Arg0: &mut Listing<Control, Ty0>)
+	55: ImmBorrowFieldGeneric[38](Listing.manifest_hash: vector<u8>)
+	56: ReadRef
+	57: Eq
+	58: BrFalse(68)
+B4:
+	59: MoveLoc[1](Arg1: &Product<Ty0>)
+	60: Call catalog::market_policy<Ty0>(&Product<Ty0>): MarketPolicy
+	61: CopyLoc[0](Arg0: &mut Listing<Control, Ty0>)
+	62: ImmBorrowFieldGeneric[39](Listing.commerce: Option<MarketPolicy>)
+	63: ReadRef
+	64: Call option::destroy_some<MarketPolicy>(Option<MarketPolicy>): MarketPolicy
+	65: Eq
+	66: StLoc[11](loc0: bool)
+	67: Branch(72)
+B5:
+	68: MoveLoc[1](Arg1: &Product<Ty0>)
+	69: Pop
+	70: LdFalse
+	71: StLoc[11](loc0: bool)
+B6:
+	72: MoveLoc[11](loc0: bool)
+	73: BrFalse(75)
+B7:
+	74: Branch(83)
+B8:
+	75: MoveLoc[0](Arg0: &mut Listing<Control, Ty0>)
+	76: Pop
+	77: MoveLoc[10](Arg10: &mut TxContext)
+	78: Pop
+	79: MoveLoc[2](Arg2: &mut Config<Ty0>)
+	80: Pop
+	81: LdConst[1](u64: 2)
+	82: Abort
+B9:
+	83: MoveLoc[2](Arg2: &mut Config<Ty0>)
+	84: LdFalse
+	85: Pack[0](MarketAuthority1)
+	86: LdFalse
+	87: Pack[3](MarketRevision3)
+	88: CopyLoc[13](loc2: MarketReceipt)
+	89: MoveLoc[8](Arg8: Coin<Ty0>)
+	90: CopyLoc[0](Arg0: &mut Listing<Control, Ty0>)
+	91: ImmBorrowFieldGeneric[40](Listing.asset: ID)
+	92: ReadRef
+	93: CopyLoc[7](Arg7: vector<u8>)
+	94: CopyLoc[10](Arg10: &mut TxContext)
+	95: Call economics::market_settle<Ty0, MarketAuthority1, MarketRevision3>(&mut Config<Ty0>, MarketAuthority1, MarketRevision3, MarketReceipt, Coin<Ty0>, ID, vector<u8>, &mut TxContext)
+	96: MoveLoc[13](loc2: MarketReceipt)
+	97: Call option::some<MarketReceipt>(MarketReceipt): Option<MarketReceipt>
+	98: CopyLoc[0](Arg0: &mut Listing<Control, Ty0>)
+	99: MutBorrowFieldGeneric[41](Listing.commerce_settlement: Option<MarketReceipt>)
+	100: WriteRef
+	101: MoveLoc[0](Arg0: &mut Listing<Control, Ty0>)
+	102: MoveLoc[7](Arg7: vector<u8>)
+	103: CopyLoc[10](Arg10: &mut TxContext)
+	104: FreezeRef
+	105: Call mark_sale<Control, Ty0>(&mut Listing<Control, Ty0>, vector<u8>, &TxContext)
+	106: MoveLoc[12](loc1: Control)
+	107: MoveLoc[10](Arg10: &mut TxContext)
+	108: FreezeRef
+	109: Call tx_context::sender(&TxContext): address
+	110: Call transfer::public_transfer<Control>(Control, address)
+	111: Ret
+}
+
+quote<Ty0: store + key, Ty1>(Arg0: &Listing<Ty0, Ty1>, Arg1: &Config<Ty1>, Arg2: u64, Arg3: vector<u8>, Arg4: u64, Arg5: &vector<u8>, Arg6: &Clock, Arg7: &TxContext) {
+L8:	loc0: bool
+L9:	loc1: bool
+B0:
+	0: CopyLoc[0](Arg0: &Listing<Ty0, Ty1>)
+	1: ImmBorrowFieldGeneric[6](Listing.state: u8)
+	2: ReadRef
+	3: LdU8(0)
+	4: Eq
+	5: BrFalse(13)
+B1:
+	6: CopyLoc[0](Arg0: &Listing<Ty0, Ty1>)
+	7: ImmBorrowFieldGeneric[7](Listing.revision: u64)
+	8: ReadRef
+	9: MoveLoc[2](Arg2: u64)
+	10: Eq
+	11: StLoc[8](loc0: bool)
+	12: Branch(15)
+B2:
+	13: LdFalse
+	14: StLoc[8](loc0: bool)
+B3:
+	15: MoveLoc[8](loc0: bool)
+	16: BrFalse(18)
+B4:
+	17: Branch(30)
+B5:
+	18: MoveLoc[0](Arg0: &Listing<Ty0, Ty1>)
+	19: Pop
+	20: MoveLoc[7](Arg7: &TxContext)
+	21: Pop
+	22: MoveLoc[6](Arg6: &Clock)
+	23: Pop
+	24: MoveLoc[1](Arg1: &Config<Ty1>)
+	25: Pop
+	26: MoveLoc[5](Arg5: &vector<u8>)
+	27: Pop
+	28: LdConst[0](u64: 1)
+	29: Abort
+B6:
+	30: CopyLoc[0](Arg0: &Listing<Ty0, Ty1>)
+	31: ImmBorrowFieldGeneric[14](Listing.protocol: ID)
+	32: ReadRef
+	33: CopyLoc[1](Arg1: &Config<Ty1>)
+	34: Call object::id<Config<Ty1>>(&Config<Ty1>): ID
+	35: Eq
+	36: BrFalse(38)
+B7:
+	37: Branch(50)
+B8:
+	38: MoveLoc[0](Arg0: &Listing<Ty0, Ty1>)
+	39: Pop
+	40: MoveLoc[7](Arg7: &TxContext)
+	41: Pop
+	42: MoveLoc[6](Arg6: &Clock)
+	43: Pop
+	44: MoveLoc[1](Arg1: &Config<Ty1>)
+	45: Pop
+	46: MoveLoc[5](Arg5: &vector<u8>)
+	47: Pop
+	48: LdConst[3](u64: 4)
+	49: Abort
+B9:
+	50: MoveLoc[3](Arg3: vector<u8>)
+	51: CopyLoc[0](Arg0: &Listing<Ty0, Ty1>)
+	52: ImmBorrowFieldGeneric[8](Listing.manifest_hash: vector<u8>)
+	53: ReadRef
+	54: Eq
+	55: BrFalse(64)
+B10:
+	56: MoveLoc[7](Arg7: &TxContext)
+	57: Call tx_context::sender(&TxContext): address
+	58: CopyLoc[0](Arg0: &Listing<Ty0, Ty1>)
+	59: ImmBorrowFieldGeneric[2](Listing.seller: address)
+	60: ReadRef
+	61: Neq
+	62: StLoc[9](loc1: bool)
+	63: Branch(68)
+B11:
+	64: MoveLoc[7](Arg7: &TxContext)
+	65: Pop
+	66: LdFalse
+	67: StLoc[9](loc1: bool)
+B12:
+	68: MoveLoc[9](loc1: bool)
+	69: BrFalse(71)
+B13:
+	70: Branch(81)
+B14:
+	71: MoveLoc[0](Arg0: &Listing<Ty0, Ty1>)
+	72: Pop
+	73: MoveLoc[6](Arg6: &Clock)
+	74: Pop
+	75: MoveLoc[1](Arg1: &Config<Ty1>)
+	76: Pop
+	77: MoveLoc[5](Arg5: &vector<u8>)
+	78: Pop
+	79: LdConst[1](u64: 2)
+	80: Abort
+B15:
+	81: MoveLoc[5](Arg5: &vector<u8>)
+	82: Call policy::assert_hash(&vector<u8>)
+	83: MoveLoc[1](Arg1: &Config<Ty1>)
+	84: MoveLoc[4](Arg4: u64)
+	85: MoveLoc[0](Arg0: &Listing<Ty0, Ty1>)
+	86: ImmBorrowFieldGeneric[16](Listing.expiry: u64)
+	87: ReadRef
+	88: MoveLoc[6](Arg6: &Clock)
+	89: Call economics::assert_secondary_live<Ty1>(&Config<Ty1>, u64, u64, &Clock)
+	90: Ret
+}
+
+mark_sale<Ty0: store + key, Ty1>(Arg0: &mut Listing<Ty0, Ty1>, Arg1: vector<u8>, Arg2: &TxContext) {
+B0:
+	0: LdU8(1)
+	1: CopyLoc[0](Arg0: &mut Listing<Ty0, Ty1>)
+	2: MutBorrowFieldGeneric[6](Listing.state: u8)
+	3: WriteRef
+	4: CopyLoc[0](Arg0: &mut Listing<Ty0, Ty1>)
+	5: ImmBorrowFieldGeneric[7](Listing.revision: u64)
+	6: ReadRef
+	7: LdU64(1)
+	8: Add
+	9: CopyLoc[0](Arg0: &mut Listing<Ty0, Ty1>)
+	10: MutBorrowFieldGeneric[7](Listing.revision: u64)
+	11: WriteRef
+	12: CopyLoc[2](Arg2: &TxContext)
+	13: Call tx_context::sender(&TxContext): address
+	14: Call option::some<address>(address): Option<address>
+	15: CopyLoc[0](Arg0: &mut Listing<Ty0, Ty1>)
+	16: MutBorrowFieldGeneric[9](Listing.buyer: Option<address>)
+	17: WriteRef
+	18: CopyLoc[1](Arg1: vector<u8>)
+	19: Call option::some<vector<u8>>(vector<u8>): Option<vector<u8>>
+	20: CopyLoc[0](Arg0: &mut Listing<Ty0, Ty1>)
+	21: MutBorrowFieldGeneric[10](Listing.attempt: Option<vector<u8>>)
+	22: WriteRef
+	23: CopyLoc[0](Arg0: &mut Listing<Ty0, Ty1>)
+	24: FreezeRef
+	25: Call object::id<Listing<Ty0, Ty1>>(&Listing<Ty0, Ty1>): ID
+	26: CopyLoc[0](Arg0: &mut Listing<Ty0, Ty1>)
+	27: ImmBorrowFieldGeneric[1](Listing.asset: ID)
+	28: ReadRef
+	29: MoveLoc[2](Arg2: &TxContext)
+	30: Call tx_context::sender(&TxContext): address
+	31: CopyLoc[0](Arg0: &mut Listing<Ty0, Ty1>)
+	32: ImmBorrowFieldGeneric[2](Listing.seller: address)
+	33: ReadRef
+	34: CopyLoc[0](Arg0: &mut Listing<Ty0, Ty1>)
+	35: ImmBorrowFieldGeneric[5](Listing.price: u64)
+	36: ReadRef
+	37: MoveLoc[1](Arg1: vector<u8>)
+	38: MoveLoc[0](Arg0: &mut Listing<Ty0, Ty1>)
+	39: ImmBorrowFieldGeneric[8](Listing.manifest_hash: vector<u8>)
+	40: ReadRef
+	41: Pack[9](Sold)
+	42: Call event::emit<Sold>(Sold)
+	43: Ret
+}
+
+public register<Ty0>(Arg0: &mut Config<Ty0>, Arg1: &mut Admin, Arg2: u64, Arg3: vector<u8>, Arg4: &Publisher, Arg5: &UpgradeCap) {
+B0:
+	0: MoveLoc[0](Arg0: &mut Config<Ty0>)
+	1: MoveLoc[1](Arg1: &mut Admin)
+	2: MoveLoc[2](Arg2: u64)
+	3: MoveLoc[3](Arg3: vector<u8>)
+	4: LdU8(3)
+	5: LdFalse
+	6: Pack[0](MarketAuthority1)
+	7: LdFalse
+	8: Pack[3](MarketRevision3)
+	9: MoveLoc[4](Arg4: &Publisher)
+	10: MoveLoc[5](Arg5: &UpgradeCap)
+	11: Call economics::register_role<Ty0, MarketAuthority1, MarketRevision3>(&mut Config<Ty0>, &mut Admin, u64, vector<u8>, u8, MarketAuthority1, MarketRevision3, &Publisher, &UpgradeCap)
+	12: Ret
+}
+
+Constants [
+	0 => u64: 1
+	1 => u64: 2
+	2 => u64: 3
+	3 => u64: 4
+	4 => vector<u8>: "soulidity-product-equipment-resale-v1" // interpreted as UTF8 string
+	5 => vector<u8>: "soulidity-soul-resale-v1" // interpreted as UTF8 string
+]
+}
+

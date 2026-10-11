@@ -1,0 +1,61 @@
+[NOTE] Dependencies on Sui, MoveStdlib, Bridge, DeepBook, and SuiSystem are automatically added, but this feature is disabled for your package because you have explicitly included dependencies on Sui. Consider removing these dependencies from `Move.toml`.
+INCLUDING DEPENDENCY MoveStdlib
+INCLUDING DEPENDENCY SoulidityApplication
+INCLUDING DEPENDENCY SoulidityCommunity
+INCLUDING DEPENDENCY SoulidityContent
+INCLUDING DEPENDENCY SoulidityFoundation
+INCLUDING DEPENDENCY SoulidityModel
+INCLUDING DEPENDENCY SoulidityNative
+INCLUDING DEPENDENCY SoulidityStandard
+INCLUDING DEPENDENCY SoulidityVisual
+INCLUDING DEPENDENCY Sui
+INCLUDING DEPENDENCY WAL
+INCLUDING DEPENDENCY Walrus
+INCLUDING DEPENDENCY soulidity_v1
+BUILDING SoulidityMarket
+Running Move unit tests
+[ PASS    ] soulidity_market::market_global_gate_tests::global_disable_also_blocks_secondary_policy
+[ PASS    ] soulidity_market::market_independent_gate_tests::both_lanes_off_preserve_cancel_and_original_control_id
+[ PASS    ] soulidity_market::market_tests::cancelled_sale_preserves_same_tool_scope_and_funds
+[ PASS    ] soulidity_market::market_global_gate_tests::global_disable_blocks_primary_policy
+[ PASS    ] soulidity_market::market_independent_gate_tests::both_lanes_off_preserve_real_settled_funds_exit
+[ PASS    ] soulidity_market::collection_market_tests::collection_member_cannot_use_unbundled_soul_listing
+[ PASS    ] soulidity_market::market_independent_gate_tests::changed_gate_invalidates_previously_exact_quote_revision
+[ PASS    ] soulidity_market::market_global_gate_tests::global_enabled_permits_both_primary_and_secondary_policy
+[ PASS    ] soulidity_market::market_tests::core_market_role_does_not_authorize_independent_market
+[ PASS    ] soulidity_market::market_independent_gate_tests::each_gate_is_independent_and_full_commitment_covers_flags
+[ PASS    ] soulidity_market::market_independent_gate_tests::fresh_real_config_starts_with_both_lanes_disabled
+[ PASS    ] soulidity_market::market_global_gate_tests::global_pause_also_blocks_secondary_policy
+[ PASS    ] soulidity_market::collection_market_tests::collection_sale_quote_is_bound_to_actual_buyer
+[ PASS    ] soulidity_market::market_independent_gate_tests::gate_replay_with_current_revision_but_wrong_hash_is_rejected
+[ PASS    ] soulidity_market::market_global_gate_tests::global_pause_blocks_primary_policy
+[ PASS    ] soulidity_market::market_tests::detached_item_sold_with_original_id
+[ PASS    ] soulidity_market::market_independent_gate_tests::original_same_value_update_preserves_flags_and_advances_revision
+[ PASS    ] soulidity_market::market_independent_gate_tests::primary_off_blocks_actual_maker_creation
+[ PASS    ] soulidity_market::market_tests::failed_payment_cannot_handover
+[ PASS    ] soulidity_market::collection_market_tests::collection_valid_rate_can_still_exceed_combined_soul_fee
+[ PASS    ] soulidity_market::market_independent_gate_tests::primary_off_blocks_cached_primary_quote
+[ PASS    ] soulidity_market::market_tests::maker_control_sale_preserves_product_and_usage
+[ PASS    ] soulidity_market::market_independent_gate_tests::primary_off_blocks_free_player_entry
+[ PASS    ] soulidity_market::market_independent_gate_tests::primary_off_preserves_actual_control_sale_id_and_money
+[ PASS    ] soulidity_market::collection_market_tests::ordinary_buy_entry_cannot_bypass_collection_fees
+[ PASS    ] soulidity_market::market_tests::only_seller_can_cancel
+[ PASS    ] soulidity_market::market_independent_gate_tests::secondary_off_blocks_existing_control_listing_purchase
+[ PASS    ] soulidity_market::market_independent_gate_tests::secondary_off_blocks_market_quote
+[ PASS    ] soulidity_market::market_tests::original_live_soul_listing_cannot_be_reclaimed_by_third_wallet
+[ PASS    ] soulidity_market::market_independent_gate_tests::secondary_off_still_allows_actual_maker_creation
+[ PASS    ] soulidity_market::collection_market_tests::stale_collection_recipient_snapshot_cannot_settle_member_sale
+[ PASS    ] soulidity_market::market_independent_gate_tests::stale_revision_and_commitment_cannot_change_other_gate
+[ PASS    ] soulidity_market::market_tests::original_third_wallet_reclaims_cancelled_soul_listing_after_pause
+[ PASS    ] soulidity_market::market_independent_gate_tests::wrong_config_admin_cannot_change_gate
+[ PASS    ] soulidity_market::collection_market_tests::unbound_soul_cannot_claim_collection_membership
+[ PASS    ] soulidity_market::market_tests::original_third_wallet_reclaims_sold_soul_listing_without_touching_buyer
+[ PASS    ] soulidity_market::market_tests::seller_can_cancel_after_protocol_pause
+[ PASS    ] soulidity_market::collection_market_tests::whole_member_sale_requotes_current_right_holder_pays_all_four_recipients_and_clears_grants
+[ PASS    ] soulidity_market::market_tests::sold_receipt_prevents_second_buyer
+[ PASS    ] soulidity_market::market_tests::soul_sale_platform_income_withdraws_after_protocol_pause
+[ PASS    ] soulidity_market::market_tests::terminal_control_cleanup_preserves_original_control_and_product
+[ PASS    ] soulidity_market::market_tests::terminal_item_cleanup_preserves_original_free_asset_id
+[ PASS    ] soulidity_market::market_tests::whole_sale_includes_unmounted_bound_and_clears_grants
+[ PASS    ] soulidity_market::market_tests::whole_sale_inventory_carries_tool_money_and_original_asset
+Test result: OK. Total tests: 44; passed: 44; failed: 0

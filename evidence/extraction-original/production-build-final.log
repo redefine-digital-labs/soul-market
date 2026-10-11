@@ -1,0 +1,118 @@
+[NOTE] Dependencies on Sui, MoveStdlib, Bridge, DeepBook, and SuiSystem are automatically added, but this feature is disabled for your package because you have explicitly included dependencies on Sui. Consider removing these dependencies from `Move.toml`.
+INCLUDING DEPENDENCY MoveStdlib
+INCLUDING DEPENDENCY SoulidityApplication
+INCLUDING DEPENDENCY SoulidityCommunity
+INCLUDING DEPENDENCY SoulidityContent
+INCLUDING DEPENDENCY SoulidityFoundation
+INCLUDING DEPENDENCY SoulidityModel
+INCLUDING DEPENDENCY SoulidityNative
+INCLUDING DEPENDENCY SoulidityStandard
+INCLUDING DEPENDENCY SoulidityVisual
+INCLUDING DEPENDENCY Sui
+INCLUDING DEPENDENCY WAL
+INCLUDING DEPENDENCY Walrus
+INCLUDING DEPENDENCY soulidity_v1
+BUILDING SoulidityMarket
+warning[WL02013]: return value of a non-mutating call is discarded
+   ┌─ ./sources/market.move:61:34
+   │
+61 │     let rights=*soul::resale(&s);resale::quote_gross(&rights,cfg,price,ctx.sender());
+   │                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unused return value. This function takes no '&mut' arguments, so its result is the only observable effect of the call
+   │
+   = Bind the result with 'let', or use 'let _ = ...' to discard it explicitly.
+   = This warning can be suppressed with '#[allow(lint(unused_return_value))]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WL02013]: return value of a non-mutating call is discarded
+   ┌─ ./sources/market.move:66:34
+   │
+66 │     let rights=*soul::resale(&s);resale::quote_collection(&rights,cfg,price,ctx.sender(),object::id(c),collection::current_holder(c),collection::extra_royalty(c));
+   │                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unused return value. This function takes no '&mut' arguments, so its result is the only observable effect of the call
+   │
+   = Bind the result with 'let', or use 'let _ = ...' to discard it explicitly.
+   = This warning can be suppressed with '#[allow(lint(unused_return_value))]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WL02013]: return value of a non-mutating call is discarded
+   ┌─ ./sources/market.move:71:83
+   │
+71 │     let hash=policy::source_hash(source);let market=policy::source_market(source);economics::market_quote(&market,cfg,1,price,ctx.sender());
+   │                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unused return value. This function takes no '&mut' arguments, so its result is the only observable effect of the call
+   │
+   = Bind the result with 'let', or use 'let _ = ...' to discard it explicitly.
+   = This warning can be suppressed with '#[allow(lint(unused_return_value))]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WL02013]: return value of a non-mutating call is discarded
+   ┌─ ./sources/market.move:77:42
+   │
+77 │     let market=catalog::market_policy(p);economics::market_quote(&market,cfg,0,price,ctx.sender());let hash=control_hash(&c,p);
+   │                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unused return value. This function takes no '&mut' arguments, so its result is the only observable effect of the call
+   │
+   = Bind the result with 'let', or use 'let _ = ...' to discard it explicitly.
+   = This warning can be suppressed with '#[allow(lint(unused_return_value))]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WL02013]: return value of a non-mutating call is discarded
+    ┌─ ./sources/market.move:114:69
+    │
+114 │     economics::assert_secondary_live(cfg,fee_revision,expiry,clock);economics::market_quote(l.commerce.borrow(),cfg,1,price,l.seller);
+    │                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unused return value. This function takes no '&mut' arguments, so its result is the only observable effect of the call
+    │
+    = Bind the result with 'let', or use 'let _ = ...' to discard it explicitly.
+    = This warning can be suppressed with '#[allow(lint(unused_return_value))]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WSL06002]: non-composable transfer to sender
+    ┌─ ./sources/market.move:156:176
+    │
+149 │ public fun buy_soul<C>(l:&mut Listing<Soul,C>,cfg:&mut Config<C>,expected:u64,manifest_hash:vector<u8>,expected_quote:vector<u8>,fee_revision:u64,attempt:vector<u8>,payment:Coin<C>,clock:&Clock,ctx:&mut TxContext) {
+    │            -------- Returning an object from a function, allows a caller to use the object and enables composability via programmable transactions.
+    ·
+156 │     resale::settle(MarketAuthority1{},MarketRevision3{},cfg,l.rights.borrow(),receipt,payment,l.asset,attempt,ctx);l.settlement=option::some(receipt);mark_sale(l,attempt,ctx);transfer::public_transfer(s,ctx.sender());
+    │                                                                                                                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    │                                                                                                                                                                                │                           │
+    │                                                                                                                                                                                │                           Transaction sender address coming from here
+    │                                                                                                                                                                                Transfer of an object to transaction sender address
+    │
+    = This warning can be suppressed with '#[allow(lint(self_transfer))]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WSL06002]: non-composable transfer to sender
+    ┌─ ./sources/market.move:163:176
+    │
+159 │ public fun buy_soul_with_collection<C>(l:&mut Listing<Soul,C>,c:&Collection,cfg:&mut Config<C>,expected:u64,manifest_hash:vector<u8>,expected_collection:vector<u8>,expected_quote:vector<u8>,fee_revision:u64,attempt:vector<u8>,payment:Coin<C>,clock:&Clock,ctx:&mut TxContext) {
+    │            ------------------------ Returning an object from a function, allows a caller to use the object and enables composability via programmable transactions.
+    ·
+163 │     resale::settle(MarketAuthority1{},MarketRevision3{},cfg,l.rights.borrow(),receipt,payment,l.asset,attempt,ctx);l.settlement=option::some(receipt);mark_sale(l,attempt,ctx);transfer::public_transfer(s,ctx.sender())
+    │                                                                                                                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    │                                                                                                                                                                                │                           │
+    │                                                                                                                                                                                │                           Transaction sender address coming from here
+    │                                                                                                                                                                                Transfer of an object to transaction sender address
+    │
+    = This warning can be suppressed with '#[allow(lint(self_transfer))]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WSL06002]: non-composable transfer to sender
+    ┌─ ./sources/market.move:169:201
+    │
+165 │ public fun buy_item<C>(l:&mut Listing<Item,C>,cfg:&mut Config<C>,expected:u64,manifest_hash:vector<u8>,expected_quote:vector<u8>,fee_revision:u64,attempt:vector<u8>,payment:Coin<C>,clock:&Clock,ctx:&mut TxContext) {
+    │            -------- Returning an object from a function, allows a caller to use the object and enables composability via programmable transactions.
+    ·
+169 │     economics::market_settle<C,MarketAuthority1,MarketRevision3>(cfg,MarketAuthority1{},MarketRevision3{},r,payment,l.asset,attempt,ctx);l.commerce_settlement=option::some(r);mark_sale(l,attempt,ctx);transfer::public_transfer(it,ctx.sender());
+    │                                                                                                                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    │                                                                                                                                                                                                         │                            │
+    │                                                                                                                                                                                                         │                            Transaction sender address coming from here
+    │                                                                                                                                                                                                         Transfer of an object to transaction sender address
+    │
+    = This warning can be suppressed with '#[allow(lint(self_transfer))]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WSL06002]: non-composable transfer to sender
+    ┌─ ./sources/market.move:177:201
+    │
+171 │ public fun buy_control<C>(l:&mut Listing<Control,C>,p:&Product<C>,cfg:&mut Config<C>,expected:u64,manifest_hash:vector<u8>,expected_quote:vector<u8>,fee_revision:u64,attempt:vector<u8>,payment:Coin<C>,clock:&Clock,ctx:&mut TxContext) {
+    │            ----------- Returning an object from a function, allows a caller to use the object and enables composability via programmable transactions.
+    ·
+177 │     economics::market_settle<C,MarketAuthority1,MarketRevision3>(cfg,MarketAuthority1{},MarketRevision3{},r,payment,l.asset,attempt,ctx);l.commerce_settlement=option::some(r);mark_sale(l,attempt,ctx);transfer::public_transfer(c,ctx.sender());
+    │                                                                                                                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    │                                                                                                                                                                                                         │                           │
+    │                                                                                                                                                                                                         │                           Transaction sender address coming from here
+    │                                                                                                                                                                                                         Transfer of an object to transaction sender address
+    │
+    = This warning can be suppressed with '#[allow(lint(self_transfer))]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+Please report feedback on the linter warnings at https://forums.sui.io
+

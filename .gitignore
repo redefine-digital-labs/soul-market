@@ -1,0 +1,8 @@
+**/build/
+.deps/
+output/
+__pycache__/
+.DS_Store
+.env*
+*.key
+candidate-dependencies/

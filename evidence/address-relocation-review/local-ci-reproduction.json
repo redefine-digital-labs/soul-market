@@ -1,0 +1,12 @@
+{
+  "ci_evidence": "/Users/naoer/Documents/Claude/Projects/soulidity-ecosystem/soul-market/output/candidate-fp_5ipxp/evidence.json",
+  "same_raw_sha256": true,
+  "sha256": "05fec8ae7d80ba6d645039fe57b9bfe898eea454520a39627faf722318f67312",
+  "test_count": {
+    "result": "OK",
+    "total": 44,
+    "passed": 44,
+    "failed": 0
+  },
+  "not_proof_of": "Real published dependency IDs, linkage and runtime PTB"
+}

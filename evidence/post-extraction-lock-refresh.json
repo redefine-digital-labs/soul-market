@@ -1,0 +1,9 @@
+{
+  "original_lock_sha256": "85936a6a53e3a76ff85d7fed6eedc19bdd8f98e6770e4bc900600f6fae0e818a",
+  "current_lock_sha256": "6d14dcb4d8114abcfe0c13bba3dfbafb7653e27744cd9e7abdd715bfd80bbee9",
+  "source_manifest_unchanged": true,
+  "cause": "retained-core-after-three-migrations production build regenerated the lock and included the already declared Native dependency",
+  "historical_evidence": "extraction-original/verification.json is a snapshot at its generation; untouched_actual_source_and_locks is not a current-state assertion",
+  "original_and_candidate_preserved": true,
+  "chain_changed": false
+}
