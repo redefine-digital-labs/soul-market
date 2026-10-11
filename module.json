@@ -44,12 +44,21 @@
     }
   },
   "artifact_state": {
-    "repository_creation": "local_git_created; no remote or commit",
+    "repository_creation": "public_remote_created; source_checkpoint_pushed_and_verified",
     "source_migration": "independent candidate imported; retained consumers and chain not switched",
     "build": "independent production build passed",
     "runtime_acceptance": "44/44 cross-package VM; real PTB not run",
     "independent_deployment": "not_verified",
-    "remote_ci_execution": "not_run"
+    "remote_ci_execution": "not_run",
+    "remote_backup": {
+      "url": "https://github.com/redefine-digital-labs/soul-market",
+      "visibility": "PUBLIC",
+      "default_branch": "main",
+      "verified_source_commit": "808763e9c68c59ad6591cb42666e075e3d6c52ab",
+      "source_checkpoint_verified": true,
+      "actions_enabled": false,
+      "scope": "Source backup; independent product/release/runtime status remains as separately recorded"
+    }
   },
   "management": {
     "functions": [
